@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import AnimatedBackground from "./AnimatedBackground";
 
 export default function Contact() {
@@ -142,16 +141,32 @@ export default function Contact() {
                   <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-6">
                     Send a quick note
                   </h3>
-                  {/* Contact Card Image */}
-                  <div className="relative w-full aspect-square max-w-md">
-                    <Image
-                      src="/contact card.png"
-                      alt="Contact illustration"
-                      fill
-                      className="object-contain rounded-lg"
-                      loading="lazy"
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                    />
+                  {/* Contact Illustration */}
+                  <div className="relative w-full aspect-square max-w-md mx-auto">
+                    <div className="relative w-full h-full bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 dark:from-indigo-600 dark:via-purple-600 dark:to-pink-600 rounded-2xl p-8 flex flex-col items-center justify-center shadow-xl">
+                      <div className="absolute inset-0 bg-white/10 dark:bg-black/10 rounded-2xl backdrop-blur-sm"></div>
+                      <motion.div
+                        animate={{ 
+                          y: [0, -10, 0],
+                        }}
+                        transition={{ 
+                          duration: 3,
+                          repeat: Infinity,
+                          ease: "easeInOut"
+                        }}
+                        className="relative z-10 mb-6"
+                      >
+                        <svg className="w-24 h-24 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                      </motion.div>
+                      <div className="relative z-10 text-center">
+                        <p className="text-white text-lg font-semibold mb-2">Let's Connect!</p>
+                        <p className="text-white/90 text-sm">I'm always open to discussing new projects and opportunities</p>
+                      </div>
+                      <div className="absolute top-4 right-4 w-16 h-16 bg-white/20 rounded-full blur-xl"></div>
+                      <div className="absolute bottom-4 left-4 w-20 h-20 bg-white/20 rounded-full blur-xl"></div>
+                    </div>
                   </div>
                 </div>
               </motion.div>

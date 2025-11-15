@@ -27,6 +27,9 @@ const skillIcons: { [key: string]: string } = {
   "Data Visualization": "📊",
   "Statistical Analysis": "📉",
   "Machine Learning": "🤖",
+  "Gradient Boosting": "📈",
+  "AI/ML Algorithms": "🧠",
+  "AI Modelling Enthusiast": "🤖",
   
   // Databases & Data Tools
   PostgreSQL: "🐘",
@@ -55,10 +58,6 @@ const skillIcons: { [key: string]: string } = {
   Docker: "🐳",
   "VS Code": "💻",
   PyCharm: "🐍",
-  Postman: "📮",
-  Jira: "🎯",
-  Confluence: "📚",
-  "Azure DevOps": "☁️",
 };
 
 export default function SkillBadge({ skill, index }: SkillBadgeProps) {

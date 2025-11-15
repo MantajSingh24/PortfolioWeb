@@ -20,6 +20,9 @@ export const skillGroups: SkillGroup[] = [
       "Data Visualization",
       "Statistical Analysis",
       "Machine Learning",
+      "Gradient Boosting",
+      "AI/ML Algorithms",
+      "AI Modelling Enthusiast",
     ],
   },
   {
@@ -57,8 +60,6 @@ export const skillGroups: SkillGroup[] = [
       "Docker",
       "VS Code",
       "PyCharm",
-      "Postman",
-      "Jira",
     ],
   },
 ];
