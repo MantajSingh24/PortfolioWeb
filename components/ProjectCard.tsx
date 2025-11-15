@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Project } from "@/lib/projects";
 import Link from "next/link";
+import Image from "next/image";
 
 interface ProjectCardProps {
   project: Project;
@@ -58,10 +59,22 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
       }}
       className="bg-white dark:bg-slate-900 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 border-2 border-gray-200 dark:border-slate-800"
     >
-      <div className="aspect-video bg-gradient-to-br from-indigo-500 to-slate-600 dark:from-indigo-600 dark:to-slate-700 relative">
-        <div className="absolute inset-0 flex items-center justify-center text-white text-3xl font-bold opacity-20">
-          {project.title.charAt(0)}
-        </div>
+      <div className="aspect-video bg-gradient-to-br from-indigo-500 to-slate-600 dark:from-indigo-600 dark:to-slate-700 relative overflow-hidden">
+        {project.image && project.image !== "/project-placeholder.jpg" ? (
+          <Image
+            src={project.image}
+            alt={project.title}
+            fill
+            className="object-cover"
+            loading="lazy"
+            sizes="(max-width: 768px) 100vw, 50vw"
+            quality={90}
+          />
+        ) : (
+          <div className="absolute inset-0 flex items-center justify-center text-white text-3xl font-bold opacity-20">
+            {project.title.charAt(0)}
+          </div>
+        )}
       </div>
       <div className="p-4">
         <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-2">

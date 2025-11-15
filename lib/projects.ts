@@ -13,7 +13,7 @@ export const projects: Project[] = [
     id: "1",
     title: "Vendor Performance Dashboard",
     description: "Power BI dashboard with PostgreSQL backend and Python ETL pipeline for analyzing vendor performance metrics.",
-    image: "/project-placeholder.jpg",
+    image: "/vendor dashboard ss.png",
     stack: ["Power BI", "PostgreSQL", "Python", "Pandas", "ETL"],
     liveUrl: "https://app.powerbi.com/view?r=eyJrIjoiODE3NjNhM2ItZTdiZS00NTUzLWI4NmItY2VmY2VmY2IyMTQ1IiwidCI6IjkxYjYwMzQ5LWFjNmItNDM1NS1hMTc1LWJmNzc5MDhmYmVjMiJ9",
     codeUrl: "https://github.com/MantajSingh24/VendorPerformance",

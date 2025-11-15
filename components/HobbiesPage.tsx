@@ -183,6 +183,24 @@ export default function HobbiesPage() {
           </p>
         </motion.div>
 
+        {/* Fav Artists Section - Moved to Top */}
+        <motion.section
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
+          className="mb-12"
+        >
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-4">
+            Fav Artists
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {favoriteArtists.map((artist, index) => (
+              <MusicCard key={artist.id} artist={artist} index={index} />
+            ))}
+          </div>
+        </motion.section>
+
         {/* Shows Currently Watching Section */}
         <motion.section
           initial={{ opacity: 0, y: 30 }}
@@ -251,24 +269,6 @@ export default function HobbiesPage() {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {bucketListGames.map((game, index) => (
               <GameCard key={game.id} game={game} index={index} />
-            ))}
-          </div>
-        </motion.section>
-
-        {/* Fav Artists Section */}
-        <motion.section
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-          className="mb-12"
-        >
-          <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-4">
-            Fav Artists
-          </h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {favoriteArtists.map((artist, index) => (
-              <MusicCard key={artist.id} artist={artist} index={index} />
             ))}
           </div>
         </motion.section>

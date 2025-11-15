@@ -33,16 +33,16 @@ export default function MusicCard({ artist, index }: MusicCardProps) {
           y: -5,
           transition: { duration: 0.2 }
         }}
-        className="bg-white dark:bg-slate-900 rounded-lg overflow-hidden border border-gray-300 dark:border-slate-700 cursor-pointer"
+        className="bg-white dark:bg-slate-900 rounded-lg overflow-hidden border border-gray-200 dark:border-slate-600 cursor-pointer"
       >
-        <div className="relative w-20 h-20 mx-auto mt-2 bg-gray-100 dark:bg-slate-800 rounded-full">
+        <div className="relative w-32 h-32 mx-auto mt-4 bg-gray-100 dark:bg-slate-800 rounded-full">
           <Image
             src={artist.image}
             alt={artist.name}
             fill
             className={useContain ? "object-contain rounded-full" : "object-cover rounded-full"}
             loading="lazy"
-            sizes="80px"
+            sizes="128px"
             quality={95}
           />
         </div>
