@@ -157,7 +157,7 @@ const favoriteArtists = [
   {
     id: "4",
     name: "Kunwxrr",
-    description: "Now meet my friend kunwar, he's changing the punjabi hip hop scene with his fire beats. His music is fire and he's my childhood friend so have a look at his songs. P.S. I am giving him free advertisement",
+    description: "Childhood friend. He's changing the punjabi hip hop scene with his fire beats. His music is fire so have a look at his songs. P.S. I am giving him free advertisement",
     spotifyUrl: "https://open.spotify.com/artist/2ln8u0bAiqCrbEeskIGOpL?si=zs009cS1TlCzAonm_5dfGg",
     image: "/kunwarr.png",
   },
