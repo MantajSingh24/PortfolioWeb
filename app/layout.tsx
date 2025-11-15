@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Mantajdata.dev - Mantaj Singh | Data Analytics & Software Developer",
     description: "Data Analytics & Software Student based in Canada. Seeking co-op positions.",
-    url: "https://mantajdata.dev",
+    url: "https://tajdata.co",
     siteName: "Mantajdata.dev",
     images: [
       {
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     shortcut: "/Logo website.png",
   },
   manifest: "/manifest.json",
-  metadataBase: new URL("https://mantajdata.dev"),
+  metadataBase: new URL("https://tajdata.co"),
 };
 
 export default function RootLayout({
@@ -57,9 +57,31 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Mantaj Singh",
+    "url": "https://tajdata.co",
+    "image": "https://tajdata.co/Logo website.png",
+    "jobTitle": "Data Analytics & Software Developer",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Mantajdata.dev",
+      "logo": "https://tajdata.co/Logo website.png"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/in/mantaj-s-9448a7271",
+      "https://github.com/MantajSingh24"
+    ]
+  };
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
         <ThemeProviderWrapper>
           <Navbar />
           <main className="relative min-h-screen">
