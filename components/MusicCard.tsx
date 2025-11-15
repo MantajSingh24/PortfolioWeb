@@ -50,9 +50,11 @@ export default function MusicCard({ artist, index }: MusicCardProps) {
           <h3 className="text-xs font-medium text-slate-900 dark:text-slate-100 text-center truncate mb-1">
             {artist.name}
           </h3>
-          <p className="text-xs text-gray-600 dark:text-gray-400 text-center mb-2 line-clamp-2">
-            {artist.description}
-          </p>
+          {artist.name === "Kunwxrr" && (
+            <p className="text-xs text-gray-600 dark:text-gray-400 text-center mb-2">
+              Childhood friend
+            </p>
+          )}
           <a
             href={artist.spotifyUrl}
             target="_blank"
