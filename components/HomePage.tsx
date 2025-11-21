@@ -176,7 +176,7 @@ export default function HomePage() {
                 className="flex flex-wrap gap-4 pt-4"
               >
                 <motion.a
-                  href="/Mantaj Singh- Resume.pdf"
+                  href="/Mantaj_Singh_Resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.05, y: -2 }}
