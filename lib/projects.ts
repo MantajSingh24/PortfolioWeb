@@ -24,8 +24,7 @@ export const projects: Project[] = [
     description: "A modern student portal built with React and Next.js for managing academic resources and connections.",
     image: "/project-placeholder.jpg",
     stack: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
-    liveUrl: "https://example.com/study-link",
-    codeUrl: "https://github.com/MantajSingh24",
+    codeUrl: "https://github.com/MantajSingh24/StudyLink",
   },
   {
     id: "3",
@@ -33,8 +32,7 @@ export const projects: Project[] = [
     description: "A full-stack application for managing events with CRUD operations. Features include creating, reading, updating, and deleting events with a simple and intuitive UI.",
     image: "/project-placeholder.jpg",
     stack: ["React", "Express.js", "Node.js", "MongoDB", "React Router", "CSS"],
-    liveUrl: "https://example.com/event-management",
-    codeUrl: "https://github.com/MantajSingh24",
+    codeUrl: "https://github.com/MantajSingh24/Event-Management-System",
   },
   {
     id: "4",
@@ -42,7 +40,7 @@ export const projects: Project[] = [
     description: "An interactive game project featuring engaging gameplay mechanics and immersive user experience.",
     image: "/project-placeholder.jpg",
     stack: ["Game Development", "JavaScript", "HTML5", "CSS"],
-    codeUrl: "https://github.com/MantajSingh24",
+    codeUrl: "https://github.com/MantajSingh24/Key-to-the-Kingdom",
   },
   {
     id: "5",
@@ -50,7 +48,7 @@ export const projects: Project[] = [
     description: "Machine learning project implementing gradient boosting regression using scikit-learn for predictive modeling.",
     image: "/project-placeholder.jpg",
     stack: ["Python", "scikit-learn", "Machine Learning", "Data Science"],
-    codeUrl: "https://github.com/MantajSingh24",
+    codeUrl: "https://github.com/MantajSingh24/GradientBoosting",
   },
 ];
 
