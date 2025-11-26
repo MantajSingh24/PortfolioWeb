@@ -4,10 +4,10 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-50 dark:bg-slate-950 border-t-2 border-gray-200 dark:border-slate-800 py-8">
+  <footer className="py-8 border-t-2 border-[var(--border)] bg-[color-mix(in srgb,var(--surface),var(--background) 85%)]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-gray-600 dark:text-gray-400 text-sm">
+          <p className="text-[var(--text-muted)] text-sm">
             © {currentYear} Mantaj Singh
           </p>
           <div className="flex items-center gap-6">
@@ -15,7 +15,7 @@ export default function Footer() {
               href="https://github.com/MantajSingh24"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+              className="text-[var(--text-muted)] hover:text-[var(--accent-strong)] transition-colors"
               aria-label="GitHub"
             >
               <svg
@@ -34,7 +34,7 @@ export default function Footer() {
               href="https://www.linkedin.com/in/mantaj-s-9448a7271"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+              className="text-[var(--text-muted)] hover:text-[var(--accent-strong)] transition-colors"
               aria-label="LinkedIn"
             >
               <svg

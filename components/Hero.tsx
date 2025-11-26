@@ -21,9 +21,11 @@ export default function Hero() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+            <h1 className="text-5xl md:text-6xl font-bold text-[var(--foreground)] mb-4">
               Hi, I'm{" "}
-              <span className="text-blue-600 dark:text-blue-400">Mantaj Singh</span>
+              <span className="text-gradient-accent bg-clip-text text-transparent">
+                Mantaj Singh
+              </span>
             </h1>
             <h2 className="text-2xl md:text-3xl text-gray-700 dark:text-gray-300 mb-6">
               Data Analytics & Software Student based in Canada
@@ -40,7 +42,7 @@ export default function Hero() {
                 download
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors"
+                className="px-6 py-3 accent-btn rounded-lg font-medium transition-colors border-2 shadow-lg hover:shadow-xl"
               >
                 Download CV
               </motion.a>
@@ -49,7 +51,7 @@ export default function Hero() {
                 onClick={(e) => handleClick(e, "#contact")}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-6 py-3 bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-lg font-medium transition-colors"
+                className="px-6 py-3 surface-panel rounded-lg text-[var(--foreground)] font-medium transition-colors border-2 border-[var(--border)] hover:border-[var(--accent-strong)]"
               >
                 Contact Me
               </motion.a>
@@ -81,7 +83,12 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="flex justify-center"
           >
-            <div className="w-48 h-48 md:w-64 md:h-64 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 dark:from-blue-600 dark:to-purple-700 shadow-lg flex items-center justify-center text-white text-4xl md:text-6xl font-bold">
+            <div
+              className="w-48 h-48 md:w-64 md:h-64 rounded-full shadow-lg flex items-center justify-center text-white text-4xl md:text-6xl font-bold"
+              style={{
+                background: "linear-gradient(135deg, #191D23 0%, #57707A 60%, #7B919C 100%)",
+              }}
+            >
               MS
             </div>
           </motion.div>

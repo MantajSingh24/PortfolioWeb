@@ -32,17 +32,13 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-white/90 dark:bg-slate-900/90 backdrop-blur-md shadow-md border-b-2 border-gray-200 dark:border-slate-800"
-          : "bg-transparent"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "nav-scrolled" : "bg-transparent"}`}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 border-x-0">
           <Link
             href="/"
-            className="text-2xl font-bold text-slate-900 dark:text-slate-100 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors border-b-2 border-transparent hover:border-indigo-600 dark:hover:border-indigo-400"
+            className="text-2xl font-bold text-[var(--foreground)] hover:text-[var(--accent-strong)] transition-colors border-b-2 border-transparent hover:border-[var(--accent-strong)]"
           >
             Mantaj Singh
           </Link>
@@ -55,8 +51,8 @@ export default function Navbar() {
                   href={link.href}
                   className={`font-medium transition-colors border-b-2 ${
                     pathname === link.href
-                      ? "text-indigo-600 dark:text-indigo-400 border-indigo-600 dark:border-indigo-400"
-                      : "text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 border-transparent hover:border-indigo-600 dark:hover:border-indigo-400"
+                      ? "text-[var(--accent)] dark:text-[var(--accent-strong)] border-[var(--accent)] dark:border-[var(--accent-strong)]"
+                      : "text-[var(--text-muted)] dark:text-[var(--text-muted)] hover:text-[var(--accent-strong)] border-transparent hover:border-[var(--accent-strong)]"
                   }`}
                 >
                   {link.name}
@@ -91,15 +87,15 @@ export default function Navbar() {
             mobileMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
           }`}
         >
-          <div className="py-4 space-y-2 border-t border-gray-200 dark:border-slate-700">
+          <div className="py-4 space-y-2 border-t border-[var(--border)]">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
                 className={`block px-4 py-2 rounded-lg font-medium transition-colors ${
                   pathname === link.href
-                    ? "text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-900/20"
-                    : "text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-gray-100 dark:hover:bg-slate-800"
+                    ? "text-[var(--accent)] border border-[var(--accent)] bg-[color-mix(in srgb,var(--surface),var(--background) 80%)]"
+                    : "text-[var(--text-muted)] dark:text-[var(--text-muted)] hover:text-[var(--accent-strong)] hover:bg-[color-mix(in srgb,var(--surface),var(--background) 80%)]"
                 }`}
               >
                 {link.name}
