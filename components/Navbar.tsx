@@ -1,34 +1,54 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import ThemeToggle from "./ThemeToggle";
 
 const navLinks = [
-  { name: "Home", href: "/" },
-  { name: "Details", href: "/details" },
-  { name: "Hobbies", href: "/hobbies" },
-  { name: "Contact", href: "/contact" },
+  { name: "Home", href: "#home" },
+  { name: "Skills", href: "#skills" },
+  { name: "Details", href: "#details" },
+  { name: "Hobbies", href: "#hobbies" },
+  { name: "Contact", href: "#contact" },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const pathname = usePathname();
+  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
+      
+      // Update active section based on scroll position
+      const sections = navLinks.map(link => link.href.substring(1));
+      const scrollPosition = window.scrollY + 100;
+      
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = document.getElementById(sections[i]);
+        if (section && section.offsetTop <= scrollPosition) {
+          setActiveSection(sections[i]);
+          break;
+        }
+      }
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close mobile menu when route changes
-  useEffect(() => {
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const targetId = href.substring(1);
+    const element = document.getElementById(targetId);
+    if (element) {
+      const offsetTop = element.offsetTop - 80; // Account for navbar height
+      window.scrollTo({
+        top: offsetTop,
+        behavior: "smooth"
+      });
+    }
     setMobileMenuOpen(false);
-  }, [pathname]);
+  };
 
   return (
     <nav
@@ -40,28 +60,34 @@ export default function Navbar() {
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 border-x-0">
-          <Link
-            href="/"
-            className="text-2xl font-bold text-slate-900 dark:text-slate-100 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors border-b-2 border-transparent hover:border-indigo-600 dark:hover:border-indigo-400"
+          <a
+            href="#home"
+            onClick={(e) => handleNavClick(e, "#home")}
+            className="text-2xl font-bold text-slate-900 dark:text-slate-100 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors border-b-2 border-transparent hover:border-indigo-600 dark:hover:border-indigo-400 cursor-pointer"
           >
             Mantaj Singh
-          </Link>
+          </a>
           <div className="flex items-center gap-6">
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-6">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  className={`font-medium transition-colors border-b-2 ${
-                    pathname === link.href
-                      ? "text-indigo-600 dark:text-indigo-400 border-indigo-600 dark:border-indigo-400"
-                      : "text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 border-transparent hover:border-indigo-600 dark:hover:border-indigo-400"
-                  }`}
-                >
-                  {link.name}
-                </Link>
-              ))}
+              {navLinks.map((link) => {
+                const sectionId = link.href.substring(1);
+                const isActive = activeSection === sectionId;
+                return (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    onClick={(e) => handleNavClick(e, link.href)}
+                    className={`font-medium transition-colors border-b-2 ${
+                      isActive
+                        ? "text-indigo-600 dark:text-indigo-400 border-indigo-600 dark:border-indigo-400"
+                        : "text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 border-transparent hover:border-indigo-600 dark:hover:border-indigo-400"
+                    }`}
+                  >
+                    {link.name}
+                  </a>
+                );
+              })}
             </div>
             
             <ThemeToggle />
@@ -92,19 +118,24 @@ export default function Navbar() {
           }`}
         >
           <div className="py-4 space-y-2 border-t border-gray-200 dark:border-slate-700">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className={`block px-4 py-2 rounded-lg font-medium transition-colors ${
-                  pathname === link.href
-                    ? "text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-900/20"
-                    : "text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-gray-100 dark:hover:bg-slate-800"
-                }`}
-              >
-                {link.name}
-              </Link>
-            ))}
+            {navLinks.map((link) => {
+              const sectionId = link.href.substring(1);
+              const isActive = activeSection === sectionId;
+              return (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={(e) => handleNavClick(e, link.href)}
+                  className={`block px-4 py-2 rounded-lg font-medium transition-colors ${
+                    isActive
+                      ? "text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-900/20"
+                      : "text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-gray-100 dark:hover:bg-slate-800"
+                  }`}
+                >
+                  {link.name}
+                </a>
+              );
+            })}
           </div>
         </div>
       </div>
