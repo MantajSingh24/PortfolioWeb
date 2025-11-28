@@ -19,20 +19,23 @@ export default function ShowCard({ show, index }: ShowCardProps) {
   
   return (
     <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 15 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+        viewport={{ once: true, margin: "-50px" }}
         transition={{ 
-          delay: index * 0.05, 
-          duration: 0.4,
+          delay: index * 0.02, 
+          duration: 0.3,
           ease: [0.25, 0.1, 0.25, 1]
         }}
         whileHover={{ 
-          scale: 1.05,
-          y: -5,
+          scale: 1.03,
+          y: -3,
           transition: { duration: 0.2 }
         }}
-        className="bg-white dark:bg-slate-900 rounded-lg overflow-hidden border border-gray-300 dark:border-slate-700 cursor-pointer"
+        className="bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl rounded-2xl overflow-hidden border border-white/30 dark:border-gray-700/30 cursor-pointer shadow-lg hover:shadow-xl transition-all duration-300"
+        style={{
+          boxShadow: '0 4px 20px 0 rgba(31, 38, 135, 0.1)',
+        }}
       >
         <div className="relative w-24 h-36 mx-auto mt-2 bg-gray-100 dark:bg-slate-800 rounded">
           <Image

@@ -44,17 +44,17 @@ const skillIcons: { [key: string]: string } = {
 export default function ProjectCard({ project, index }: ProjectCardProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
+      viewport={{ once: true, margin: "-100px" }}
       transition={{ 
-        delay: index * 0.08, 
-        duration: 0.6,
+        delay: index * 0.03, 
+        duration: 0.4,
         ease: [0.25, 0.1, 0.25, 1]
       }}
       whileHover={{ 
-        scale: 1.03, 
-        y: -8,
+        scale: 1.02, 
+        y: -4,
         transition: { duration: 0.2 }
       }}
       className="bg-white dark:bg-slate-900 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 border-2 border-gray-200 dark:border-slate-800"

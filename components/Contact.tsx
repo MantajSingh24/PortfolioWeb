@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import AnimatedBackground from "./AnimatedBackground";
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
@@ -46,9 +45,8 @@ export default function Contact() {
   };
 
   return (
-    <div className="relative min-h-screen overflow-hidden pt-16">
-      <AnimatedBackground />
-      <div className="relative z-10 max-w-6xl mx-auto px-4 py-20">
+    <div className="relative overflow-hidden pt-16">
+      <div className="relative z-10 max-w-6xl mx-auto px-4 py-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}

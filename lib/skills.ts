@@ -59,7 +59,6 @@ export const skillGroups: SkillGroup[] = [
       "Vercel",
       "Docker",
       "VS Code",
-      "PyCharm",
     ],
   },
 ];

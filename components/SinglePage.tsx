@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
 import Image from "next/image";
 import AnimatedBackground from "./AnimatedBackground";
 import ProjectCard from "./ProjectCard";
@@ -14,9 +13,11 @@ import Contact from "./Contact";
 export default function SinglePage() {
   return (
     <div className="relative w-full">
+      {/* Single shared background for entire page */}
+      <AnimatedBackground />
+      
       {/* Home/Hero Section */}
-      <section id="home" className="relative min-h-screen overflow-hidden">
-        <AnimatedBackground />
+      <section id="home" className="relative min-h-screen overflow-hidden -mb-1 section-transition">
         <div className="relative z-10 min-h-screen flex items-center justify-center px-4 pt-16">
           <div className="max-w-6xl mx-auto w-full">
             <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
@@ -188,56 +189,30 @@ export default function SinglePage() {
                 transition={{ delay: 0.5, duration: 0.5 }}
                 className="flex justify-center relative"
               >
-                {/* Decorative rings and lights */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  {/* Outer ring */}
-                  <motion.div
-                    className="absolute w-64 h-64 md:w-96 md:h-96 rounded-full border-2 border-indigo-300/30 dark:border-indigo-500/30"
-                    animate={{
-                      rotate: 360,
-                      scale: [1, 1.1, 1],
-                    }}
-                    transition={{
-                      rotate: { duration: 20, repeat: Infinity, ease: "linear" },
-                      scale: { duration: 4, repeat: Infinity, ease: "easeInOut" }
-                    }}
-                    style={{ willChange: 'transform' }}
-                  />
+                {/* Profile picture container - fixed size */}
+                <div className="relative w-48 h-48 md:w-80 md:h-80">
+                  {/* Shiny decorative elements AROUND the picture (not overlapping) */}
                   
-                  {/* Middle ring */}
+                  {/* Rotating rings outside the picture - optimized */}
                   <motion.div
-                    className="absolute w-60 h-60 md:w-[22rem] md:h-[22rem] rounded-full border border-indigo-400/40 dark:border-indigo-400/40"
-                    animate={{
-                      rotate: -360,
-                      scale: [1, 0.95, 1],
-                    }}
-                    transition={{
-                      rotate: { duration: 15, repeat: Infinity, ease: "linear" },
-                      scale: { duration: 3, repeat: Infinity, ease: "easeInOut" }
-                    }}
-                    style={{ willChange: 'transform' }}
-                  />
-                  
-                  {/* Inner ring */}
-                  <motion.div
-                    className="absolute w-56 h-56 md:w-[21rem] md:h-[21rem] rounded-full border border-purple-400/30 dark:border-purple-400/30"
+                    className="absolute -inset-4 md:-inset-8 rounded-full border-2 border-indigo-400/30 dark:border-indigo-500/30"
                     animate={{
                       rotate: 360,
                     }}
                     transition={{
-                      duration: 12,
+                      duration: 20,
                       repeat: Infinity,
                       ease: "linear"
                     }}
                     style={{ willChange: 'transform' }}
                   />
                   
-                  {/* Floating light orbs */}
+                  {/* Reduced particles for performance */}
                   <motion.div
-                    className="absolute top-0 left-1/2 w-3 h-3 bg-indigo-400 rounded-full blur-sm"
+                    className="absolute -top-8 left-1/2 w-3 h-3 bg-indigo-400 rounded-full blur-md"
                     animate={{
                       y: [0, -20, 0],
-                      opacity: [0.5, 1, 0.5],
+                      opacity: [0.4, 0.8, 0.4],
                     }}
                     transition={{
                       duration: 3,
@@ -247,10 +222,10 @@ export default function SinglePage() {
                     style={{ willChange: 'transform, opacity' }}
                   />
                   <motion.div
-                    className="absolute bottom-0 left-1/2 w-3 h-3 bg-purple-400 rounded-full blur-sm"
+                    className="absolute -bottom-8 left-1/2 w-3 h-3 bg-purple-400 rounded-full blur-md"
                     animate={{
                       y: [0, 20, 0],
-                      opacity: [0.5, 1, 0.5],
+                      opacity: [0.4, 0.8, 0.4],
                     }}
                     transition={{
                       duration: 3,
@@ -260,70 +235,50 @@ export default function SinglePage() {
                     }}
                     style={{ willChange: 'transform, opacity' }}
                   />
+                  
+                  {/* Profile picture - Apple-style border */}
                   <motion.div
-                    className="absolute top-1/2 left-0 w-3 h-3 bg-blue-400 rounded-full blur-sm"
-                    animate={{
-                      x: [0, -20, 0],
-                      opacity: [0.5, 1, 0.5],
+                    whileHover={{ scale: 1.02 }}
+                    transition={{ duration: 0.2 }}
+                    className="relative w-full h-full rounded-full overflow-hidden z-10"
+                    style={{ 
+                      willChange: 'transform',
+                      boxShadow: '0 0 0 1px rgba(0, 0, 0, 0.1), 0 0 0 3px rgba(255, 255, 255, 0.8), 0 8px 32px rgba(0, 0, 0, 0.12)',
                     }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                      delay: 0.75
+                  >
+                    <Image
+                      src="/WhatsApp Image 2025-11-12 at 22.52.17_a524b729.jpg"
+                      alt="Mantaj Singh"
+                      fill
+                      className="object-cover"
+                      priority
+                      sizes="(max-width: 768px) 192px, 320px"
+                    />
+                  </motion.div>
+                  {/* Apple-style outer ring */}
+                  <div 
+                    className="absolute inset-0 rounded-full pointer-events-none z-20"
+                    style={{
+                      boxShadow: 'inset 0 0 0 1px rgba(255, 255, 255, 0.3), inset 0 0 0 2px rgba(0, 0, 0, 0.05)',
                     }}
-                    style={{ willChange: 'transform, opacity' }}
-                  />
-                  <motion.div
-                    className="absolute top-1/2 right-0 w-3 h-3 bg-indigo-400 rounded-full blur-sm"
-                    animate={{
-                      x: [0, 20, 0],
-                      opacity: [0.5, 1, 0.5],
-                    }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                      delay: 2.25
-                    }}
-                    style={{ willChange: 'transform, opacity' }}
                   />
                 </div>
-                
-                {/* Profile picture */}
-                <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.2 }}
-                  className="relative w-48 h-48 md:w-80 md:h-80 rounded-full shadow-lg overflow-hidden border-4 border-indigo-200/50 dark:border-indigo-500/50 z-10"
-                  style={{ willChange: 'transform' }}
-                >
-                  <Image
-                    src="/WhatsApp Image 2025-11-12 at 22.52.17_a524b729.jpg"
-                    alt="Mantaj Singh"
-                    fill
-                    className="object-cover"
-                    priority
-                    sizes="(max-width: 768px) 192px, 320px"
-                  />
-                  {/* Glow effect */}
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-br from-indigo-400/20 to-purple-400/20 blur-xl" />
-                </motion.div>
               </motion.div>
             </div>
 
             {/* Projects Section */}
             <motion.div
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
               className="py-20"
             >
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
                 className="text-center mb-12"
               >
                 <h2 className="text-4xl font-bold text-slate-900 dark:text-slate-100 mb-2">
@@ -344,32 +299,28 @@ export default function SinglePage() {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="relative min-h-screen">
-        <AnimatedBackground />
+      <section id="skills" className="relative -mt-1 -mb-1 section-transition">
         <div className="relative z-10">
           <Skills />
         </div>
       </section>
 
       {/* Details Section */}
-      <section id="details" className="relative min-h-screen">
-        <AnimatedBackground />
+      <section id="details" className="relative -mt-1 -mb-1 section-transition">
         <div className="relative z-10">
           <Details />
         </div>
       </section>
 
       {/* Hobbies Section */}
-      <section id="hobbies" className="relative min-h-screen">
-        <AnimatedBackground />
+      <section id="hobbies" className="relative -mt-1 -mb-1 section-transition">
         <div className="relative z-10">
           <HobbiesPage />
         </div>
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="relative min-h-screen">
-        <AnimatedBackground />
+      <section id="contact" className="relative -mt-1 section-transition">
         <div className="relative z-10">
           <Contact />
         </div>

@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import AnimatedBackground from "./AnimatedBackground";
 import ShowCard from "./ShowCard";
 import GameCard from "./GameCard";
 import MusicCard from "./MusicCard";
@@ -165,15 +164,14 @@ const favoriteArtists = [
 
 export default function HobbiesPage() {
   return (
-    <div className="relative min-h-screen overflow-hidden pt-16">
-      <AnimatedBackground />
-      <div className="relative z-10 max-w-6xl mx-auto px-4 py-20">
+    <div className="relative overflow-hidden pt-16">
+      <div className="relative z-10 max-w-6xl mx-auto px-4 py-8">
         {/* Page Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-          className="text-center mb-16"
+          className="text-center mb-10"
         >
           <h1 className="text-5xl font-bold text-slate-900 dark:text-slate-100 mb-4">
             Hobbies
@@ -185,11 +183,11 @@ export default function HobbiesPage() {
 
         {/* Fav Artists Section - Moved to Top */}
         <motion.section
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-          className="mb-12"
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+          className="mb-8"
         >
           <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-4">
             Fav Artists
@@ -203,11 +201,11 @@ export default function HobbiesPage() {
 
         {/* Shows Currently Watching Section */}
         <motion.section
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-          className="mb-12"
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+          className="mb-8"
         >
           <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-4">
             Shows Currently Watching
@@ -221,11 +219,11 @@ export default function HobbiesPage() {
 
         {/* Fav Shows Section */}
         <motion.section
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-          className="mb-12"
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+          className="mb-8"
         >
           <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-4">
             Fav Shows
@@ -239,11 +237,11 @@ export default function HobbiesPage() {
 
         {/* Fav Games Section */}
         <motion.section
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-          className="mb-12"
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+          className="mb-8"
         >
           <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-4">
             Fav Games
@@ -261,7 +259,7 @@ export default function HobbiesPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-          className="mb-12"
+          className="mb-8"
         >
           <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-4">
             Games on Bucket List
@@ -279,10 +277,10 @@ export default function HobbiesPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-          className="mb-12"
+          className="mb-8 flex justify-center"
         >
-          <div className="flex items-center justify-center gap-4 bg-white dark:bg-slate-900 rounded-lg p-4 border border-gray-300 dark:border-slate-700">
-            <div className="relative w-20 h-20 rounded-full overflow-hidden border border-gray-300 dark:border-slate-700 flex-shrink-0">
+          <div className="flex items-center gap-3 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md rounded-full px-5 py-3.5 border border-white/30 dark:border-gray-700/30 shadow-lg inline-flex">
+            <div className="relative w-20 h-20 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-white/50 dark:ring-gray-700/50">
               <Image
                 src="/messi-jersey-real-madridjpg.jpg"
                 alt="Messi"
@@ -290,10 +288,11 @@ export default function HobbiesPage() {
                 className="object-cover"
                 loading="lazy"
                 sizes="80px"
-                quality={95}
+                quality={100}
+                priority={false}
               />
             </div>
-            <p className="text-base font-medium text-slate-900 dark:text-slate-100">
+            <p className="text-sm font-medium text-slate-900 dark:text-slate-100 whitespace-nowrap">
               Oh also, Messi is the GOAT 🐐
             </p>
           </div>

@@ -79,7 +79,7 @@ export const education: EducationItem[] = [
     logo: "/acadia logo.jpeg",
   },
   {
-    degree: "Certificate",
+    degree: "Course",
     major: "Data Analytics and Modelling",
     university: "McMaster University",
     period: "Summer 2025",
