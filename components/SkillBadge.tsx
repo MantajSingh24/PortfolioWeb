@@ -69,12 +69,12 @@ export default function SkillBadge({ skill, index }: SkillBadgeProps) {
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.05, duration: 0.3 }}
-      whileHover={{ 
+      whileHover={{
         scale: 1.15,
         y: -5,
         transition: { duration: 0.2 }
       }}
-      className="px-4 py-2 rounded-full bg-gray-100 dark:bg-slate-800 text-gray-800 dark:text-gray-200 text-sm font-medium hover:bg-gray-200 dark:hover:bg-slate-700 transition-colors border border-gray-300 dark:border-slate-700 flex items-center gap-2 cursor-pointer"
+      className="px-4 py-2 rounded-full tech-pill text-sm font-medium flex items-center gap-2 cursor-pointer border-2 border-[var(--border)] shadow-sm"
     >
       <span className="text-base">{icon}</span>
       {skill}
