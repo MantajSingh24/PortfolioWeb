@@ -74,7 +74,7 @@ export default function SkillBadge({ skill, index }: SkillBadgeProps) {
         y: -5,
         transition: { duration: 0.2 }
       }}
-      className="px-4 py-2 rounded-full tech-pill text-sm font-medium flex items-center gap-2 cursor-pointer border-2 border-[var(--border)] shadow-sm"
+      className="px-4 py-2 rounded-full bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-gray-300 text-sm font-medium flex items-center gap-2 cursor-pointer border-2 border-gray-300 dark:border-slate-700 shadow-sm hover:bg-gray-200 dark:hover:bg-slate-700 transition-colors"
     >
       <span className="text-base">{icon}</span>
       {skill}

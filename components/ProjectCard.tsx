@@ -57,7 +57,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
         y: -4,
         transition: { duration: 0.2 }
       }}
-    className="surface-panel rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300"
+      className="bg-white dark:bg-slate-900 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 border-2 border-gray-200 dark:border-slate-800"
     >
       <div
         className="aspect-video relative overflow-hidden"
@@ -98,7 +98,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
                 key={tech}
                 whileHover={{ scale: 1.1, y: -2 }}
                 transition={{ duration: 0.2 }}
-                className="px-2 py-1 text-xs rounded-md tech-pill font-medium flex items-center gap-1 cursor-pointer"
+                className="px-2 py-1 text-xs rounded-md bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-slate-700 font-medium flex items-center gap-1 cursor-pointer hover:bg-gray-200 dark:hover:bg-slate-700 transition-colors"
               >
                   <span>{icon}</span>
                   {tech}
@@ -114,7 +114,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 px-3 py-1.5 accent-outline rounded-lg text-center text-xs font-medium transition-all duration-300 border-2 border-[var(--accent)] hover:border-[var(--accent-strong)]"
+                className="flex-1 px-3 py-1.5 bg-white dark:bg-slate-800 hover:bg-gray-50 dark:hover:bg-slate-700 text-gray-900 dark:text-gray-100 rounded-lg text-center text-xs font-medium transition-all duration-300 border-2 border-gray-300 dark:border-slate-700 hover:border-indigo-500 dark:hover:border-indigo-400"
               >
                 {project.title === "Vendor Performance Dashboard" ? "View Live Dashboard" : "Live"}
               </Link>
@@ -125,7 +125,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
               href={project.codeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className={`px-3 py-1.5 accent-btn rounded-lg text-center text-xs font-medium transition-all duration-300 border-2 ${
+              className={`px-3 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-center text-xs font-medium transition-all duration-300 border-2 border-indigo-700 hover:border-indigo-800 ${
                 project.liveUrl ? "flex-1" : "w-full"
               }`}
             >
