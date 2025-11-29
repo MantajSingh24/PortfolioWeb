@@ -79,11 +79,11 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
           </div>
         )}
       </div>
-      <div className="p-4">
-        <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-2">
+      <div className="p-3 sm:p-4">
+        <h3 className="text-base sm:text-lg font-semibold text-slate-900 dark:text-slate-100 mb-2">
           {project.title}
         </h3>
-        <p className="text-[var(--text-muted)] mb-3 text-xs leading-relaxed">
+        <p className="text-gray-600 dark:text-gray-400 mb-3 text-xs sm:text-sm leading-relaxed">
           {project.description}
         </p>
         <div className="mb-3">
@@ -107,27 +107,25 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
             })}
           </div>
         </div>
-        <div className="flex gap-2">
+        <div className="flex flex-col sm:flex-row gap-2">
           {project.liveUrl && (
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="flex-1">
               <Link
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 px-3 py-1.5 bg-white dark:bg-slate-800 hover:bg-gray-50 dark:hover:bg-slate-700 text-gray-900 dark:text-gray-100 rounded-lg text-center text-xs font-medium transition-all duration-300 border-2 border-gray-300 dark:border-slate-700 hover:border-indigo-500 dark:hover:border-indigo-400"
+                className="block w-full px-3 py-2 sm:py-1.5 bg-white dark:bg-slate-800 hover:bg-gray-50 dark:hover:bg-slate-700 text-gray-900 dark:text-gray-100 rounded-lg text-center text-xs font-medium transition-all duration-300 border-2 border-gray-300 dark:border-slate-700 hover:border-indigo-500 dark:hover:border-indigo-400"
               >
-                {project.title === "Vendor Performance Dashboard" ? "View Live Dashboard" : "Live"}
+                {project.title === "Vendor Performance Dashboard" ? "View Dashboard" : "Live"}
               </Link>
             </motion.div>
           )}
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className={project.liveUrl ? "flex-1" : "w-full"}>
             <Link
               href={project.codeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className={`px-3 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-center text-xs font-medium transition-all duration-300 border-2 border-indigo-700 hover:border-indigo-800 ${
-                project.liveUrl ? "flex-1" : "w-full"
-              }`}
+              className="block w-full px-3 py-2 sm:py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-center text-xs font-medium transition-all duration-300 border-2 border-indigo-700 hover:border-indigo-800"
             >
               Code
             </Link>

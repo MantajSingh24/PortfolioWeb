@@ -7,17 +7,17 @@ import { motion } from "framer-motion";
 export default function Skills() {
   return (
     <div className="relative overflow-hidden pt-16">
-      <div className="relative z-10 max-w-6xl mx-auto px-4 py-8">
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-          className="text-center mb-8"
+          className="text-center mb-6 sm:mb-8"
         >
-          <h2 className="text-4xl font-bold text-slate-900 dark:text-slate-100 mb-2">
+          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-slate-100 mb-2">
             Skills
           </h2>
-          <p className="text-gray-600 dark:text-gray-400 text-lg">
+          <p className="text-gray-600 dark:text-gray-400 text-base sm:text-lg">
             Technologies and tools I work with
           </p>
         </motion.div>
@@ -25,7 +25,7 @@ export default function Skills() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-          className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md rounded-3xl p-8 border border-white/30 dark:border-gray-700/30 shadow-2xl"
+          className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md rounded-3xl p-4 sm:p-6 md:p-8 border border-white/30 dark:border-gray-700/30 shadow-2xl"
           style={{
             boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.15)',
             contain: 'layout style paint',

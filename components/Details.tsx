@@ -10,18 +10,18 @@ export default function Details() {
 
   return (
     <div className="relative overflow-hidden pt-16">
-      <div className="relative z-10 max-w-7xl mx-auto px-4 py-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
-          className="text-center mb-10"
+          className="text-center mb-8 sm:mb-10"
         >
-          <h2 className="text-4xl font-bold text-slate-900 dark:text-slate-100 mb-2">
+          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-slate-100 mb-2">
             Work Experience & Education
           </h2>
-          <p className="text-gray-600 dark:text-gray-400 text-lg">
+          <p className="text-gray-600 dark:text-gray-400 text-base sm:text-lg">
             Professional journey and academic achievements
           </p>
         </motion.div>
@@ -48,7 +48,7 @@ export default function Details() {
           </motion.div>
 
           {/* Modern Card Grid Layout */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {experiences.map((exp, index) => (
               <motion.div
                 key={exp.id}
@@ -179,7 +179,7 @@ export default function Details() {
           </motion.div>
 
           {/* Modern Horizontal Cards Layout */}
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
             {education.map((edu, index) => (
               <motion.div
                 key={index}

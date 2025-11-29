@@ -46,17 +46,17 @@ export default function Contact() {
 
   return (
     <div className="relative overflow-hidden pt-16">
-      <div className="relative z-10 max-w-6xl mx-auto px-4 py-8">
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-          className="text-center mb-12"
+          className="text-center mb-8 sm:mb-12"
         >
-          <h2 className="text-4xl font-bold text-slate-900 dark:text-slate-100 mb-2">
+          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-slate-100 mb-2">
             Contact
           </h2>
-          <p className="text-gray-600 dark:text-gray-400 text-lg">
+          <p className="text-gray-600 dark:text-gray-400 text-base sm:text-lg px-2">
             If you'd like to get in touch, you can reach me using the following methods. I am open to freelance projects and collaborations.
           </p>
         </motion.div>
@@ -65,9 +65,9 @@ export default function Contact() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-          className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md rounded-2xl p-8 border border-white/30 dark:border-gray-700/30 shadow-2xl"
+          className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md rounded-2xl p-4 sm:p-6 md:p-8 border border-white/30 dark:border-gray-700/30 shadow-2xl"
         >
-          <div className="grid md:grid-cols-2 gap-6 mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-6 sm:mb-8">
             <motion.div
               whileHover={{ scale: 1.02, y: -3 }}
               transition={{ duration: 0.3 }}
@@ -126,14 +126,14 @@ export default function Contact() {
             </motion.a>
           </div>
 
-          <div className="border-t-2 border-gray-200 dark:border-slate-800 pt-8">
-            <div className="grid md:grid-cols-2 gap-8 items-center">
+          <div className="border-t-2 border-gray-200 dark:border-slate-800 pt-6 sm:pt-8">
+            <div className="grid md:grid-cols-2 gap-6 sm:gap-8 items-start md:items-center">
               {/* Left side - Illustration */}
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.3, duration: 0.5 }}
-                className="hidden md:block"
+                className="hidden lg:block"
               >
                 <div className="relative">
                   <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-6">
@@ -171,11 +171,12 @@ export default function Contact() {
                 initial={{ opacity: 0, x: 30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.4, duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
+                className="w-full"
               >
-                <p className="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-2 text-center md:text-left">
+                <p className="text-base sm:text-lg font-semibold text-slate-900 dark:text-slate-100 mb-2 text-center md:text-left">
                   Send me a message
                 </p>
-                <p className="text-xs text-center md:text-left text-gray-600 dark:text-gray-400 mb-4">
+                <p className="text-xs sm:text-sm text-center md:text-left text-gray-600 dark:text-gray-400 mb-4">
                   Feel free to reach out for collaborations, opportunities, or just to say hello!
                 </p>
                 <form onSubmit={handleSubmit} className="space-y-4">

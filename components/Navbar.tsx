@@ -133,36 +133,38 @@ export default function Navbar() {
       style={{ borderRadius: '9999px', padding: '0.375rem 0.75rem' }}
     >
       <div className="flex items-center gap-1">
-        {/* Navigation Buttons */}
-        {navLinks.map((link) => {
-          const sectionId = link.href.substring(1);
-          const isActive = activeSection === sectionId;
-          return (
-            <motion.a
-              key={link.name}
-              href={link.href}
-              onClick={(e) => handleNavClick(e, link.href)}
-              className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors duration-100 ${
-                isActive
-                  ? "bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900"
-                  : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
-              }`}
-              animate={isActive ? {
-                scale: 1.05,
-              } : {}}
-              transition={{
-                duration: 0.1,
-                ease: "easeOut",
-              }}
-              whileHover={!isActive ? { y: -2 } : {}}
-              whileTap={{ scale: 0.95 }}
-            >
-              {link.name}
-            </motion.a>
-          );
-        })}
+        {/* Desktop Navigation Buttons - Hidden on mobile */}
+        <div className="hidden md:flex items-center gap-1">
+          {navLinks.map((link) => {
+            const sectionId = link.href.substring(1);
+            const isActive = activeSection === sectionId;
+            return (
+              <motion.a
+                key={link.name}
+                href={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
+                className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors duration-100 ${
+                  isActive
+                    ? "bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900"
+                    : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+                }`}
+                animate={isActive ? {
+                  scale: 1.05,
+                } : {}}
+                transition={{
+                  duration: 0.1,
+                  ease: "easeOut",
+                }}
+                whileHover={!isActive ? { y: -2 } : {}}
+                whileTap={{ scale: 0.95 }}
+              >
+                {link.name}
+              </motion.a>
+            );
+          })}
+        </div>
         
-        {/* Theme Toggle next to Contact */}
+        {/* Theme Toggle - Always visible */}
         <div className="ml-1 pl-1 border-l border-gray-300 dark:border-gray-700">
           <ThemeToggle />
         </div>
@@ -193,7 +195,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden absolute top-full left-0 right-0 mt-2 bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl rounded-2xl shadow-lg border border-gray-200/50 dark:border-gray-700/50 p-4"
+            className="md:hidden absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[90vw] max-w-sm bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl rounded-2xl shadow-lg border border-gray-200/50 dark:border-gray-700/50 p-4"
           >
             <div className="space-y-1">
               {navLinks.map((link) => {
@@ -204,7 +206,7 @@ export default function Navbar() {
                     key={link.name}
                     href={link.href}
                     onClick={(e) => handleNavClick(e, link.href)}
-                    className={`block px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                    className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors ${
                       isActive
                         ? "bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900"
                         : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
