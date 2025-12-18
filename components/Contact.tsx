@@ -7,6 +7,7 @@ export default function Contact() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+  const [statusMessage, setStatusMessage] = useState<string>("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -20,25 +21,31 @@ export default function Contact() {
         body: JSON.stringify(formData),
       });
 
+      const data = await response.json();
+
       if (response.ok) {
         setSubmitStatus("success");
+        setStatusMessage(data.message || "Message sent successfully!");
         setFormData({ name: "", email: "", message: "" });
-        setTimeout(() => setSubmitStatus("idle"), 3000);
+        setTimeout(() => {
+          setSubmitStatus("idle");
+          setStatusMessage("");
+        }, 8000);
       } else {
-        const subject = encodeURIComponent(`Contact from ${formData.name}`);
-        const body = encodeURIComponent(`From: ${formData.email}\n\n${formData.message}`);
-        window.location.href = `mailto:taranpalbrar58@gmail.com?subject=${subject}&body=${body}`;
-        setSubmitStatus("success");
-        setFormData({ name: "", email: "", message: "" });
-        setTimeout(() => setSubmitStatus("idle"), 3000);
+        setSubmitStatus("error");
+        setStatusMessage(data.error || "Failed to send message. Please try again.");
+        setTimeout(() => {
+          setSubmitStatus("idle");
+          setStatusMessage("");
+        }, 5000);
       }
     } catch (error) {
-      const subject = encodeURIComponent(`Contact from ${formData.name}`);
-      const body = encodeURIComponent(`From: ${formData.email}\n\n${formData.message}`);
-      window.location.href = `mailto:taranpalbrar58@gmail.com?subject=${subject}&body=${body}`;
-      setSubmitStatus("success");
-      setFormData({ name: "", email: "", message: "" });
-      setTimeout(() => setSubmitStatus("idle"), 3000);
+      setSubmitStatus("error");
+      setStatusMessage("Network error. Please check your connection and try again.");
+      setTimeout(() => {
+        setSubmitStatus("idle");
+        setStatusMessage("");
+      }, 5000);
     } finally {
       setIsSubmitting(false);
     }
@@ -217,9 +224,36 @@ export default function Contact() {
                       transition={{ duration: 0.2 }}
                       className="p-4 bg-green-50 dark:bg-green-900/20 border-2 border-green-200 dark:border-green-800 rounded-lg"
                     >
-                      <p className="text-green-700 dark:text-green-400 font-medium text-center">
-                        Just got your message, will get in touch soon!
-                      </p>
+                      <div className="flex items-start gap-3">
+                        <svg className="w-6 h-6 text-green-700 dark:text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 19v-8.93a2 2 0 01.89-1.664l7-4.666a2 2 0 012.22 0l7 4.666A2 2 0 0121 10.07V19M3 19a2 2 0 002 2h14a2 2 0 002-2M3 19l6.75-4.5M21 19l-6.75-4.5M3 10l6.75 4.5M21 10l-6.75 4.5m0 0l-1.14.76a2 2 0 01-2.22 0l-1.14-.76" />
+                        </svg>
+                        <div>
+                          <p className="text-green-700 dark:text-green-400 font-medium">
+                            {statusMessage}
+                          </p>
+                          <p className="text-green-600 dark:text-green-500 text-sm mt-1">
+                            Please check your inbox and click the verification link to complete your submission.
+                          </p>
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                  {submitStatus === "error" && (
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.95, y: -10 }}
+                      animate={{ opacity: 1, scale: 1, y: 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="p-4 bg-red-50 dark:bg-red-900/20 border-2 border-red-200 dark:border-red-800 rounded-lg"
+                    >
+                      <div className="flex items-start gap-3">
+                        <svg className="w-6 h-6 text-red-700 dark:text-red-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <p className="text-red-700 dark:text-red-400 font-medium">
+                          {statusMessage}
+                        </p>
+                      </div>
                     </motion.div>
                   )}
                   <motion.button

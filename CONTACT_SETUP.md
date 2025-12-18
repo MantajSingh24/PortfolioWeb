@@ -1,6 +1,21 @@
 # Contact Form Setup Guide
 
-Your contact form is currently set up to log messages to the console. To receive emails directly, you need to set up an email service.
+## ⚠️ UPDATED: Magic Link Verification Now Active
+
+Your contact form now includes **email verification** to prevent spam! Messages are no longer sent directly.
+
+**New Flow:**
+1. User submits form → Verification email sent
+2. User clicks magic link → Email verified  
+3. Verified message forwarded to your inbox
+
+**For setup instructions, see:**
+- 📖 `MAGIC_LINK_SETUP.md` - Complete setup guide
+- 🚀 `QUICK_START.md` - 5-minute quick start
+
+---
+
+## Legacy Information (For Reference)
 
 ## Quick Setup Options
 
