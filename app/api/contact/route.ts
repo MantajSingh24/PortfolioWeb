@@ -29,6 +29,10 @@ export async function POST(request: NextRequest) {
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
     const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
     
+    console.log("🔍 Environment check:");
+    console.log("- NEXT_PUBLIC_SUPABASE_URL:", supabaseUrl ? `✓ Set (${supabaseUrl.substring(0, 30)}...)` : "✗ Missing");
+    console.log("- SUPABASE_SERVICE_ROLE_KEY:", supabaseKey ? `✓ Set (${supabaseKey.substring(0, 20)}...)` : "✗ Missing");
+    
     if (!supabaseUrl || !supabaseKey) {
       console.error("⚠️ Supabase not configured - using direct email fallback");
       
