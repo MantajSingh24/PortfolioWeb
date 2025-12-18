@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     siteName: "Mantajdata.dev",
     images: [
       {
-        url: "/Logo website.png",
+        url: "/Logo.png",
         width: 1200,
         height: 630,
         alt: "Mantaj Singh - Data Analytics & Software Developer",
@@ -34,19 +34,19 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Mantajdata.dev - Mantaj Singh | Data Analytics & Software Developer",
     description: "Data Analytics & Software Student based in Canada. Seeking co-op positions.",
-    images: ["/Logo website.png"],
+    images: ["/Logo.png"],
   },
   icons: {
     icon: [
-      { url: "/Logo website.png", sizes: "32x32", type: "image/png" },
-      { url: "/Logo website.png", sizes: "64x64", type: "image/png" },
-      { url: "/Logo website.png", sizes: "96x96", type: "image/png" },
-      { url: "/Logo website.png", sizes: "128x128", type: "image/png" },
+      { url: "/Logo.png", sizes: "32x32", type: "image/png" },
+      { url: "/Logo.png", sizes: "64x64", type: "image/png" },
+      { url: "/Logo.png", sizes: "96x96", type: "image/png" },
+      { url: "/Logo.png", sizes: "128x128", type: "image/png" },
     ],
     apple: [
-      { url: "/Logo website.png", sizes: "180x180", type: "image/png" },
+      { url: "/Logo.png", sizes: "180x180", type: "image/png" },
     ],
-    shortcut: "/Logo website.png",
+    shortcut: "/Logo.png",
   },
   manifest: "/manifest.json",
   metadataBase: new URL("https://tajdata.co"),
@@ -62,12 +62,12 @@ export default function RootLayout({
     "@type": "Person",
     "name": "Mantaj Singh",
     "url": "https://tajdata.co",
-    "image": "https://tajdata.co/Logo website.png",
+    "image": "https://tajdata.co/Logo.png",
     "jobTitle": "Data Analytics & Software Developer",
     "worksFor": {
       "@type": "Organization",
       "name": "Mantajdata.dev",
-      "logo": "https://tajdata.co/Logo website.png"
+      "logo": "https://tajdata.co/Logo.png"
     },
     "sameAs": [
       "https://www.linkedin.com/in/mantaj-s-9448a7271",

@@ -119,7 +119,7 @@ export default function AboutSection() {
                 alt="Mantaj Singh"
                 fill
                 className="object-cover"
-                priority
+                loading="lazy"
                 sizes="(max-width: 768px) 192px, 256px"
               />
             </div>
