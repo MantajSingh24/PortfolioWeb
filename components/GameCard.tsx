@@ -30,9 +30,6 @@ export default function GameCard({ game, index }: GameCardProps) {
         ease: "easeOut"
       }}
       className="bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl rounded-2xl overflow-hidden border border-white/30 dark:border-gray-700/30 cursor-pointer shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-[1.02] hover:-translate-y-1"
-      style={{
-        boxShadow: '0 4px 20px 0 rgba(31, 38, 135, 0.1)',
-      }}
     >
       <div className="relative w-24 h-36 mx-auto mt-2 bg-gray-100 dark:bg-slate-800 rounded">
         <Image

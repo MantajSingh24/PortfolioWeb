@@ -93,11 +93,7 @@ export default function Details() {
                   zIndex: expandedExp === exp.id ? 10 : 1 
                 }}
               >
-                <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md rounded-2xl p-6 border border-white/30 dark:border-gray-700/30 shadow-lg hover:shadow-2xl transition-all duration-300 h-full flex flex-col relative"
-                  style={{
-                    boxShadow: '0 4px 20px 0 rgba(31, 38, 135, 0.1)',
-                  }}
-                >
+                <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md rounded-2xl p-6 border border-white/30 dark:border-gray-700/30 shadow-lg hover:shadow-2xl transition-all duration-300 h-full flex flex-col relative">
                   {/* Logo and Header */}
                   <div className="flex items-start gap-4 mb-4">
                     {exp.logo && (
@@ -231,12 +227,7 @@ export default function Details() {
                 whileHover={{ scale: 1.01, y: -2 }}
                 className="group"
               >
-                <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md rounded-2xl p-6 border border-white/30 dark:border-gray-700/30 shadow-lg hover:shadow-2xl transition-all duration-300"
-                  style={{
-                    boxShadow: '0 4px 20px 0 rgba(31, 38, 135, 0.1)',
-                    contain: 'layout style paint',
-                  }}
-                >
+                <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md rounded-2xl p-6 border border-white/30 dark:border-gray-700/30 shadow-lg hover:shadow-2xl transition-all duration-300">
                   <div className="flex items-start gap-5">
                     {edu.logo && (
                       <div className="relative w-20 h-20 rounded-xl overflow-hidden bg-white dark:bg-gray-800 p-3 border-2 border-gray-200/50 dark:border-gray-700/50 flex-shrink-0 shadow-md">

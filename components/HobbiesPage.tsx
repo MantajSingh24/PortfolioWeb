@@ -106,8 +106,6 @@ const completedGames: Game[] = [
   },
 ];
 
-const currentlyPlayingGames: Game[] = [];
-
 const bucketListGames: Game[] = [
   {
     id: "8",
