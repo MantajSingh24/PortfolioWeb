@@ -48,10 +48,19 @@ export async function POST(request: NextRequest) {
         console.error("Supabase insert error:", insertError);
         throw new Error("Failed to save submission");
       }
-    } catch (dbError) {
+    } catch (dbError: any) {
       console.error("Database error:", dbError);
+      
+      // Check if it's a Supabase configuration error
+      if (dbError.message?.includes("Supabase environment variables")) {
+        return NextResponse.json(
+          { error: "Email verification system is not configured. Please contact the site administrator or email directly at taranpalbrar58@gmail.com" },
+          { status: 503 }
+        );
+      }
+      
       return NextResponse.json(
-        { error: "Failed to process your submission. Please try again." },
+        { error: "Failed to process your submission. Please try again or email directly at taranpalbrar58@gmail.com" },
         { status: 500 }
       );
     }
