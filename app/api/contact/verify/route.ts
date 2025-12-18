@@ -10,17 +10,25 @@ export const dynamic = 'force-dynamic';
 
 export async function GET(request: NextRequest) {
   try {
+    console.log("🔍 Verification request received");
+    
     const searchParams = request.nextUrl.searchParams;
     const token = searchParams.get("token");
 
     if (!token) {
+      console.log("❌ No token provided");
       return NextResponse.redirect(
         new URL("/contact/verify?status=invalid", request.url)
       );
     }
 
+    console.log("✓ Token received:", token.substring(0, 10) + "...");
+    
     const tokenHash = hashToken(token);
+    console.log("✓ Token hash:", tokenHash.substring(0, 10) + "...");
+    
     const supabase = getSupabaseClient();
+    console.log("✓ Supabase client initialized");
 
     // Fetch the submission
     const { data: submission, error: fetchError } = await supabase
@@ -29,11 +37,21 @@ export async function GET(request: NextRequest) {
       .eq("token_hash", tokenHash)
       .single();
 
-    if (fetchError || !submission) {
+    if (fetchError) {
+      console.error("❌ Supabase fetch error:", fetchError);
       return NextResponse.redirect(
         new URL("/contact/verify?status=invalid", request.url)
       );
     }
+
+    if (!submission) {
+      console.log("❌ No submission found for token hash");
+      return NextResponse.redirect(
+        new URL("/contact/verify?status=invalid", request.url)
+      );
+    }
+
+    console.log("✓ Submission found:", submission.id);
 
     // Check if already verified
     if (submission.verified_at) {
