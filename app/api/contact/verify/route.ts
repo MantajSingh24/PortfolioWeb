@@ -10,31 +10,32 @@ export const dynamic = 'force-dynamic';
 
 export async function GET(request: NextRequest) {
   try {
-    console.log("🔍 Verification request received");
-    console.log("🔍 Request URL:", request.url);
-    
     const searchParams = request.nextUrl.searchParams;
     const token = searchParams.get("token");
+    const debug = searchParams.get("debug"); // Add ?debug=1 to see errors
 
     if (!token) {
-      console.log("❌ No token provided");
+      if (debug) {
+        return NextResponse.json({ error: "No token provided" }, { status: 400 });
+      }
       return NextResponse.redirect(
         new URL("/contact/verify?status=invalid", request.nextUrl.origin)
       );
     }
-
-    console.log("✓ Token received:", token.substring(0, 10) + "...");
     
     const tokenHash = hashToken(token);
-    console.log("✓ Token hash:", tokenHash.substring(0, 10) + "...");
     
     // Check if Supabase is configured
     let supabase;
     try {
       supabase = getSupabaseClient();
-      console.log("✓ Supabase client initialized");
-    } catch (supabaseError) {
-      console.error("❌ Supabase not configured:", supabaseError);
+    } catch (supabaseError: any) {
+      if (debug) {
+        return NextResponse.json({ 
+          error: "Supabase not configured", 
+          details: supabaseError.message 
+        }, { status: 500 });
+      }
       return NextResponse.redirect(
         new URL("/contact/verify?status=error", request.nextUrl.origin)
       );
@@ -48,21 +49,28 @@ export async function GET(request: NextRequest) {
       .single();
 
     if (fetchError) {
-      console.error("❌ Supabase fetch error:", fetchError);
-      console.error("Error details:", JSON.stringify(fetchError));
+      if (debug) {
+        return NextResponse.json({ 
+          error: "Database fetch error", 
+          details: fetchError 
+        }, { status: 500 });
+      }
       return NextResponse.redirect(
         new URL("/contact/verify?status=invalid", request.nextUrl.origin)
       );
     }
 
     if (!submission) {
-      console.log("❌ No submission found for token hash");
+      if (debug) {
+        return NextResponse.json({ 
+          error: "No submission found for token hash",
+          tokenHash: tokenHash.substring(0, 10) + "..." 
+        }, { status: 404 });
+      }
       return NextResponse.redirect(
         new URL("/contact/verify?status=invalid", request.nextUrl.origin)
       );
     }
-
-    console.log("✓ Submission found:", submission.id);
 
     // Check if already verified
     if (submission.verified_at) {
@@ -152,9 +160,15 @@ export async function GET(request: NextRequest) {
     return NextResponse.redirect(
       new URL("/contact/verify?status=success", request.nextUrl.origin)
     );
-  } catch (error) {
-    console.error("❌ Unexpected error verifying contact submission:", error);
-    console.error("Error stack:", error instanceof Error ? error.stack : "No stack trace");
+  } catch (error: any) {
+    const debug = request.nextUrl.searchParams.get("debug");
+    if (debug) {
+      return NextResponse.json({ 
+        error: "Unexpected error", 
+        details: error.message,
+        stack: error.stack 
+      }, { status: 500 });
+    }
     return NextResponse.redirect(
       new URL("/contact/verify?status=error", request.nextUrl.origin)
     );
