@@ -19,29 +19,37 @@ export default function Navbar() {
 
   useEffect(() => {
     let ticking = false;
+    let lastScrollY = 0;
     
     const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      // Only update if scroll changed significantly (performance optimization)
+      if (Math.abs(currentScrollY - lastScrollY) < 5 && ticking) return;
+      
       if (!ticking) {
         window.requestAnimationFrame(() => {
-          setScrolled(window.scrollY > 20);
+          setScrolled(currentScrollY > 20);
           
-          // Update active section based on scroll position
-          const sections = navLinks.map(link => link.href.substring(1));
-          const scrollPosition = window.scrollY + 150; // Increased threshold for better detection
-          
-          // Check sections from bottom to top, find the one we're currently in
-          for (let i = sections.length - 1; i >= 0; i--) {
-            const section = document.getElementById(sections[i]);
-            if (section) {
-              const sectionTop = section.offsetTop;
-              const sectionBottom = sectionTop + section.offsetHeight;
-              
-              // Check if scroll position is within this section
-              if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-                setActiveSection(sections[i]);
-                break;
+          // Update active section only every 10px scroll (performance optimization)
+          if (Math.abs(currentScrollY - lastScrollY) > 10) {
+            const sections = navLinks.map(link => link.href.substring(1));
+            const scrollPosition = currentScrollY + 150;
+            
+            // Check sections from bottom to top
+            for (let i = sections.length - 1; i >= 0; i--) {
+              const section = document.getElementById(sections[i]);
+              if (section) {
+                const sectionTop = section.offsetTop;
+                const sectionBottom = sectionTop + section.offsetHeight;
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                  setActiveSection(sections[i]);
+                  break;
+                }
               }
             }
+            lastScrollY = currentScrollY;
           }
           
           ticking = false;
@@ -125,7 +133,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-24 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ${
+      className={`fixed top-16 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ${
         scrolled
           ? "bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl shadow-lg border border-gray-200/50 dark:border-gray-700/50"
           : "bg-white/70 dark:bg-gray-900/70 backdrop-blur-lg border border-gray-200/30 dark:border-gray-700/30"

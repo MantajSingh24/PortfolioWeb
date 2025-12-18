@@ -42,27 +42,16 @@ export default function LatestUpdateBanner() {
         className="fixed top-0 left-0 right-0 z-[9999] pointer-events-none"
       >
         <div className="pointer-events-auto bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-600 text-white shadow-lg">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-1.5">
             <div className="flex items-center justify-between flex-wrap gap-2">
               {/* Left side - Icon and content */}
               <div className="flex items-center gap-3 flex-1 min-w-0">
-                {/* Sparkle icon */}
-                <motion.div
-                  animate={{ 
-                    rotate: [0, 10, -10, 10, 0],
-                    scale: [1, 1.1, 1, 1.1, 1]
-                  }}
-                  transition={{ 
-                    duration: 2,
-                    repeat: Infinity,
-                    repeatDelay: 3
-                  }}
-                  className="flex-shrink-0"
-                >
+                {/* Sparkle icon - animation removed for performance */}
+                <div className="flex-shrink-0">
                   <svg className="w-6 h-6 text-yellow-300" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                   </svg>
-                </motion.div>
+                </div>
 
                 {/* Content */}
                 <div className="flex-1 min-w-0">
@@ -110,21 +99,8 @@ export default function LatestUpdateBanner() {
             </div>
           </div>
 
-          {/* Animated underline */}
-          <motion.div
-            className="h-0.5 bg-gradient-to-r from-yellow-300 via-pink-300 to-yellow-300 mt-1"
-            animate={{
-              backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-            }}
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-              ease: "linear",
-            }}
-            style={{
-              backgroundSize: "200% 100%",
-            }}
-          />
+          {/* Static underline - animation removed for performance */}
+          <div className="h-0.5 bg-gradient-to-r from-yellow-300 via-pink-300 to-yellow-300 mt-1" />
         </div>
       </motion.div>
     </AnimatePresence>

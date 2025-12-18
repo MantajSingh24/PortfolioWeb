@@ -1,12 +1,40 @@
 "use client";
 
 import { experiences, education } from "@/lib/experience";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function Details() {
   const [expandedExp, setExpandedExp] = useState<string | null>(null);
+  const detailsRef = useRef<{ [key: string]: HTMLDivElement | null }>({});
+
+  // Click outside to close
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (expandedExp && detailsRef.current[expandedExp]) {
+        const detailsElement = detailsRef.current[expandedExp];
+        const buttonElement = (event.target as HTMLElement).closest('button');
+        
+        // Don't close if clicking the button itself or inside the details
+        if (
+          detailsElement && 
+          !detailsElement.contains(event.target as Node) &&
+          (!buttonElement || !buttonElement.textContent?.includes('Details'))
+        ) {
+          setExpandedExp(null);
+        }
+      }
+    };
+
+    if (expandedExp) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [expandedExp]);
 
   return (
     <div className="relative overflow-hidden pt-16">
@@ -61,11 +89,13 @@ export default function Details() {
                   ease: [0.25, 0.1, 0.25, 1]
                 }}
                 className="group relative"
+                style={{ 
+                  zIndex: expandedExp === exp.id ? 10 : 1 
+                }}
               >
-                <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md rounded-2xl p-6 border border-white/30 dark:border-gray-700/30 shadow-lg hover:shadow-2xl transition-all duration-300 h-full flex flex-col"
+                <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md rounded-2xl p-6 border border-white/30 dark:border-gray-700/30 shadow-lg hover:shadow-2xl transition-all duration-300 h-full flex flex-col relative"
                   style={{
                     boxShadow: '0 4px 20px 0 rgba(31, 38, 135, 0.1)',
-                    contain: 'layout style paint',
                   }}
                 >
                   {/* Logo and Header */}
@@ -132,23 +162,30 @@ export default function Details() {
                         </motion.svg>
                       </button>
                       
-                      {expandedExp === exp.id && (
-                        <motion.div
-                          key={`details-${exp.id}`}
-                          initial={{ opacity: 0, height: 0 }}
-                          animate={{ opacity: 1, height: "auto" }}
-                          exit={{ opacity: 0, height: 0 }}
-                          transition={{ duration: 0.3 }}
-                          className="mt-3 space-y-2 pt-3 border-t border-gray-200 dark:border-gray-700"
-                        >
-                          {exp.fullDescription.map((item, idx) => (
-                            <div key={`${exp.id}-${idx}`} className="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-400">
-                              <span className="text-indigo-500 dark:text-indigo-400 mt-1 flex-shrink-0">•</span>
-                              <span>{item}</span>
+                      <AnimatePresence>
+                        {expandedExp === exp.id && (
+                          <motion.div
+                            ref={(el) => {
+                              detailsRef.current[exp.id] = el;
+                            }}
+                            key={`details-${exp.id}`}
+                            initial={{ opacity: 0, scale: 0.95, y: -10 }}
+                            animate={{ opacity: 1, scale: 1, y: 0 }}
+                            exit={{ opacity: 0, scale: 0.95, y: -10 }}
+                            transition={{ duration: 0.2 }}
+                            className="absolute top-full left-0 right-0 mt-2 p-4 bg-white dark:bg-gray-800 rounded-xl shadow-2xl border-2 border-indigo-200 dark:border-indigo-700 z-20 max-h-64 overflow-y-auto"
+                          >
+                            <div className="space-y-2">
+                              {exp.fullDescription.map((item, idx) => (
+                                <div key={`${exp.id}-${idx}`} className="flex items-start gap-2 text-sm text-gray-700 dark:text-gray-300">
+                                  <span className="text-indigo-500 dark:text-indigo-400 mt-1 flex-shrink-0">•</span>
+                                  <span>{item}</span>
+                                </div>
+                              ))}
                             </div>
-                          ))}
-                        </motion.div>
-                      )}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
                     </div>
                   )}
                 </div>

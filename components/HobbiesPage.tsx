@@ -29,6 +29,7 @@ const shows = [
     name: "Dragon Ball (Classic)",
     description: "Wanted to watch the anime which started it all. Currently on episode 90 as of November 13. The fights and characters are great.",
     image: "/dragin ball.jpg",
+    progress: 90,
   },
 ];
 

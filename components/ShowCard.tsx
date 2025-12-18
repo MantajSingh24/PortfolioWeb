@@ -9,6 +9,7 @@ interface ShowCardProps {
     name: string;
     description: string;
     image: string;
+    progress?: number;
   };
   index: number;
 }
@@ -19,20 +20,15 @@ export default function ShowCard({ show, index }: ShowCardProps) {
   
   return (
     <motion.div
-        initial={{ opacity: 0, y: 15 }}
+        initial={{ opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-50px" }}
+        viewport={{ once: true, margin: "-100px" }}
         transition={{ 
-          delay: index * 0.02, 
-          duration: 0.3,
-          ease: [0.25, 0.1, 0.25, 1]
+          delay: Math.min(index * 0.01, 0.2), 
+          duration: 0.2,
+          ease: "easeOut"
         }}
-        whileHover={{ 
-          scale: 1.03,
-          y: -3,
-          transition: { duration: 0.2 }
-        }}
-        className="bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl rounded-2xl overflow-hidden border border-white/30 dark:border-gray-700/30 cursor-pointer shadow-lg hover:shadow-xl transition-all duration-300"
+        className="bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl rounded-2xl overflow-hidden border border-white/30 dark:border-gray-700/30 cursor-pointer shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-[1.02] hover:-translate-y-1"
         style={{
           boxShadow: '0 4px 20px 0 rgba(31, 38, 135, 0.1)',
         }}
@@ -52,6 +48,24 @@ export default function ShowCard({ show, index }: ShowCardProps) {
           <h3 className="text-xs font-medium text-slate-900 dark:text-slate-100 text-center truncate">
             {show.name}
           </h3>
+          {show.progress && (
+            <div className="mt-2">
+              <div className="flex justify-between items-center mb-1">
+                <span className="text-[10px] text-gray-600 dark:text-gray-400 font-medium">
+                  {show.progress}% Completed
+                </span>
+              </div>
+              <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-1.5 overflow-hidden">
+                <motion.div
+                  initial={{ width: 0 }}
+                  whileInView={{ width: `${show.progress}%` }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
+                  className="bg-gradient-to-r from-indigo-500 to-purple-500 h-full rounded-full"
+                />
+              </div>
+            </div>
+          )}
         </div>
     </motion.div>
   );
