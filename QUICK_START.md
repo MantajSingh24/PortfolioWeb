@@ -102,3 +102,4 @@ See `MAGIC_LINK_SETUP.md` for complete details, troubleshooting, and advanced co
 
 That's it! Your contact form is now spam-protected. 🎉
 
+

@@ -132,8 +132,8 @@ export async function POST(request: NextRequest) {
         const verificationUrl = `https://www.tajdata.co/contact/verify?token=${token}`;
         const messagePreview = message.length > 150 ? message.substring(0, 150) + "..." : message;
 
-        await resend.emails.send({
-          from: "Mantaj Singh <contact@tajdata.co>",
+        const emailResult = await resend.emails.send({
+          from: "Mantaj Singh <onboarding@resend.dev>",
           to: email,
           subject: "Confirm your email to send your message to Mantaj",
           html: `
@@ -181,6 +181,8 @@ export async function POST(request: NextRequest) {
             </div>
           `,
         });
+
+        console.log("✅ Verification email sent:", emailResult);
 
         return NextResponse.json(
           { 
