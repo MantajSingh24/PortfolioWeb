@@ -1,13 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import SectionWrapper from "./SectionWrapper";
 import Link from "next/link";
 import Image from "next/image";
 
 export default function AboutSection() {
   return (
-    <SectionWrapper className="min-h-screen flex items-center border-t-2 border-gray-200 dark:border-slate-800">
+    <section className="py-20 px-4 min-h-screen flex items-center border-t-2 border-gray-200 dark:border-slate-800">
       <div className="max-w-6xl mx-auto w-full px-4">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <motion.div
@@ -126,6 +125,6 @@ export default function AboutSection() {
           </motion.div>
         </div>
       </div>
-    </SectionWrapper>
+    </section>
   );
 }

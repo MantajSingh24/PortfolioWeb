@@ -5,6 +5,9 @@ import { hashToken } from "@/lib/token-utils";
 
 const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
 
+// Mark this route as dynamic since it uses searchParams
+export const dynamic = 'force-dynamic';
+
 export async function GET(request: NextRequest) {
   try {
     const searchParams = request.nextUrl.searchParams;
