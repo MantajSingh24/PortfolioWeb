@@ -14,6 +14,7 @@ const navLinks = [
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [visible, setVisible] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
 
@@ -30,6 +31,18 @@ export default function Navbar() {
       if (!ticking) {
         window.requestAnimationFrame(() => {
           setScrolled(currentScrollY > 20);
+          
+          // Auto-hide logic: hide when scrolling down, show when scrolling up
+          if (currentScrollY < 100) {
+            // Always show navbar at the top
+            setVisible(true);
+          } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
+            // Scrolling down & past threshold - hide navbar
+            setVisible(false);
+          } else if (currentScrollY < lastScrollY) {
+            // Scrolling up - show navbar
+            setVisible(true);
+          }
           
           // Update active section only every 10px scroll (performance optimization)
           if (Math.abs(currentScrollY - lastScrollY) > 10) {
@@ -134,6 +147,8 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed top-16 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ${
+        visible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
+      } ${
         scrolled
           ? "bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl shadow-lg border border-gray-200/50 dark:border-gray-700/50"
           : "bg-white/70 dark:bg-gray-900/70 backdrop-blur-lg border border-gray-200/30 dark:border-gray-700/30"
