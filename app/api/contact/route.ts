@@ -133,7 +133,7 @@ export async function POST(request: NextRequest) {
     // Send verification email to the sender
     if (resend) {
       try {
-        const verificationUrl = `https://www.tajdata.co/contact/verify?token=${token}`;
+        const verificationUrl = `https://www.tajdata.co/api/contact/verify?token=${token}`;
         const messagePreview = message.length > 150 ? message.substring(0, 150) + "..." : message;
 
         const emailResult = await resend.emails.send({
