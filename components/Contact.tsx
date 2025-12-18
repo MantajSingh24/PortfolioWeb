@@ -137,33 +137,23 @@ export default function Contact() {
             <div className="grid md:grid-cols-2 gap-6 sm:gap-8 items-start md:items-center">
               {/* Left side - Illustration */}
               <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.3, duration: 0.5 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.2, duration: 0.3 }}
                 className="hidden lg:block"
               >
                 <div className="relative">
                   <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-6">
                     Send a quick note
                   </h3>
-                  {/* Contact Illustration */}
+                  {/* Contact Illustration - animation removed for performance */}
                   <div className="relative w-full aspect-square max-w-md mx-auto">
                     <div className="relative w-full h-full rounded-2xl p-8 flex flex-col items-center justify-center shadow-xl overflow-hidden bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl border border-white/30 dark:border-gray-700/30">
-                      <motion.div
-                        animate={{
-                          y: [0, -10, 0],
-                        }}
-                        transition={{
-                          duration: 3,
-                          repeat: Infinity,
-                          ease: "easeInOut",
-                        }}
-                        className="relative z-10 mb-6"
-                      >
+                      <div className="relative z-10 mb-6">
                         <svg className="w-24 h-24 text-indigo-600 dark:text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                         </svg>
-                      </motion.div>
+                      </div>
                       <div className="relative z-10 text-center">
                         <p className="text-slate-900 dark:text-slate-100 text-lg font-semibold mb-2">Let's Connect!</p>
                         <p className="text-gray-600 dark:text-gray-400 text-sm">I'm always open to discussing new projects and opportunities</p>
@@ -175,9 +165,9 @@ export default function Contact() {
               
               {/* Right side - Form */}
               <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.4, duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.3, duration: 0.3 }}
                 className="w-full"
               >
                 <p className="text-base sm:text-lg font-semibold text-slate-900 dark:text-slate-100 mb-2 text-center md:text-left">

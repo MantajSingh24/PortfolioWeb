@@ -182,10 +182,10 @@ export default function HobbiesPage() {
 
         {/* Fav Artists Section - Moved to Top */}
         <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: "-150px" }}
+          transition={{ duration: 0.3 }}
           className="mb-8"
         >
           <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-slate-100 mb-3 sm:mb-4">
@@ -200,10 +200,10 @@ export default function HobbiesPage() {
 
         {/* Shows Currently Watching Section */}
         <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: "-150px" }}
+          transition={{ duration: 0.3 }}
           className="mb-8"
         >
           <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-slate-100 mb-3 sm:mb-4">
@@ -218,10 +218,10 @@ export default function HobbiesPage() {
 
         {/* Fav Shows Section */}
         <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: "-150px" }}
+          transition={{ duration: 0.3 }}
           className="mb-8"
         >
           <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-slate-100 mb-3 sm:mb-4">
@@ -236,10 +236,10 @@ export default function HobbiesPage() {
 
         {/* Fav Games Section */}
         <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: "-150px" }}
+          transition={{ duration: 0.3 }}
           className="mb-8"
         >
           <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-slate-100 mb-3 sm:mb-4">
@@ -254,10 +254,10 @@ export default function HobbiesPage() {
 
         {/* Games on Bucket List Section */}
         <motion.section
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: "-150px" }}
+          transition={{ duration: 0.3 }}
           className="mb-8"
         >
           <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-slate-100 mb-3 sm:mb-4">
@@ -272,10 +272,10 @@ export default function HobbiesPage() {
 
         {/* Messi Section */}
         <motion.section
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: "-150px" }}
+          transition={{ duration: 0.3 }}
           className="mb-8 flex justify-center"
         >
           <div className="flex items-center gap-2 sm:gap-3 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md rounded-full px-4 sm:px-5 py-2.5 sm:py-3.5 border border-white/30 dark:border-gray-700/30 shadow-lg inline-flex">

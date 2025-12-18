@@ -29,16 +29,15 @@ export default function AnimatedBackground() {
         .particle {
           position: absolute;
           border-radius: 50%;
-          background: rgba(99, 102, 241, 0.1);
-          /* Removed backdrop-filter for better performance */
-          animation: float 25s ease-in-out infinite;
-          will-change: transform;
-          transform: translateZ(0); /* Force GPU acceleration */
+          background: rgba(99, 102, 241, 0.08);
+          animation: float 30s ease-in-out infinite;
+          transform: translateZ(0);
+          pointer-events: none;
         }
         .particle-reverse {
-          animation: floatReverse 30s ease-in-out infinite;
-          will-change: transform;
-          transform: translateZ(0); /* Force GPU acceleration */
+          animation: floatReverse 35s ease-in-out infinite;
+          transform: translateZ(0);
+          pointer-events: none;
         }
         @media (prefers-reduced-motion: reduce) {
           .particle, .particle-reverse {
@@ -46,22 +45,20 @@ export default function AnimatedBackground() {
           }
         }
       `}</style>
-      <div className="fixed inset-0 overflow-hidden -z-10" style={{ willChange: 'transform' }}>
+      <div className="fixed inset-0 overflow-hidden -z-10">
         {/* Original gradient background */}
         <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 via-white to-slate-50 dark:from-slate-950 dark:via-slate-900 dark:to-indigo-950" />
         
-        {/* Floating particles/effects - optimized for performance (smaller, fewer) */}
-        <div className="particle w-32 h-32 md:w-48 md:h-48 top-10 left-10 opacity-20" style={{ animationDelay: '0s' }} />
-        <div className="particle particle-reverse w-40 h-40 md:w-64 md:h-64 top-1/3 right-20 opacity-15" style={{ animationDelay: '5s' }} />
-        <div className="particle w-36 h-36 md:w-56 md:h-56 bottom-20 left-1/4 opacity-18" style={{ animationDelay: '10s' }} />
+        {/* Floating particles/effects - minimal for performance */}
+        <div className="particle w-32 h-32 md:w-40 md:h-40 top-10 left-10 opacity-15" style={{ animationDelay: '0s' }} />
+        <div className="particle particle-reverse w-36 h-36 md:w-48 md:h-48 top-1/3 right-20 opacity-12" style={{ animationDelay: '8s' }} />
         
         {/* Subtle grid pattern - optimized */}
         <div 
-          className="absolute inset-0 opacity-[0.02] dark:opacity-[0.03]"
+          className="absolute inset-0 opacity-[0.015] dark:opacity-[0.025] pointer-events-none"
           style={{
-            backgroundImage: 'linear-gradient(rgba(99, 102, 241, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(99, 102, 241, 0.1) 1px, transparent 1px)',
-            backgroundSize: '50px 50px',
-            willChange: 'auto'
+            backgroundImage: 'linear-gradient(rgba(99, 102, 241, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(99, 102, 241, 0.08) 1px, transparent 1px)',
+            backgroundSize: '60px 60px',
           }}
         />
       </div>
