@@ -9,6 +9,23 @@ const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KE
 export const dynamic = 'force-dynamic';
 
 export async function GET(request: NextRequest) {
+  // First, check if debug mode is on - return immediately if yes
+  const debug = request.nextUrl.searchParams.get("debug");
+  
+  if (debug) {
+    return NextResponse.json({ 
+      status: "debug_mode_active",
+      message: "Verification route is running!",
+      url: request.url,
+      hasToken: !!request.nextUrl.searchParams.get("token"),
+      envCheck: {
+        supabaseUrl: !!process.env.NEXT_PUBLIC_SUPABASE_URL,
+        supabaseKey: !!process.env.SUPABASE_SERVICE_ROLE_KEY,
+        resendKey: !!process.env.RESEND_API_KEY
+      }
+    });
+  }
+  
   try {
     const searchParams = request.nextUrl.searchParams;
     const token = searchParams.get("token");
