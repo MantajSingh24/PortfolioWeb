@@ -68,7 +68,7 @@ export async function GET(request: NextRequest) {
     if (resend) {
       try {
         await resend.emails.send({
-          from: "Portfolio Contact <contact@tajdata.co>",
+          from: "Mantaj Singh <contact@tajdata.co>",
           to: "taranpalbrar58@gmail.com",
           replyTo: submission.email,
           subject: `Contact from ${submission.name} - tajdata.co Portfolio`,

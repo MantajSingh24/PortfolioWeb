@@ -133,7 +133,7 @@ export async function POST(request: NextRequest) {
         const messagePreview = message.length > 150 ? message.substring(0, 150) + "..." : message;
 
         const emailResult = await resend.emails.send({
-          from: "Mantaj Singh <onboarding@resend.dev>",
+          from: "Mantaj Singh <contact@tajdata.co>",
           to: email,
           subject: "Confirm your email to send your message to Mantaj",
           html: `
