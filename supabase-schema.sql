@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS contact_submissions (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   name TEXT NOT NULL,
   email TEXT NOT NULL,
-  message TEXT NOT NULL,
+  message TEXT NOT NULL,S
   token_hash TEXT NOT NULL UNIQUE,
   expires_at TIMESTAMPTZ NOT NULL,
   verified_at TIMESTAMPTZ NULL,

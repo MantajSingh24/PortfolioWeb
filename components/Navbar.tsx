@@ -125,7 +125,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-2 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ${
+      className={`fixed top-24 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ${
         scrolled
           ? "bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl shadow-lg border border-gray-200/50 dark:border-gray-700/50"
           : "bg-white/70 dark:bg-gray-900/70 backdrop-blur-lg border border-gray-200/30 dark:border-gray-700/30"

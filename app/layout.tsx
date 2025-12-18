@@ -4,6 +4,7 @@ import "./globals.css";
 import ThemeProviderWrapper from "@/components/ThemeProviderWrapper";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import LatestUpdateBanner from "@/components/LatestUpdateBanner";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -83,6 +84,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
         <ThemeProviderWrapper>
+          <LatestUpdateBanner />
           <Navbar />
           <main className="relative min-h-screen">
             {children}
