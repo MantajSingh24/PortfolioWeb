@@ -19,9 +19,9 @@ export default function MusicCard({ artist, index }: MusicCardProps) {
   
   return (
     <div
-        className="bg-white/70 dark:bg-[#151515]/90 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/30 dark:border-gray-700/30 cursor-pointer shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-[1.01]"
+        className="bg-[#151515]/90 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-700/30 cursor-pointer shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-[1.01]"
       >
-        <div className="relative w-32 h-32 mx-auto mt-4 bg-gray-100 dark:bg-slate-800 rounded-full">
+        <div className="relative w-32 h-32 mx-auto mt-4 bg-slate-800 rounded-full">
           <Image
             src={artist.image}
             alt={artist.name}
@@ -33,11 +33,11 @@ export default function MusicCard({ artist, index }: MusicCardProps) {
           />
         </div>
         <div className="p-2">
-          <h3 className="text-xs font-medium text-slate-900 dark:text-slate-100 text-center truncate mb-1">
+          <h3 className="text-xs font-medium text-slate-100 text-center truncate mb-1">
             {artist.name}
           </h3>
           {artist.name === "Kunwxrr" && (
-            <p className="text-xs text-gray-600 dark:text-gray-400 text-center mb-2">
+            <p className="text-xs text-gray-400 text-center mb-2">
               Childhood friend
             </p>
           )}
@@ -45,7 +45,7 @@ export default function MusicCard({ artist, index }: MusicCardProps) {
             href={artist.spotifyUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-1 text-xs text-green-600 dark:text-green-400 hover:text-green-700 dark:hover:text-green-300 transition-colors"
+            className="flex items-center justify-center gap-1 text-xs text-green-400 hover:text-green-300 transition-colors"
             onClick={(e) => e.stopPropagation()}
           >
             <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">

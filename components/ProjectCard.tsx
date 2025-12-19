@@ -43,7 +43,7 @@ const skillIcons: { [key: string]: string } = {
 export default function ProjectCard({ project, index }: ProjectCardProps) {
   return (
     <div
-      className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-150 border-2 border-gray-200/50 dark:border-gray-800/50"
+      className="bg-gray-900/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-150 border-2 border-gray-800/50"
     >
       <div
         className="aspect-video relative overflow-hidden"
@@ -66,14 +66,14 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
         )}
       </div>
       <div className="p-3 sm:p-4">
-        <h3 className="text-base sm:text-lg font-semibold text-slate-900 dark:text-gray-300 mb-2">
+        <h3 className="text-base sm:text-lg font-semibold text-gray-300 mb-2">
           {project.title}
         </h3>
-        <p className="text-gray-600 dark:text-gray-300 mb-3 text-xs sm:text-sm leading-relaxed">
+        <p className="text-gray-300 mb-3 text-xs sm:text-sm leading-relaxed">
           {project.description}
         </p>
         <div className="mb-3">
-          <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 mb-1.5 uppercase tracking-wide">
+          <p className="text-xs font-semibold text-gray-400 mb-1.5 uppercase tracking-wide">
             Technologies:
           </p>
           <div className="flex flex-wrap gap-1.5">
@@ -82,7 +82,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
               return (
               <span
                 key={tech}
-                className="px-2 py-1 text-xs rounded-md bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-slate-700 font-medium flex items-center gap-1 cursor-pointer hover:bg-gray-200 dark:hover:bg-slate-700 transition-colors"
+                className="px-2 py-1 text-xs rounded-md bg-slate-800 text-gray-300 border border-slate-700 font-medium flex items-center gap-1 cursor-pointer hover:bg-slate-700 transition-colors"
               >
                   <span>{icon}</span>
                   {tech}

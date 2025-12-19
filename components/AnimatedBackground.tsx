@@ -158,7 +158,7 @@ export default function AnimatedBackground() {
       // Time for animations
       const time = (Date.now() - startTime) * 0.001;
 
-      // Clear canvas with dark space background - lighter black for better visibility
+      // Clear canvas with dark background
       ctx.fillStyle = "#151515";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 

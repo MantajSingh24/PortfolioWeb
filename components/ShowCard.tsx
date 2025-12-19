@@ -19,9 +19,9 @@ export default function ShowCard({ show, index }: ShowCardProps) {
   
   return (
     <div
-        className="bg-white/70 dark:bg-[#151515]/90 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/30 dark:border-gray-700/30 cursor-pointer shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-[1.01]"
+        className="bg-[#151515]/90 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-700/30 cursor-pointer shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-[1.01]"
       >
-        <div className="relative w-24 h-36 mx-auto mt-2 bg-gray-100 dark:bg-slate-800 rounded">
+        <div className="relative w-24 h-36 mx-auto mt-2 bg-slate-800 rounded">
           <Image
             src={show.image}
             alt={show.name}
@@ -33,17 +33,17 @@ export default function ShowCard({ show, index }: ShowCardProps) {
           />
         </div>
         <div className="p-2">
-          <h3 className="text-xs font-medium text-slate-900 dark:text-slate-100 text-center truncate">
+          <h3 className="text-xs font-medium text-slate-100 text-center truncate">
             {show.name}
           </h3>
           {show.progress && (
             <div className="mt-2">
               <div className="flex justify-between items-center mb-1">
-                <span className="text-[10px] text-gray-600 dark:text-gray-400 font-medium">
+                <span className="text-[10px] text-gray-400 font-medium">
                   {show.progress}% Completed
                 </span>
               </div>
-              <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-1.5 overflow-hidden">
+              <div className="w-full bg-gray-700 rounded-full h-1.5 overflow-hidden">
                 <div
                   className="bg-gradient-to-r from-yellow-100/90 to-yellow-50 h-full rounded-full"
                   style={{ width: `${show.progress}%` }}

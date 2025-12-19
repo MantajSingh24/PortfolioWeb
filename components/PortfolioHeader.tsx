@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import ThemeToggle from "./ThemeToggle";
 
 const navLinks = [
   { name: "About", href: "#home" },
@@ -12,8 +11,7 @@ const navLinks = [
 ];
 
 export default function PortfolioHeader() {
-  const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const [showTitle, setShowTitle] = useState(true);
 
   useEffect(() => {
     let ticking = false;
@@ -23,19 +21,14 @@ export default function PortfolioHeader() {
         window.requestAnimationFrame(() => {
           const currentScrollY = window.scrollY;
           
-          // Hide navbar when scrolling down, show when scrolling up
+          // Only show title when at the top of the first page
           if (currentScrollY < 100) {
-            // Always show at top
-            setIsVisible(true);
-          } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
-            // Scrolling down - hide
-            setIsVisible(false);
-          } else if (currentScrollY < lastScrollY) {
-            // Scrolling up - show
-            setIsVisible(true);
+            setShowTitle(true);
+          } else {
+            // Hide title when scrolled away from top
+            setShowTitle(false);
           }
           
-          setLastScrollY(currentScrollY);
           ticking = false;
         });
         ticking = true;
@@ -44,13 +37,11 @@ export default function PortfolioHeader() {
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
+  }, []);
 
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-50 bg-transparent transition-transform duration-300 ease-in-out ${
-        isVisible ? "translate-y-0" : "-translate-y-full"
-      }`}
+      className="fixed top-0 left-0 right-0 z-50 bg-transparent"
       style={{ willChange: "transform" }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -79,7 +70,9 @@ export default function PortfolioHeader() {
           </div>
 
           {/* Center - Title */}
-          <div className="absolute left-1/2 -translate-x-1/2 text-center">
+          <div className={`absolute left-1/2 -translate-x-1/2 text-center transition-opacity duration-300 ${
+            showTitle ? "opacity-100" : "opacity-0 pointer-events-none"
+          }`}>
             <h1 className="text-xl font-bold text-yellow-100">
               Mantaj Singh&apos;s Portfolio
             </h1>
@@ -88,7 +81,7 @@ export default function PortfolioHeader() {
             </p>
           </div>
 
-          {/* Right side - Action buttons and theme toggle */}
+          {/* Right side - Action buttons */}
           <div className="flex items-center gap-2">
             <a
               href="/Mantaj_Singh_Resume.pdf"
@@ -107,9 +100,6 @@ export default function PortfolioHeader() {
             >
               Get in Touch
             </a>
-            <div className="ml-2 pl-2 border-l border-gray-700">
-              <ThemeToggle />
-            </div>
           </div>
         </div>
       </div>
