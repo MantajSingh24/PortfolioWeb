@@ -55,15 +55,94 @@ button, a {
   touch-action: manipulation;
 }
 
-/* GPU acceleration for smooth interactions */
-button, a, .transition-all {
-  will-change: transform;
+/* GPU acceleration for smooth interactions - optimized */
+button, a {
+  will-change: auto;
   transform: translateZ(0);
+}
+
+/* Reduce will-change usage for better performance */
+.transition-all {
+  will-change: auto;
+}
+
+/* Optimize scroll performance */
+* {
+  scroll-behavior: auto;
+}
+
+/* Reduce repaints */
+img, canvas, video {
+  content-visibility: auto;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+/* Performance: Reduce layout shifts */
+img, video {
+  height: auto;
+}
+
+/* Performance: Optimize font loading */
+@font-face {
+  font-display: swap;
+}
+
+/* Performance: Reduce paint complexity */
+* {
+  contain: layout style paint;
+}
+
+/* Performance: Optimize scrolling */
+html {
+  scroll-padding-top: 80px;
+}
+
+/* Performance: Reduce repaints on scroll */
+section {
+  contain: layout style paint;
+}
+
+/* Simple CSS animations to replace framer-motion */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out;
+}
+
+.animate-fade-in-delay {
+  animation: fade-in 0.5s ease-out 0.4s both;
+}
+
+.animate-fade-in-delay-2 {
+  animation: fade-in 0.5s ease-out 0.6s both;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.3s ease-out 0.2s both;
 }
 

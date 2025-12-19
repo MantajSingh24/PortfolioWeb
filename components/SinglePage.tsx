@@ -1,17 +1,28 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense, lazy } from "react";
 import Image from "next/image";
 import PrismBackground from "./PrismBackground";
-import ProjectCard from "./ProjectCard";
-import { projects } from "@/lib/projects";
-import Skills from "./Skills";
-import Details from "./Details";
-import HobbiesPage from "./HobbiesPage";
-import Contact from "./Contact";
 import PortfolioHeader from "./PortfolioHeader";
 import ScrollToTop from "./ScrollToTop";
-import SectionReveal from "./SectionReveal";
+
+// Lazy load heavy components for code splitting
+const ProjectCard = lazy(() => import("./ProjectCard"));
+const Skills = lazy(() => import("./Skills"));
+const Details = lazy(() => import("./Details"));
+const HobbiesPage = lazy(() => import("./HobbiesPage"));
+const Contact = lazy(() => import("./Contact"));
+const SectionReveal = lazy(() => import("./SectionReveal"));
+
+// Import projects data (lightweight)
+import { projects } from "@/lib/projects";
+
+// Loading fallback component
+const SectionLoader = () => (
+  <div className="min-h-[200px] flex items-center justify-center">
+    <div className="w-8 h-8 border-2 border-yellow-100/30 border-t-yellow-100/90 rounded-full animate-spin" />
+  </div>
+);
 
 export default function SinglePage() {
   const [showTitle, setShowTitle] = useState(false);
@@ -82,7 +93,7 @@ export default function SinglePage() {
 
             {/* Centered Description Box */}
             <div 
-              className={`relative bg-gray-800/10 backdrop-blur-sm p-6 sm:p-8 md:p-10 rounded-2xl border-2 border-yellow-100/40 overflow-hidden shadow-2xl max-w-3xl mx-auto transition-all duration-1000 ease-[cubic-bezier(0.25,0.1,0.25,1)] ${
+              className={`relative bg-gray-800/10 p-6 sm:p-8 md:p-10 rounded-2xl border-2 border-yellow-100/40 overflow-hidden shadow-2xl max-w-3xl mx-auto transition-all duration-1000 ease-[cubic-bezier(0.25,0.1,0.25,1)] ${
                 showDescription 
                   ? "opacity-100 translate-y-0 scale-100" 
                   : "opacity-0 translate-y-12 scale-95"
@@ -157,55 +168,67 @@ export default function SinglePage() {
 
       </section>
 
-      {/* Experience Section */}
+      {/* Experience Section - Lazy Loaded */}
       <section id="experience" className="relative -mt-1 -mb-1">
-        <SectionReveal className="relative z-10">
-          <Details />
-        </SectionReveal>
+        <Suspense fallback={<SectionLoader />}>
+          <SectionReveal className="relative z-10">
+            <Details />
+          </SectionReveal>
+        </Suspense>
       </section>
 
-      {/* Projects Section */}
+      {/* Projects Section - Lazy Loaded */}
       <section id="projects" className="relative -mt-1 -mb-1">
-        <SectionReveal className="relative z-10">
-          <div className="relative overflow-hidden pt-16">
-            <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
-              <div className="text-center mb-8 sm:mb-12">
-                <h2 className="text-3xl sm:text-4xl font-bold text-gray-300 mb-2">
-                  Featured Projects
-                </h2>
-                <p className="text-gray-300 text-base sm:text-lg">
-                  Open source contributions, AI innovations, and automation tools that make a real impact
-                </p>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
-                {projects.map((project, index) => (
-                  <ProjectCard key={project.id} project={project} index={index} />
-                ))}
+        <Suspense fallback={<SectionLoader />}>
+          <SectionReveal className="relative z-10">
+            <div className="relative overflow-hidden pt-16">
+              <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
+                <div className="text-center mb-8 sm:mb-12">
+                  <h2 className="text-3xl sm:text-4xl font-bold text-gray-300 mb-2">
+                    Featured Projects
+                  </h2>
+                  <p className="text-gray-300 text-base sm:text-lg">
+                    Open source contributions, AI innovations, and automation tools that make a real impact
+                  </p>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
+                  {projects.map((project, index) => (
+                    <Suspense key={project.id} fallback={<SectionLoader />}>
+                      <ProjectCard project={project} index={index} />
+                    </Suspense>
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
-        </SectionReveal>
+          </SectionReveal>
+        </Suspense>
       </section>
 
-      {/* Skills Section */}
+      {/* Skills Section - Lazy Loaded */}
       <section id="skills" className="relative -mt-1 -mb-1">
-        <SectionReveal className="relative z-10">
-          <Skills />
-        </SectionReveal>
+        <Suspense fallback={<SectionLoader />}>
+          <SectionReveal className="relative z-10">
+            <Skills />
+          </SectionReveal>
+        </Suspense>
       </section>
 
-      {/* Hobbies Section */}
+      {/* Hobbies Section - Lazy Loaded */}
       <section id="hobbies" className="relative -mt-1 -mb-1">
-        <SectionReveal className="relative z-10">
-          <HobbiesPage />
-        </SectionReveal>
+        <Suspense fallback={<SectionLoader />}>
+          <SectionReveal className="relative z-10">
+            <HobbiesPage />
+          </SectionReveal>
+        </Suspense>
       </section>
 
-      {/* Contact Section */}
+      {/* Contact Section - Lazy Loaded */}
       <section id="contact" className="relative -mt-1">
-        <SectionReveal className="relative z-10">
-          <Contact />
-        </SectionReveal>
+        <Suspense fallback={<SectionLoader />}>
+          <SectionReveal className="relative z-10">
+            <Contact />
+          </SectionReveal>
+        </Suspense>
       </section>
 
       {/* Scroll to Top Button */}
@@ -213,4 +236,3 @@ export default function SinglePage() {
     </div>
   );
 }
-

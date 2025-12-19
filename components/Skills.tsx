@@ -1,48 +1,106 @@
 "use client";
 
-import SkillBadge from "./SkillBadge";
-import { skillGroups } from "@/lib/skills";
+import { skillCategories } from "@/lib/skills";
+
+const skillIcons: { [key: string]: string } = {
+  // Programming Languages
+  Python: "🐍",
+  Java: "☕",
+  C: "⚙️",
+  SQL: "🗄️",
+  JavaScript: "📜",
+  TypeScript: "📘",
+  R: "📊",
+  
+  // Data Analytics & Science
+  Pandas: "🐼",
+  "Scikit-learn": "🤖",
+  "Machine Learning": "🤖",
+  "Data Science": "📊",
+  "Jupyter Lab/Notebook": "📓",
+  "Jupyter Notebooks": "📓",
+  
+  // Databases & Data Tools
+  PostgreSQL: "🐘",
+  MongoDB: "🍃",
+  Excel: "📊",
+  "Power BI": "📊",
+  Tableau: "📈",
+  "ETL Processes": "⚙️",
+  "Data Visualization": "📊",
+  "Data Warehousing": "🏭",
+  
+  // Web Development
+  React: "⚛️",
+  "Next.js": "▲",
+  "Node.js": "🟢",
+  "Express.js": "🚂",
+  "HTML/CSS": "🌐",
+  "Tailwind CSS": "💨",
+  
+  // Cloud & DevOps
+  "Git/GitHub": "🐙",
+  Git: "📦",
+  GitHub: "🐙",
+  Docker: "🐳",
+  Vercel: "▲",
+  "Automation Scripts": "⚙️",
+  
+  // Tools & Platforms
+  "VS Code": "💻",
+};
 
 export default function Skills() {
   return (
     <div className="relative overflow-hidden pt-16">
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
+        {/* Header */}
         <div className="text-center mb-6 sm:mb-8">
-          <h2 className="text-3xl sm:text-4xl font-bold text-slate-100 mb-2">
-            Skills
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-300 mb-3">
+            Skills & Technologies
           </h2>
           <p className="text-gray-400 text-base sm:text-lg">
-            Technologies and tools I work with
+            A comprehensive overview of my technical expertise across AI, data engineering, and software development
           </p>
         </div>
-        <div
-          className="bg-[#151515] backdrop-blur-md rounded-3xl p-4 sm:p-6 md:p-8 border border-gray-700/30 shadow-2xl"
-          style={{
-            boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.15)',
-            contain: 'layout style paint',
-          }}
-        >
-          <div className="space-y-8">
-            {skillGroups.map((group, groupIndex) => (
-              <div
-                key={group.category}
-                className={groupIndex > 0 ? "pt-8 border-t border-gray-200/50 dark:border-gray-700/50" : ""}
-              >
-                <h3 className="text-xl font-semibold text-slate-100 mb-4">
-                  {group.category}
+
+        {/* Skill Categories Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+          {skillCategories.map((category, index) => (
+            <div
+              key={category.category}
+              className="bg-[#151515] rounded-xl p-4 sm:p-5 border border-gray-700/30 shadow-lg hover:shadow-2xl transition-all duration-300"
+            >
+              {/* Category Header */}
+              <div className="flex items-center gap-2.5 mb-3">
+                <div className="text-2xl">{category.icon}</div>
+                <h3 className="text-lg font-bold text-gray-300">
+                  {category.category}
                 </h3>
-                <div className="flex flex-wrap gap-3">
-                  {group.skills.map((skill, skillIndex) => (
-                    <SkillBadge
-                      key={skill}
-                      skill={skill}
-                      index={groupIndex * 10 + skillIndex}
-                    />
-                  ))}
-                </div>
               </div>
-            ))}
-          </div>
+
+              {/* Description */}
+              <p className="text-xs text-gray-400 mb-4 leading-relaxed">
+                {category.description}
+              </p>
+
+              {/* Skills List - Golden Circular Boxes with Icons */}
+              <div className="flex flex-col gap-2">
+                {category.skills.map((skill, skillIndex) => {
+                  const icon = skillIcons[skill.name] || "💻";
+                  return (
+                    <div
+                      key={`${category.category}-${skillIndex}`}
+                      className="px-3 py-1.5 rounded-full bg-yellow-100/90 text-gray-900 text-sm font-medium border border-yellow-100/50 shadow-sm hover:shadow-md transition-all duration-200 w-fit flex items-center gap-2"
+                    >
+                      <span className="text-base">{icon}</span>
+                      <span>{skill.name}</span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>

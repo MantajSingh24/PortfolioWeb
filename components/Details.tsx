@@ -52,7 +52,7 @@ export default function Details() {
             {experiences.map((exp, index) => (
               <div
                 key={exp.id}
-                className="bg-[#151515] backdrop-blur-md rounded-2xl p-6 border border-gray-700/30 shadow-lg hover:shadow-2xl transition-all duration-300"
+                className="bg-[#151515] rounded-2xl p-6 border border-gray-700/30 shadow-lg hover:shadow-2xl transition-all duration-300"
               >
                 {/* Header with Logo */}
                 <div className="flex items-start gap-4 mb-4">

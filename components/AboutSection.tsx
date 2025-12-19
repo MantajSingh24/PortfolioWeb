@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -9,12 +8,7 @@ export default function AboutSection() {
     <section className="py-20 px-4 min-h-screen flex items-center border-t-2 border-gray-200 dark:border-slate-800">
       <div className="max-w-6xl mx-auto w-full px-4">
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            className="order-2 md:order-1 space-y-6"
-          >
+          <div className="order-2 md:order-1 space-y-6">
             <div className="bg-white dark:bg-slate-900 p-8 rounded-2xl border-2 border-gray-200 dark:border-slate-800 shadow-lg">
               <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
                 I&apos;m a passionate Data Analytics and Software Development student at Acadia University, 
@@ -31,7 +25,7 @@ export default function AboutSection() {
                 href="https://www.linkedin.com/in/mantaj-s-9448a7271"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 rounded-lg bg-gray-100 dark:bg-slate-800 hover:bg-gray-200 dark:hover:bg-slate-700 flex items-center justify-center transition-colors border-2 border-gray-300 dark:border-slate-700"
+                className="w-12 h-12 rounded-lg bg-gray-100 dark:bg-slate-800 hover:bg-gray-200 dark:hover:bg-slate-700 flex items-center justify-center transition-colors duration-150 border-2 border-gray-300 dark:border-slate-700"
                 aria-label="LinkedIn"
               >
                 <svg
@@ -46,7 +40,7 @@ export default function AboutSection() {
                 href="https://github.com/MantajSingh24"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 rounded-lg bg-gray-100 dark:bg-slate-800 hover:bg-gray-200 dark:hover:bg-slate-700 flex items-center justify-center transition-colors border-2 border-gray-300 dark:border-slate-700"
+                className="w-12 h-12 rounded-lg bg-gray-100 dark:bg-slate-800 hover:bg-gray-200 dark:hover:bg-slate-700 flex items-center justify-center transition-colors duration-150 border-2 border-gray-300 dark:border-slate-700"
                 aria-label="GitHub"
               >
                 <svg
@@ -63,7 +57,7 @@ export default function AboutSection() {
               </a>
               <a
                 href="mailto:taranpalbrar58@gmail.com"
-                className="w-12 h-12 rounded-lg bg-gray-100 dark:bg-slate-800 hover:bg-gray-200 dark:hover:bg-slate-700 flex items-center justify-center transition-colors border-2 border-gray-300 dark:border-slate-700"
+                className="w-12 h-12 rounded-lg bg-gray-100 dark:bg-slate-800 hover:bg-gray-200 dark:hover:bg-slate-700 flex items-center justify-center transition-colors duration-150 border-2 border-gray-300 dark:border-slate-700"
                 aria-label="Email"
               >
                 <svg
@@ -83,35 +77,26 @@ export default function AboutSection() {
             </div>
 
             <div className="flex flex-wrap gap-4 pt-4">
-              <motion.a
+              <a
                 href="/Mantaj_Singh_Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-3 px-6 py-3 accent-btn rounded-lg font-medium transition-colors border-2 shadow-lg hover:shadow-xl"
+                className="inline-flex items-center gap-3 px-6 py-3 accent-btn rounded-lg font-medium transition-all duration-150 border-2 shadow-lg hover:shadow-xl hover:scale-105"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
                 <span>View Mantaj Singh&apos;s Resume</span>
-              </motion.a>
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Link
-                  href="/details"
-                  className="inline-block px-6 py-3 bg-white dark:bg-slate-800 hover:bg-gray-50 dark:hover:bg-slate-700 text-gray-900 dark:text-gray-100 rounded-lg font-medium transition-colors border-2 border-gray-300 dark:border-slate-700"
-                >
-                  More Information
-                </Link>
-              </motion.div>
+              </a>
+              <Link
+                href="/details"
+                className="inline-block px-6 py-3 bg-white dark:bg-slate-800 hover:bg-gray-50 dark:hover:bg-slate-700 text-gray-900 dark:text-gray-100 rounded-lg font-medium transition-colors duration-150 border-2 border-gray-300 dark:border-slate-700 hover:scale-105"
+              >
+                More Information
+              </Link>
             </div>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex justify-center order-1 md:order-2"
-          >
+          </div>
+          <div className="flex justify-center order-1 md:order-2">
             <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-full shadow-lg overflow-hidden border-2 border-gray-300 dark:border-slate-700">
               <Image
                 src="/WhatsApp Image 2025-11-12 at 22.52.17_a524b729.jpg"
@@ -122,7 +107,7 @@ export default function AboutSection() {
                 sizes="(max-width: 768px) 192px, 256px"
               />
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

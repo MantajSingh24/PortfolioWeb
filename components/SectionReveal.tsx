@@ -48,7 +48,7 @@ export default function SectionReveal({ children, className = "" }: SectionRevea
           ? "opacity-100 translate-y-0"
           : "opacity-0 translate-y-4"
       } ${className}`}
-      style={{ willChange: "transform, opacity" }}
+      style={{ willChange: isVisible ? 'auto' : 'transform, opacity' }}
     >
       {children}
     </div>

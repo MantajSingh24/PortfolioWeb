@@ -236,7 +236,7 @@ export default function HobbiesPage() {
 
         {/* Messi Section */}
         <section className="mb-8 flex justify-center">
-          <div className="flex items-center gap-2 sm:gap-3 bg-white/80 dark:bg-[#151515] backdrop-blur-md rounded-full px-4 sm:px-5 py-2.5 sm:py-3.5 border border-white/30 dark:border-gray-700/30 shadow-lg inline-flex">
+          <div className="flex items-center gap-2 sm:gap-3 bg-[#151515] rounded-full px-4 sm:px-5 py-2.5 sm:py-3.5 border border-gray-700/30 shadow-lg inline-flex">
             <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-white/50 dark:ring-gray-700/50">
               <Image
                 src="/messi-jersey-real-madridjpg.jpg"

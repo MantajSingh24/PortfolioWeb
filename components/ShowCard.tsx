@@ -19,7 +19,7 @@ export default function ShowCard({ show, index }: ShowCardProps) {
   
   return (
     <div
-        className="bg-[#151515]/90 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-700/30 cursor-pointer shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-[1.01]"
+        className="bg-[#151515]/90 rounded-2xl overflow-hidden border border-gray-700/30 cursor-pointer shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-[1.01]"
       >
         <div className="relative w-24 h-36 mx-auto mt-2 bg-slate-800 rounded">
           <Image

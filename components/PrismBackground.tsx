@@ -108,8 +108,8 @@ export default function PrismBackground() {
       }
     }
 
-    // Create particles - more stars for richer background
-    const numParticles = Math.floor((canvas.width * canvas.height) / 20000);
+    // Create particles - slightly more for richer background
+    const numParticles = Math.floor((canvas.width * canvas.height) / 22000);
     const particles: Particle[] = [];
     for (let i = 0; i < numParticles; i++) {
       particles.push(new Particle(canvas.width, canvas.height));
@@ -154,9 +154,9 @@ export default function PrismBackground() {
     let startTime = Date.now();
 
     const animate = () => {
-      // Smooth mouse position interpolation
-      lastMouseX += (mousePositionRef.current.x - lastMouseX) * 0.05;
-      lastMouseY += (mousePositionRef.current.y - lastMouseY) * 0.05;
+      // Smooth mouse position interpolation - faster for better responsiveness
+      lastMouseX += (mousePositionRef.current.x - lastMouseX) * 0.1;
+      lastMouseY += (mousePositionRef.current.y - lastMouseY) * 0.1;
       
       // Time for animations
       const time = (Date.now() - startTime) * 0.001;
