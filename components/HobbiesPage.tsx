@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import ShowCard from "./ShowCard";
 import GameCard from "./GameCard";
 import MusicCard from "./MusicCard";
@@ -166,19 +165,14 @@ export default function HobbiesPage() {
     <div className="relative overflow-hidden pt-16">
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
         {/* Page Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-          className="text-center mb-8 sm:mb-10"
-        >
+        <div className="text-center mb-8 sm:mb-10">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 dark:text-slate-100 mb-3 sm:mb-4">
             Hobbies
           </h1>
           <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400">
             Things I enjoy when I&apos;m not coding
           </p>
-        </motion.div>
+        </div>
 
         {/* Fav Artists Section - Moved to Top */}
         <section className="mb-8">

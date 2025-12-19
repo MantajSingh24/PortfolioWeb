@@ -2,13 +2,13 @@
 
 import { useState, useEffect } from "react";
 
-const navLinks = [
-  { name: "About", href: "#home" },
-  { name: "Experience", href: "#details" },
-  { name: "Skills", href: "#skills" },
-  { name: "Projects", href: "#home" }, // Projects section is in home
-  { name: "Contact", href: "#contact" },
-];
+  const navLinks = [
+    { name: "About", href: "#home" },
+    { name: "Experience", href: "#experience" },
+    { name: "Projects", href: "#projects" },
+    { name: "Skills", href: "#skills" },
+    { name: "Contact", href: "#contact" },
+  ];
 
 export default function PortfolioHeader() {
   const [showTitle, setShowTitle] = useState(true);

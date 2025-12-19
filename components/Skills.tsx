@@ -2,7 +2,6 @@
 
 import SkillBadge from "./SkillBadge";
 import { skillGroups } from "@/lib/skills";
-import { motion } from "framer-motion";
 
 export default function Skills() {
   return (

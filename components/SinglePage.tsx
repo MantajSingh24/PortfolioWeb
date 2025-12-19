@@ -1,8 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 import Image from "next/image";
-import AnimatedBackground from "./AnimatedBackground";
+import PrismBackground from "./PrismBackground";
 import ProjectCard from "./ProjectCard";
 import { projects } from "@/lib/projects";
 import Skills from "./Skills";
@@ -14,28 +14,40 @@ import ScrollToTop from "./ScrollToTop";
 import SectionReveal from "./SectionReveal";
 
 export default function SinglePage() {
+  const [showTitle, setShowTitle] = useState(false);
+  const [showDescription, setShowDescription] = useState(false);
+
+  useEffect(() => {
+    // Show title after 400ms for smoother entry
+    const titleTimer = setTimeout(() => {
+      setShowTitle(true);
+    }, 400);
+
+    // Show description after 1200ms (800ms after title starts animating)
+    const descTimer = setTimeout(() => {
+      setShowDescription(true);
+    }, 1200);
+
+    return () => {
+      clearTimeout(titleTimer);
+      clearTimeout(descTimer);
+    };
+  }, []);
+
   return (
     <div className="relative w-full">
       {/* Portfolio Header */}
       <PortfolioHeader />
       
       {/* Single shared background for entire page */}
-      <AnimatedBackground />
+      <PrismBackground />
       
       {/* Home/Hero Section */}
       <section id="home" className="relative min-h-screen overflow-hidden -mb-1 pt-16">
         {/* Profile Picture - Top Right Corner - Bigger and moved left - Fixed to first page only */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.3, duration: 0.5 }}
-          className="absolute top-20 right-16 sm:right-20 md:right-24 lg:right-32 z-20"
-        >
+        <div className="absolute top-20 right-16 sm:right-20 md:right-24 lg:right-32 z-20 opacity-100">
           <div className="relative w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 lg:w-44 lg:h-44">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.2 }}
-              className="relative w-full h-full rounded-full overflow-hidden z-10 border-2 border-yellow-100/30"
+            <div className="relative w-full h-full rounded-full overflow-hidden z-10 border-2 border-yellow-100/30 hover:scale-105 transition-transform duration-200"
               style={{ 
                 boxShadow: '0 4px 16px rgba(0, 0, 0, 0.3)',
               }}
@@ -48,28 +60,36 @@ export default function SinglePage() {
                 priority
                 sizes="176px"
               />
-            </motion.div>
+            </div>
           </div>
-        </motion.div>
+        </div>
 
         <div className="relative z-10 min-h-screen flex items-center justify-center px-4 sm:px-6 pt-20 sm:pt-16 pb-8">
           <div className="max-w-4xl mx-auto w-full">
             {/* WHO AM I? Heading */}
-            <motion.h1
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-300 text-center mb-8 sm:mb-12 tracking-tight"
+            <h1 
+              className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-300 text-center mb-8 sm:mb-12 tracking-tight transition-all duration-1000 ease-[cubic-bezier(0.25,0.1,0.25,1)] ${
+                showTitle 
+                  ? "opacity-100 translate-y-0 scale-100" 
+                  : "opacity-0 translate-y-12 scale-95"
+              }`}
+              style={{
+                willChange: showTitle ? 'auto' : 'transform, opacity'
+              }}
             >
               WHO AM I?
-            </motion.h1>
+            </h1>
 
             {/* Centered Description Box */}
-            <motion.div
-              initial={{ opacity: 0, y: 30, scale: 0.95 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ delay: 0.4, duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-              className="relative bg-gray-800/10 backdrop-blur-sm p-6 sm:p-8 md:p-10 rounded-2xl border-2 border-yellow-100/40 overflow-hidden shadow-2xl max-w-3xl mx-auto"
+            <div 
+              className={`relative bg-gray-800/10 backdrop-blur-sm p-6 sm:p-8 md:p-10 rounded-2xl border-2 border-yellow-100/40 overflow-hidden shadow-2xl max-w-3xl mx-auto transition-all duration-1000 ease-[cubic-bezier(0.25,0.1,0.25,1)] ${
+                showDescription 
+                  ? "opacity-100 translate-y-0 scale-100" 
+                  : "opacity-0 translate-y-12 scale-95"
+              }`}
+              style={{
+                willChange: showDescription ? 'auto' : 'transform, opacity'
+              }}
             >
               {/* Modern style header */}
               <div className="flex items-center gap-3 mb-6 pb-4 border-b border-gray-700/50">
@@ -115,68 +135,62 @@ export default function SinglePage() {
                 </div>
                 <p className="text-gray-300">{"}"}</p>
               </div>
-            </motion.div>
+            </div>
 
             {/* Action Buttons - Below Description */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8, duration: 0.5 }}
-              className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8 sm:mt-10"
-            >
-              <motion.a
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8 sm:mt-10">
+              <a
                 href="#contact"
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ duration: 0.2 }}
-                className="px-8 py-3 bg-yellow-100/90 hover:bg-yellow-50 text-gray-900 rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-yellow-100/30 text-base"
+                className="px-8 py-3 bg-yellow-100/90 hover:bg-yellow-50 text-gray-900 rounded-full font-semibold transition-all duration-200 shadow-lg hover:shadow-xl hover:shadow-yellow-100/30 hover:scale-105 hover:-translate-y-0.5 text-base"
               >
                 Let&apos;s Connect
-              </motion.a>
-              <motion.a
-                href="#home"
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ duration: 0.2 }}
-                className="px-8 py-3 bg-transparent hover:bg-gray-800/50 text-gray-300 rounded-full font-semibold transition-all duration-300 border-2 border-gray-700/50 shadow-lg hover:shadow-xl text-base"
+              </a>
+              <a
+                href="#projects"
+                className="px-8 py-3 bg-transparent hover:bg-gray-800/50 text-gray-300 rounded-full font-semibold transition-all duration-200 border-2 border-gray-700/50 shadow-lg hover:shadow-xl hover:scale-105 hover:-translate-y-0.5 text-base"
               >
                 View My Work
-              </motion.a>
-            </motion.div>
+              </a>
+            </div>
           </div>
         </div>
 
-        {/* Projects Section */}
-        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 pt-12 sm:pt-16 md:pt-20 pb-8">
-          <div className="py-12 sm:py-16 md:py-20">
-            <div className="text-center mb-8 sm:mb-12">
-              <h2 className="text-3xl sm:text-4xl font-bold text-gray-300 mb-2">
-                Projects
-              </h2>
-              <p className="text-gray-300 text-base sm:text-lg">
-                Some of my recent work
-              </p>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
-              {projects.map((project, index) => (
-                <ProjectCard key={project.id} project={project} index={index} />
-              ))}
+      </section>
+
+      {/* Experience Section */}
+      <section id="experience" className="relative -mt-1 -mb-1">
+        <SectionReveal className="relative z-10">
+          <Details />
+        </SectionReveal>
+      </section>
+
+      {/* Projects Section */}
+      <section id="projects" className="relative -mt-1 -mb-1">
+        <SectionReveal className="relative z-10">
+          <div className="relative overflow-hidden pt-16">
+            <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
+              <div className="text-center mb-8 sm:mb-12">
+                <h2 className="text-3xl sm:text-4xl font-bold text-gray-300 mb-2">
+                  Featured Projects
+                </h2>
+                <p className="text-gray-300 text-base sm:text-lg">
+                  Open source contributions, AI innovations, and automation tools that make a real impact
+                </p>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
+                {projects.map((project, index) => (
+                  <ProjectCard key={project.id} project={project} index={index} />
+                ))}
+              </div>
             </div>
           </div>
-        </div>
+        </SectionReveal>
       </section>
 
       {/* Skills Section */}
       <section id="skills" className="relative -mt-1 -mb-1">
         <SectionReveal className="relative z-10">
           <Skills />
-        </SectionReveal>
-      </section>
-
-      {/* Details Section */}
-      <section id="details" className="relative -mt-1 -mb-1">
-        <SectionReveal className="relative z-10">
-          <Details />
         </SectionReveal>
       </section>
 
