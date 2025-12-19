@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import ThemeProviderWrapper from "@/components/ThemeProviderWrapper";
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import LatestUpdateBanner from "@/components/LatestUpdateBanner";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -95,7 +94,6 @@ export default function RootLayout({
         />
         <ThemeProviderWrapper>
           <LatestUpdateBanner />
-          <Navbar />
           <main className="relative min-h-screen">
             {children}
           </main>

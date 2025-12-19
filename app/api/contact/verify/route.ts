@@ -29,7 +29,6 @@ export async function GET(request: NextRequest) {
   try {
     const searchParams = request.nextUrl.searchParams;
     const token = searchParams.get("token");
-    const debug = searchParams.get("debug"); // Add ?debug=1 to see errors
 
     if (!token) {
       if (debug) {
@@ -178,7 +177,6 @@ export async function GET(request: NextRequest) {
       new URL("/contact/verify?status=success", request.nextUrl.origin)
     );
   } catch (error: any) {
-    const debug = request.nextUrl.searchParams.get("debug");
     if (debug) {
       return NextResponse.json({ 
         error: "Unexpected error", 

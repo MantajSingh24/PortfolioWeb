@@ -260,3 +260,4 @@ After successful setup, you can:
 **That's it! Your contact form now has spam protection via email verification.** 🎉
 
 
+

@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
 
 interface MusicCardProps {
@@ -19,19 +18,8 @@ export default function MusicCard({ artist, index }: MusicCardProps) {
   const useContain = artist.image === '/mohit chauhan.jpg';
   
   return (
-    <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ 
-          delay: Math.min(index * 0.01, 0.15), 
-          duration: 0.2,
-          ease: "easeOut"
-        }}
-        className="bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl rounded-2xl overflow-hidden border border-white/30 dark:border-gray-700/30 cursor-pointer shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-[1.02] hover:-translate-y-1"
-        style={{
-          boxShadow: '0 4px 20px 0 rgba(31, 38, 135, 0.1)',
-        }}
+    <div
+        className="bg-white/70 dark:bg-gray-900/70 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/30 dark:border-gray-700/30 cursor-pointer shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-[1.01]"
       >
         <div className="relative w-32 h-32 mx-auto mt-4 bg-gray-100 dark:bg-slate-800 rounded-full">
           <Image
@@ -66,6 +54,6 @@ export default function MusicCard({ artist, index }: MusicCardProps) {
             <span>Spotify</span>
           </a>
         </div>
-    </motion.div>
+    </div>
   );
 }

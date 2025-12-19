@@ -17,11 +17,11 @@ export default function AboutSection() {
           >
             <div className="bg-white dark:bg-slate-900 p-8 rounded-2xl border-2 border-gray-200 dark:border-slate-800 shadow-lg">
               <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
-                I'm a passionate Data Analytics and Software Development student at Acadia University, 
+                I&apos;m a passionate Data Analytics and Software Development student at Acadia University, 
                 with a strong foundation in computer science and data analytics. I specialize in turning 
                 complex data into actionable insights using Python, SQL, and modern analytics tools. 
                 Currently working as a Research Assistant on YouTube Data Analytics projects, I combine 
-                technical skills with real-world problem-solving. I'm actively seeking co-op positions to 
+                technical skills with real-world problem-solving. I&apos;m actively seeking co-op positions to 
                 apply my expertise in data analysis, machine learning, and full-stack development.
               </p>
             </div>
@@ -94,7 +94,7 @@ export default function AboutSection() {
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
-                <span>View Mantaj Singh's Resume</span>
+                <span>View Mantaj Singh&apos;s Resume</span>
               </motion.a>
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Link

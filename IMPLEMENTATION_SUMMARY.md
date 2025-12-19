@@ -362,3 +362,4 @@ Security: SHA-256 token hashing, time-limited links, single-use tokens
 For questions or issues, refer to `MAGIC_LINK_SETUP.md` or open an issue in your repo.
 
 
+

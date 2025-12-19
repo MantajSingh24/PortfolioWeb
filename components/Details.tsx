@@ -64,7 +64,7 @@ export default function Details() {
             className="mb-8"
           >
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg">
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-yellow-100/90 dark:from-purple-600 to-yellow-50 dark:to-purple-700 flex items-center justify-center shadow-lg">
                 <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
@@ -112,7 +112,7 @@ export default function Details() {
                       <h4 className="text-lg font-bold text-slate-900 dark:text-slate-100 mb-1 leading-tight">
                         {exp.title}
                       </h4>
-                      <p className="text-indigo-600 dark:text-indigo-400 font-semibold text-sm mb-1">
+                      <p className="text-yellow-100/90 dark:text-purple-400 font-semibold text-sm mb-1">
                         {exp.organization}
                       </p>
                       {exp.location && (
@@ -123,7 +123,7 @@ export default function Details() {
 
                   {/* Period Badge */}
                   <div className="mb-4">
-                    <span className="inline-block px-3 py-1 rounded-full bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 text-xs font-medium">
+                    <span className="inline-block px-3 py-1 rounded-full bg-yellow-100/80 dark:bg-purple-900/30 text-gray-900 dark:text-purple-300 text-xs font-medium">
                       {exp.period}
                     </span>
                   </div>
@@ -169,12 +169,12 @@ export default function Details() {
                             animate={{ opacity: 1, scale: 1, y: 0 }}
                             exit={{ opacity: 0, scale: 0.95, y: -10 }}
                             transition={{ duration: 0.2 }}
-                            className="absolute top-full left-0 right-0 mt-2 p-4 bg-white dark:bg-gray-800 rounded-xl shadow-2xl border-2 border-indigo-200 dark:border-indigo-700 z-20 max-h-64 overflow-y-auto"
+                            className="absolute top-full left-0 right-0 mt-2 p-4 bg-white dark:bg-gray-800 rounded-xl shadow-2xl border-2 border-yellow-100/50 dark:border-purple-500/30 z-20 max-h-64 overflow-y-auto"
                           >
                             <div className="space-y-2">
                               {exp.fullDescription.map((item, idx) => (
                                 <div key={`${exp.id}-${idx}`} className="flex items-start gap-2 text-sm text-gray-700 dark:text-gray-300">
-                                  <span className="text-indigo-500 dark:text-indigo-400 mt-1 flex-shrink-0">•</span>
+                                  <span className="text-yellow-100/90 dark:text-purple-400 mt-1 flex-shrink-0">•</span>
                                   <span>{item}</span>
                                 </div>
                               ))}
@@ -200,7 +200,7 @@ export default function Details() {
             className="mb-8"
           >
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center shadow-lg">
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-yellow-100/90 dark:from-purple-600 to-yellow-50 dark:to-purple-700 flex items-center justify-center shadow-lg">
                 <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                 </svg>
@@ -243,14 +243,14 @@ export default function Details() {
                     )}
                     <div className="flex-1 min-w-0">
                       <div className="mb-2">
-                        <span className="inline-block px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-xs font-semibold mb-2">
+                        <span className="inline-block px-3 py-1 rounded-full bg-yellow-100/80 dark:bg-yellow-100/20 text-gray-900 dark:text-yellow-100/90 text-xs font-semibold mb-2">
                           {edu.degree}
                         </span>
                       </div>
                       <h4 className="text-xl font-bold text-slate-900 dark:text-slate-100 mb-2 leading-tight">
                         {edu.major}
                       </h4>
-                      <p className="text-indigo-600 dark:text-indigo-400 font-semibold mb-2">
+                      <p className="text-yellow-100/90 dark:text-yellow-100/80 font-semibold mb-2">
                         {edu.university}
                       </p>
                       <p className="text-sm text-gray-600 dark:text-gray-400">

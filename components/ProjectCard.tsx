@@ -53,11 +53,11 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
         ease: [0.25, 0.1, 0.25, 1]
       }}
       whileHover={{ 
-        scale: 1.02, 
-        y: -4,
-        transition: { duration: 0.2 }
+        scale: 1.01, 
+        y: -2,
+        transition: { duration: 0.15 }
       }}
-      className="bg-white dark:bg-slate-900 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 border-2 border-gray-200 dark:border-slate-800"
+      className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 border-2 border-gray-200/50 dark:border-gray-800/50"
     >
       <div
         className="aspect-video relative overflow-hidden"
@@ -80,10 +80,10 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
         )}
       </div>
       <div className="p-3 sm:p-4">
-        <h3 className="text-base sm:text-lg font-semibold text-slate-900 dark:text-slate-100 mb-2">
+        <h3 className="text-base sm:text-lg font-semibold text-slate-900 dark:text-white mb-2">
           {project.title}
         </h3>
-        <p className="text-gray-600 dark:text-gray-400 mb-3 text-xs sm:text-sm leading-relaxed">
+        <p className="text-gray-600 dark:text-gray-300 mb-3 text-xs sm:text-sm leading-relaxed">
           {project.description}
         </p>
         <div className="mb-3">
@@ -94,42 +94,40 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
             {project.stack.map((tech) => {
               const icon = skillIcons[tech] || "💻";
               return (
-              <motion.span
+              <span
                 key={tech}
-                whileHover={{ scale: 1.1, y: -2 }}
-                transition={{ duration: 0.2 }}
                 className="px-2 py-1 text-xs rounded-md bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-slate-700 font-medium flex items-center gap-1 cursor-pointer hover:bg-gray-200 dark:hover:bg-slate-700 transition-colors"
               >
                   <span>{icon}</span>
                   {tech}
-                </motion.span>
+                </span>
               );
             })}
           </div>
         </div>
         <div className="flex flex-col sm:flex-row gap-2">
           {project.liveUrl && (
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="flex-1">
+            <div className="flex-1">
               <Link
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block w-full px-3 py-2 sm:py-1.5 bg-white dark:bg-slate-800 hover:bg-gray-50 dark:hover:bg-slate-700 text-gray-900 dark:text-gray-100 rounded-lg text-center text-xs font-medium transition-all duration-300 border-2 border-gray-300 dark:border-slate-700 hover:border-indigo-500 dark:hover:border-indigo-400"
+                className="block w-full px-3 py-2 sm:py-1.5 bg-white dark:bg-slate-800 hover:bg-gray-50 dark:hover:bg-slate-700 text-gray-900 dark:text-gray-100 rounded-lg text-center text-xs font-medium transition-all duration-300 border-2 border-gray-300 dark:border-slate-700 hover:border-yellow-100/50"
               >
                 {project.title === "Vendor Performance Dashboard" ? "View Dashboard" : "Live"}
               </Link>
-            </motion.div>
+            </div>
           )}
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className={project.liveUrl ? "flex-1" : "w-full"}>
+          <div className={project.liveUrl ? "flex-1" : "w-full"}>
             <Link
               href={project.codeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="block w-full px-3 py-2 sm:py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-center text-xs font-medium transition-all duration-300 border-2 border-indigo-700 hover:border-indigo-800"
+              className="block w-full px-3 py-2 sm:py-1.5 bg-yellow-100/90 dark:bg-purple-600 hover:bg-yellow-50 dark:hover:bg-purple-700 text-gray-900 dark:text-white rounded-lg text-center text-xs font-semibold transition-all duration-300 shadow-md hover:shadow-lg hover:shadow-yellow-100/30 dark:hover:shadow-purple-500/30"
             >
               Code
             </Link>
-          </motion.div>
+          </div>
         </div>
       </div>
     </motion.div>

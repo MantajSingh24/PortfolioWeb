@@ -150,8 +150,8 @@ export default function Navbar() {
         visible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
       } ${
         scrolled
-          ? "bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl shadow-lg border border-gray-200/50 dark:border-gray-700/50"
-          : "bg-white/70 dark:bg-gray-900/70 backdrop-blur-lg border border-gray-200/30 dark:border-gray-700/30"
+          ? "bg-gray-900/80 backdrop-blur-xl shadow-lg border border-gray-700/50"
+          : "bg-gray-900/70 backdrop-blur-lg border border-gray-700/30"
       }`}
       style={{ borderRadius: '9999px', padding: '0.375rem 0.75rem' }}
     >
@@ -168,8 +168,8 @@ export default function Navbar() {
                 onClick={(e) => handleNavClick(e, link.href)}
                 className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors duration-100 ${
                   isActive
-                    ? "bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900"
-                    : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+                    ? "bg-yellow-100/90 text-gray-900"
+                    : "text-gray-300 hover:bg-gray-800/50"
                 }`}
                 animate={isActive ? {
                   scale: 1.05,
@@ -188,14 +188,14 @@ export default function Navbar() {
         </div>
         
         {/* Theme Toggle - Always visible */}
-        <div className="ml-1 pl-1 border-l border-gray-300 dark:border-gray-700">
+        <div className="ml-1 pl-1 border-l border-gray-700">
           <ThemeToggle />
         </div>
         
         {/* Mobile Menu Button */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden ml-2 p-1.5 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+          className="md:hidden ml-2 p-1.5 rounded-full text-gray-300 hover:bg-gray-800/50 transition-colors"
           aria-label="Toggle menu"
         >
           {mobileMenuOpen ? (
@@ -218,7 +218,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[90vw] max-w-sm bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl rounded-2xl shadow-lg border border-gray-200/50 dark:border-gray-700/50 p-4"
+            className="md:hidden absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[90vw] max-w-sm bg-gray-900/95 backdrop-blur-xl rounded-2xl shadow-lg border border-gray-700/50 p-4"
           >
             <div className="space-y-1">
               {navLinks.map((link) => {
@@ -231,8 +231,8 @@ export default function Navbar() {
                     onClick={(e) => handleNavClick(e, link.href)}
                     className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors ${
                       isActive
-                        ? "bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900"
-                        : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+                        ? "bg-yellow-100/90 text-gray-900"
+                        : "text-gray-300 hover:bg-gray-800/50"
                     }`}
                     animate={isActive ? {
                       scale: 1.02,

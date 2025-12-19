@@ -41,7 +41,7 @@ export default function LatestUpdateBanner() {
         transition={{ duration: 0.3, ease: "easeOut" }}
         className="fixed top-0 left-0 right-0 z-[9999] pointer-events-none"
       >
-        <div className="pointer-events-auto bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-600 text-white shadow-lg">
+        <div className="pointer-events-auto bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white shadow-lg border-b border-yellow-100/15">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-1.5">
             <div className="flex items-center justify-between flex-wrap gap-2">
               {/* Left side - Icon and content */}
@@ -76,7 +76,7 @@ export default function LatestUpdateBanner() {
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="text-xs sm:text-sm font-medium bg-white text-indigo-600 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full hover:bg-gray-100 transition-colors duration-200 shadow-md"
+                      className="text-xs sm:text-sm font-semibold bg-yellow-100/90 text-gray-900 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full hover:bg-yellow-50 transition-colors duration-200 shadow-md hover:shadow-yellow-100/30"
                     >
                       Try it out →
                     </motion.button>

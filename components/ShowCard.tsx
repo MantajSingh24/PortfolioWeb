@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
 
 interface ShowCardProps {
@@ -19,16 +18,8 @@ export default function ShowCard({ show, index }: ShowCardProps) {
   const useContain = show.image === '/big banf .jpeg';
   
   return (
-    <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ 
-          delay: Math.min(index * 0.01, 0.2), 
-          duration: 0.2,
-          ease: "easeOut"
-        }}
-        className="bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl rounded-2xl overflow-hidden border border-white/30 dark:border-gray-700/30 cursor-pointer shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-[1.02] hover:-translate-y-1"
+    <div
+        className="bg-white/70 dark:bg-gray-900/70 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/30 dark:border-gray-700/30 cursor-pointer shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-[1.01]"
       >
         <div className="relative w-24 h-36 mx-auto mt-2 bg-gray-100 dark:bg-slate-800 rounded">
           <Image
@@ -53,17 +44,14 @@ export default function ShowCard({ show, index }: ShowCardProps) {
                 </span>
               </div>
               <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-1.5 overflow-hidden">
-                <motion.div
-                  initial={{ width: 0 }}
-                  whileInView={{ width: `${show.progress}%` }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
-                  className="bg-gradient-to-r from-indigo-500 to-purple-500 h-full rounded-full"
+                <div
+                  className="bg-gradient-to-r from-yellow-100/90 dark:from-purple-600 to-yellow-50 dark:to-purple-500 h-full rounded-full"
+                  style={{ width: `${show.progress}%` }}
                 />
               </div>
             </div>
           )}
         </div>
-    </motion.div>
+    </div>
   );
 }

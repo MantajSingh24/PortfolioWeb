@@ -176,18 +176,12 @@ export default function HobbiesPage() {
             Hobbies
           </h1>
           <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400">
-            Things I enjoy when I'm not coding
+            Things I enjoy when I&apos;m not coding
           </p>
         </motion.div>
 
         {/* Fav Artists Section - Moved to Top */}
-        <motion.section
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "-150px" }}
-          transition={{ duration: 0.3 }}
-          className="mb-8"
-        >
+        <section className="mb-8">
           <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-slate-100 mb-3 sm:mb-4">
             Fav Artists
           </h2>
@@ -196,16 +190,10 @@ export default function HobbiesPage() {
               <MusicCard key={artist.id} artist={artist} index={index} />
             ))}
           </div>
-        </motion.section>
+        </section>
 
         {/* Shows Currently Watching Section */}
-        <motion.section
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "-150px" }}
-          transition={{ duration: 0.3 }}
-          className="mb-8"
-        >
+        <section className="mb-8">
           <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-slate-100 mb-3 sm:mb-4">
             Shows Currently Watching
           </h2>
@@ -214,16 +202,10 @@ export default function HobbiesPage() {
               <ShowCard key={show.id} show={show} index={index} />
             ))}
           </div>
-        </motion.section>
+        </section>
 
         {/* Fav Shows Section */}
-        <motion.section
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "-150px" }}
-          transition={{ duration: 0.3 }}
-          className="mb-8"
-        >
+        <section className="mb-8">
           <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-slate-100 mb-3 sm:mb-4">
             Fav Shows
           </h2>
@@ -232,16 +214,10 @@ export default function HobbiesPage() {
               <ShowCard key={animeItem.id} show={animeItem} index={index} />
             ))}
           </div>
-        </motion.section>
+        </section>
 
         {/* Fav Games Section */}
-        <motion.section
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "-150px" }}
-          transition={{ duration: 0.3 }}
-          className="mb-8"
-        >
+        <section className="mb-8">
           <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-slate-100 mb-3 sm:mb-4">
             Fav Games
           </h2>
@@ -250,16 +226,10 @@ export default function HobbiesPage() {
               <GameCard key={game.id} game={game} index={index} />
             ))}
           </div>
-        </motion.section>
+        </section>
 
         {/* Games on Bucket List Section */}
-        <motion.section
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "-150px" }}
-          transition={{ duration: 0.3 }}
-          className="mb-8"
-        >
+        <section className="mb-8">
           <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-slate-100 mb-3 sm:mb-4">
             Games on Bucket List
           </h2>
@@ -268,16 +238,10 @@ export default function HobbiesPage() {
               <GameCard key={game.id} game={game} index={index} />
             ))}
           </div>
-        </motion.section>
+        </section>
 
         {/* Messi Section */}
-        <motion.section
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "-150px" }}
-          transition={{ duration: 0.3 }}
-          className="mb-8 flex justify-center"
-        >
+        <section className="mb-8 flex justify-center">
           <div className="flex items-center gap-2 sm:gap-3 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md rounded-full px-4 sm:px-5 py-2.5 sm:py-3.5 border border-white/30 dark:border-gray-700/30 shadow-lg inline-flex">
             <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-white/50 dark:ring-gray-700/50">
               <Image
@@ -295,7 +259,7 @@ export default function HobbiesPage() {
               Oh also, Messi is the GOAT 🐐
             </p>
           </div>
-        </motion.section>
+        </section>
       </div>
     </div>
   );
