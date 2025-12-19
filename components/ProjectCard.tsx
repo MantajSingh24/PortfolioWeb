@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Project } from "@/lib/projects";
 import Link from "next/link";
 import Image from "next/image";
@@ -43,21 +42,8 @@ const skillIcons: { [key: string]: string } = {
 
 export default function ProjectCard({ project, index }: ProjectCardProps) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ 
-        delay: index * 0.03, 
-        duration: 0.4,
-        ease: [0.25, 0.1, 0.25, 1]
-      }}
-      whileHover={{ 
-        scale: 1.01, 
-        y: -2,
-        transition: { duration: 0.15 }
-      }}
-      className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 border-2 border-gray-200/50 dark:border-gray-800/50"
+    <div
+      className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-150 border-2 border-gray-200/50 dark:border-gray-800/50"
     >
       <div
         className="aspect-video relative overflow-hidden"
@@ -74,13 +60,13 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
             quality={90}
           />
         ) : (
-          <div className="absolute inset-0 flex items-center justify-center text-white text-3xl font-bold opacity-20">
+          <div className="absolute inset-0 flex items-center justify-center text-gray-400 text-3xl font-bold opacity-30">
             {project.title.charAt(0)}
           </div>
         )}
       </div>
       <div className="p-3 sm:p-4">
-        <h3 className="text-base sm:text-lg font-semibold text-slate-900 dark:text-white mb-2">
+        <h3 className="text-base sm:text-lg font-semibold text-slate-900 dark:text-gray-300 mb-2">
           {project.title}
         </h3>
         <p className="text-gray-600 dark:text-gray-300 mb-3 text-xs sm:text-sm leading-relaxed">
@@ -123,13 +109,13 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
               href={project.codeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="block w-full px-3 py-2 sm:py-1.5 bg-yellow-100/90 dark:bg-purple-600 hover:bg-yellow-50 dark:hover:bg-purple-700 text-gray-900 dark:text-white rounded-lg text-center text-xs font-semibold transition-all duration-300 shadow-md hover:shadow-lg hover:shadow-yellow-100/30 dark:hover:shadow-purple-500/30"
+              className="block w-full px-3 py-2 sm:py-1.5 bg-yellow-100/90 dark:bg-yellow-100/80 hover:bg-yellow-50 dark:hover:bg-yellow-100 text-gray-900 dark:text-gray-900 rounded-lg text-center text-xs font-semibold transition-all duration-300 shadow-md hover:shadow-lg hover:shadow-yellow-100/30"
             >
               Code
             </Link>
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }

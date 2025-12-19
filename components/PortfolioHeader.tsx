@@ -1,9 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
 import ThemeToggle from "./ThemeToggle";
-import Link from "next/link";
 
 const navLinks = [
   { name: "About", href: "#home" },
@@ -60,21 +58,29 @@ export default function PortfolioHeader() {
           {/* Left side - Navigation buttons in rounded box */}
           <div className="flex items-center gap-2 bg-gray-900/70 backdrop-blur-xl rounded-full px-3 py-1.5 border border-gray-700/50">
             {navLinks.map((link) => (
-              <motion.a
+              <a
                 key={link.name}
                 href={link.href}
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-3 py-1.5 rounded-full text-sm font-medium text-gray-300 hover:bg-gray-800/50 hover:text-white transition-colors"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const targetId = link.href.substring(1);
+                  const element = document.getElementById(targetId);
+                  if (element) {
+                    // Instant scroll - no animation
+                    const offsetTop = element.offsetTop - 80;
+                    window.scrollTo({ top: offsetTop, behavior: 'auto' });
+                  }
+                }}
+                className="px-3 py-1.5 rounded-full text-sm font-medium text-gray-300 hover:bg-gray-800/50 hover:text-white transition-colors duration-150"
               >
                 {link.name}
-              </motion.a>
+              </a>
             ))}
           </div>
 
           {/* Center - Title */}
           <div className="absolute left-1/2 -translate-x-1/2 text-center">
-            <h1 className="text-xl font-bold text-yellow-100 dark:text-purple-400">
+            <h1 className="text-xl font-bold text-yellow-100">
               Mantaj Singh&apos;s Portfolio
             </h1>
             <p className="text-xs text-gray-400 mt-0.5">
@@ -84,27 +90,23 @@ export default function PortfolioHeader() {
 
           {/* Right side - Action buttons and theme toggle */}
           <div className="flex items-center gap-2">
-            <motion.a
+            <a
               href="/Mantaj_Singh_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-4 py-1.5 rounded-full text-sm font-medium bg-gray-900/70 backdrop-blur-xl hover:bg-gray-800/70 text-gray-300 hover:text-white transition-colors flex items-center gap-1.5 border border-gray-700/50"
+              className="px-4 py-1.5 rounded-full text-sm font-medium bg-gray-900/70 backdrop-blur-xl hover:bg-gray-800/70 text-gray-300 hover:text-white transition-all duration-150 flex items-center gap-1.5 border border-gray-700/50"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
               Résumé
-            </motion.a>
-            <motion.a
+            </a>
+            <a
               href="mailto:taranpalbrar58@gmail.com"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-4 py-1.5 rounded-full text-sm font-medium bg-yellow-100/90 dark:bg-purple-600 hover:bg-yellow-50 dark:hover:bg-purple-700 text-gray-900 dark:text-white transition-colors shadow-lg"
+              className="px-4 py-1.5 rounded-full text-sm font-medium bg-yellow-100/90 hover:bg-yellow-50 text-gray-900 transition-all duration-150 shadow-lg"
             >
               Get in Touch
-            </motion.a>
+            </a>
             <div className="ml-2 pl-2 border-l border-gray-700">
               <ThemeToggle />
             </div>

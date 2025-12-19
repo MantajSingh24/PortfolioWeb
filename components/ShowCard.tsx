@@ -19,7 +19,7 @@ export default function ShowCard({ show, index }: ShowCardProps) {
   
   return (
     <div
-        className="bg-white/70 dark:bg-gray-900/70 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/30 dark:border-gray-700/30 cursor-pointer shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-[1.01]"
+        className="bg-white/70 dark:bg-[#151515]/90 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/30 dark:border-gray-700/30 cursor-pointer shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-[1.01]"
       >
         <div className="relative w-24 h-36 mx-auto mt-2 bg-gray-100 dark:bg-slate-800 rounded">
           <Image
@@ -45,7 +45,7 @@ export default function ShowCard({ show, index }: ShowCardProps) {
               </div>
               <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-1.5 overflow-hidden">
                 <div
-                  className="bg-gradient-to-r from-yellow-100/90 dark:from-purple-600 to-yellow-50 dark:to-purple-500 h-full rounded-full"
+                  className="bg-gradient-to-r from-yellow-100/90 to-yellow-50 h-full rounded-full"
                   style={{ width: `${show.progress}%` }}
                 />
               </div>

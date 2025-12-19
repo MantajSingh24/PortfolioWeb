@@ -11,6 +11,7 @@ import HobbiesPage from "./HobbiesPage";
 import Contact from "./Contact";
 import PortfolioHeader from "./PortfolioHeader";
 import ScrollToTop from "./ScrollToTop";
+import SectionReveal from "./SectionReveal";
 
 export default function SinglePage() {
   return (
@@ -23,12 +24,12 @@ export default function SinglePage() {
       
       {/* Home/Hero Section */}
       <section id="home" className="relative min-h-screen overflow-hidden -mb-1 pt-16">
-        {/* Profile Picture - Top Right Corner - Bigger and moved left */}
+        {/* Profile Picture - Top Right Corner - Bigger and moved left - Fixed to first page only */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.3, duration: 0.5 }}
-          className="fixed top-20 right-16 sm:right-20 md:right-24 lg:right-32 z-20"
+          className="absolute top-20 right-16 sm:right-20 md:right-24 lg:right-32 z-20"
         >
           <div className="relative w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 lg:w-44 lg:h-44">
             <motion.div
@@ -58,7 +59,7 @@ export default function SinglePage() {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white text-center mb-8 sm:mb-12 tracking-tight"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-300 text-center mb-8 sm:mb-12 tracking-tight"
             >
               WHO AM I?
             </motion.h1>
@@ -68,7 +69,7 @@ export default function SinglePage() {
               initial={{ opacity: 0, y: 30, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ delay: 0.4, duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-              className="relative bg-gray-800/10 backdrop-blur-sm p-6 sm:p-8 md:p-10 rounded-2xl border-2 border-yellow-100/40 dark:border-purple-500/40 overflow-hidden shadow-2xl max-w-3xl mx-auto"
+              className="relative bg-gray-800/10 backdrop-blur-sm p-6 sm:p-8 md:p-10 rounded-2xl border-2 border-yellow-100/40 overflow-hidden shadow-2xl max-w-3xl mx-auto"
             >
               {/* Modern style header */}
               <div className="flex items-center gap-3 mb-6 pb-4 border-b border-gray-700/50">
@@ -82,11 +83,11 @@ export default function SinglePage() {
               
               {/* Enhanced content styling */}
               <div className="font-mono text-sm sm:text-base leading-relaxed space-y-3">
-                <p className="text-gray-200">
+                <p className="text-gray-300">
                   <span className="text-[#A79986]">const</span>{" "}
                   <span className="text-green-400">about</span> = {"{"}
                 </p>
-                <div className="ml-4 sm:ml-6 space-y-2 text-gray-200">
+                <div className="ml-4 sm:ml-6 space-y-2 text-gray-300">
                   <p className="break-words">
                     <span className="text-purple-400">name</span>:{" "}
                     <span className="text-yellow-100/90">&quot;Mantaj Singh&quot;</span>,
@@ -112,7 +113,7 @@ export default function SinglePage() {
                     <span className="text-green-400">&quot;Seeking Co-op&quot;</span>
                   </p>
                 </div>
-                <p className="text-gray-200">{"}"}</p>
+                <p className="text-gray-300">{"}"}</p>
               </div>
             </motion.div>
 
@@ -128,7 +129,7 @@ export default function SinglePage() {
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 transition={{ duration: 0.2 }}
-                className="px-8 py-3 bg-yellow-100/90 dark:bg-purple-600 hover:bg-yellow-50 dark:hover:bg-purple-700 text-gray-900 dark:text-white rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-yellow-100/30 dark:hover:shadow-purple-500/30 text-base"
+                className="px-8 py-3 bg-yellow-100/90 hover:bg-yellow-50 text-gray-900 rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-yellow-100/30 text-base"
               >
                 Let&apos;s Connect
               </motion.a>
@@ -137,7 +138,7 @@ export default function SinglePage() {
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 transition={{ duration: 0.2 }}
-                className="px-8 py-3 bg-transparent hover:bg-gray-800/50 text-white rounded-full font-semibold transition-all duration-300 border-2 border-gray-700/50 shadow-lg hover:shadow-xl text-base"
+                className="px-8 py-3 bg-transparent hover:bg-gray-800/50 text-gray-300 rounded-full font-semibold transition-all duration-300 border-2 border-gray-700/50 shadow-lg hover:shadow-xl text-base"
               >
                 View My Work
               </motion.a>
@@ -149,7 +150,7 @@ export default function SinglePage() {
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 pt-12 sm:pt-16 md:pt-20 pb-8">
           <div className="py-12 sm:py-16 md:py-20">
             <div className="text-center mb-8 sm:mb-12">
-              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-2">
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-300 mb-2">
                 Projects
               </h2>
               <p className="text-gray-300 text-base sm:text-lg">
@@ -167,30 +168,30 @@ export default function SinglePage() {
 
       {/* Skills Section */}
       <section id="skills" className="relative -mt-1 -mb-1">
-        <div className="relative z-10">
+        <SectionReveal className="relative z-10">
           <Skills />
-        </div>
+        </SectionReveal>
       </section>
 
       {/* Details Section */}
       <section id="details" className="relative -mt-1 -mb-1">
-        <div className="relative z-10">
+        <SectionReveal className="relative z-10">
           <Details />
-        </div>
+        </SectionReveal>
       </section>
 
       {/* Hobbies Section */}
       <section id="hobbies" className="relative -mt-1 -mb-1">
-        <div className="relative z-10">
+        <SectionReveal className="relative z-10">
           <HobbiesPage />
-        </div>
+        </SectionReveal>
       </section>
 
       {/* Contact Section */}
       <section id="contact" className="relative -mt-1">
-        <div className="relative z-10">
+        <SectionReveal className="relative z-10">
           <Contact />
-        </div>
+        </SectionReveal>
       </section>
 
       {/* Scroll to Top Button */}

@@ -158,8 +158,8 @@ export default function AnimatedBackground() {
       // Time for animations
       const time = (Date.now() - startTime) * 0.001;
 
-      // Clear canvas with dark space background - lighter for better visibility
-      ctx.fillStyle = "#1a1a2e";
+      // Clear canvas with dark space background - lighter black for better visibility
+      ctx.fillStyle = "#151515";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       // Update and draw stars - batch operations for better performance
@@ -183,7 +183,7 @@ export default function AnimatedBackground() {
 
   return (
     <>
-      <div className="fixed inset-0 overflow-hidden -z-10 bg-[#1a1a2e]">
+      <div className="fixed inset-0 overflow-hidden -z-10 bg-[#151515]">
         {/* Animated stars canvas */}
         <canvas
           ref={canvasRef}

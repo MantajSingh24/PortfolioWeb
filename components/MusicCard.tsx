@@ -19,7 +19,7 @@ export default function MusicCard({ artist, index }: MusicCardProps) {
   
   return (
     <div
-        className="bg-white/70 dark:bg-gray-900/70 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/30 dark:border-gray-700/30 cursor-pointer shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-[1.01]"
+        className="bg-white/70 dark:bg-[#151515]/90 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/30 dark:border-gray-700/30 cursor-pointer shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-[1.01]"
       >
         <div className="relative w-32 h-32 mx-auto mt-4 bg-gray-100 dark:bg-slate-800 rounded-full">
           <Image

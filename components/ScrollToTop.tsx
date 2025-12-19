@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 
 export default function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
@@ -21,23 +20,16 @@ export default function ScrollToTop() {
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+    // Instant scroll for better performance
+    window.scrollTo({ top: 0, behavior: 'auto' });
   };
 
+  if (!isVisible) return null;
+
   return (
-    <AnimatePresence>
-      {isVisible && (
-        <motion.button
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.8 }}
-          whileHover={{ scale: 1.1, y: -2 }}
-          whileTap={{ scale: 0.9 }}
+    <button
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-50 p-3 bg-yellow-100/90 dark:bg-purple-600 hover:bg-yellow-50 dark:hover:bg-purple-700 text-gray-900 dark:text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center border-2 border-gray-300/50 dark:border-purple-500/50"
+          className="fixed bottom-8 right-8 z-50 p-3 bg-yellow-100/90 dark:bg-yellow-100/80 hover:bg-yellow-50 dark:hover:bg-yellow-100 text-gray-900 dark:text-gray-900 rounded-full shadow-lg hover:shadow-xl transition-all duration-150 flex items-center justify-center border-2 border-gray-300/50 dark:border-yellow-100/50"
           aria-label="Scroll to top"
         >
           <svg
@@ -53,9 +45,7 @@ export default function ScrollToTop() {
               d="M5 15l7-7 7 7"
             />
           </svg>
-        </motion.button>
-      )}
-    </AnimatePresence>
+        </button>
   );
 }
 

@@ -39,9 +39,9 @@ function VerificationContent() {
     },
     already: {
       icon: "ℹ",
-      iconColor: "text-yellow-100/90 dark:text-purple-400",
-      bgColor: "bg-yellow-100/20 dark:bg-purple-900/20",
-      borderColor: "border-yellow-100/40 dark:border-purple-500/40",
+      iconColor: "text-yellow-100/90",
+      bgColor: "bg-yellow-100/20 dark:bg-yellow-100/10",
+      borderColor: "border-yellow-100/40 dark:border-yellow-100/30",
       title: "Already Verified",
       message: "This email has already been verified and your message has been sent to Mantaj.",
       showContactLink: false,
@@ -116,7 +116,7 @@ function VerificationContent() {
               className="bg-white/70 dark:bg-gray-900/70 backdrop-blur-sm rounded-lg p-6 mb-6 border border-gray-200 dark:border-gray-700"
             >
               <div className="flex items-start gap-3">
-                <svg className="w-6 h-6 text-yellow-100/90 dark:text-purple-400 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-6 h-6 text-yellow-100/90 dark:text-yellow-100/80 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 <div>
@@ -137,7 +137,7 @@ function VerificationContent() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-3 bg-yellow-100/90 dark:bg-purple-600 hover:bg-yellow-50 dark:hover:bg-purple-700 text-gray-900 dark:text-white rounded-lg font-medium transition-all duration-300 shadow-lg hover:shadow-xl"
+                className="px-8 py-3 bg-yellow-100/90 dark:bg-yellow-100/80 hover:bg-yellow-50 dark:hover:bg-yellow-100 text-gray-900 dark:text-gray-900 rounded-lg font-medium transition-all duration-300 shadow-lg hover:shadow-xl"
               >
                 Back to Home
               </motion.button>
@@ -164,7 +164,7 @@ function VerificationContent() {
           transition={{ delay: 0.6 }}
           className="text-center mt-8 text-sm text-gray-500 dark:text-gray-400"
         >
-          <p>Have questions? Visit the <Link href="/contact" className="text-yellow-100/90 dark:text-purple-400 hover:underline">contact page</Link></p>
+          <p>Have questions? Visit the <Link href="/contact" className="text-yellow-100/90 dark:text-yellow-100/80 hover:underline">contact page</Link></p>
         </motion.div>
       </motion.div>
     </div>
@@ -176,7 +176,7 @@ export default function VerifyPage() {
     <Suspense fallback={
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-yellow-100/90 dark:border-purple-500 mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-yellow-100/90 dark:border-yellow-100/80 mx-auto mb-4"></div>
           <p className="text-gray-600 dark:text-gray-400">Verifying...</p>
         </div>
       </div>
