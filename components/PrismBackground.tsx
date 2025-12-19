@@ -108,28 +108,39 @@ export default function PrismBackground() {
       }
     }
 
-    // Create particles - slightly more for richer background
-    const numParticles = Math.floor((canvas.width * canvas.height) / 22000);
-    const particles: Particle[] = [];
-    for (let i = 0; i < numParticles; i++) {
-      particles.push(new Particle(canvas.width, canvas.height));
-    }
+    // Initialize particles array
+    let particles: Particle[] = [];
 
-    // Set canvas size
+    // Set canvas size and create particles
     const resizeCanvas = () => {
-      const oldWidth = canvas.width;
-      const oldHeight = canvas.height;
+      const oldWidth = canvas.width || window.innerWidth;
+      const oldHeight = canvas.height || window.innerHeight;
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
       
-      // Update particle positions proportionally
-      particles.forEach(particle => {
-        particle.baseX = (particle.baseX / oldWidth) * canvas.width;
-        particle.baseY = (particle.baseY / oldHeight) * canvas.height;
-        particle.canvasWidth = canvas.width;
-        particle.canvasHeight = canvas.height;
-      });
+      // Create particles if they don't exist yet, or update existing ones
+      if (particles.length === 0) {
+        // Create particles - slightly more for richer background
+        // Ensure minimum particles even on small screens
+        const numParticles = Math.max(
+          Math.floor((canvas.width * canvas.height) / 22000),
+          50 // Minimum 50 particles
+        );
+        for (let i = 0; i < numParticles; i++) {
+          particles.push(new Particle(canvas.width, canvas.height));
+        }
+      } else {
+        // Update particle positions proportionally
+        particles.forEach(particle => {
+          particle.baseX = (particle.baseX / oldWidth) * canvas.width;
+          particle.baseY = (particle.baseY / oldHeight) * canvas.height;
+          particle.canvasWidth = canvas.width;
+          particle.canvasHeight = canvas.height;
+        });
+      }
     };
+    
+    // Initialize canvas size first, then particles will be created
     resizeCanvas();
     window.addEventListener("resize", resizeCanvas, { passive: true });
 
