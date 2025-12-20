@@ -43,12 +43,12 @@ export default function SectionReveal({ children, className = "" }: SectionRevea
   return (
     <div
       ref={sectionRef}
-      className={`transition-all duration-300 ease-out ${
+      className={`transition-opacity duration-200 ease-out ${
         isVisible
-          ? "opacity-100 translate-y-0"
-          : "opacity-0 translate-y-4"
+          ? "opacity-100"
+          : "opacity-0"
       } ${className}`}
-      style={{ willChange: isVisible ? 'auto' : 'transform, opacity' }}
+      style={{ willChange: isVisible ? 'auto' : 'opacity' }}
     >
       {children}
     </div>

@@ -8,7 +8,7 @@ export default function LatestUpdateBanner() {
   const [isClosing, setIsClosing] = useState(false);
 
   // Update this when you have new features
-  const UPDATE_VERSION = "v1.1.0"; // Change this to force showing again
+  const UPDATE_VERSION = "v1.2.0"; // Change this to force showing again
   const UPDATE_DATE = "Dec 2025";
   const UPDATE_TITLE = "Email Verification Added";
   const UPDATE_DESCRIPTION = "Contact form now requires email verification via magic link to prevent spam and ensure authentic messages reach me";
@@ -16,8 +16,14 @@ export default function LatestUpdateBanner() {
 
   useEffect(() => {
     // Check if user has dismissed this version
-    const dismissedVersion = localStorage.getItem("dismissedUpdateBanner");
-    if (dismissedVersion !== UPDATE_VERSION) {
+    // Only check localStorage on client side
+    if (typeof window !== 'undefined') {
+      const dismissedVersion = localStorage.getItem("dismissedUpdateBanner");
+      if (dismissedVersion !== UPDATE_VERSION) {
+        setIsVisible(true);
+      }
+    } else {
+      // Show by default on server side
       setIsVisible(true);
     }
   }, []);
@@ -34,11 +40,12 @@ export default function LatestUpdateBanner() {
 
   return (
     <div
-      className={`fixed left-4 top-1/2 -translate-y-1/2 z-[9999] pointer-events-none transition-all duration-300 ease-out ${
+      className={`fixed left-4 top-20 z-[9999] pointer-events-none transition-all duration-300 ease-out ${
         isClosing ? "-translate-x-full opacity-0" : "translate-x-0 opacity-100"
       }`}
+      style={{ zIndex: 9999 }}
     >
-      <div className="pointer-events-auto bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-white shadow-2xl border border-yellow-100/30 rounded-xl p-4 max-w-[280px]">
+      <div className="pointer-events-auto bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-white shadow-2xl border-2 border-yellow-100/50 rounded-xl p-4 max-w-[280px]">
         {/* Close button - Top right */}
         <button
           onClick={handleDismiss}

@@ -5,6 +5,7 @@ import Image from "next/image";
 import PrismBackground from "./PrismBackground";
 import PortfolioHeader from "./PortfolioHeader";
 import ScrollToTop from "./ScrollToTop";
+import LatestUpdateBanner from "./LatestUpdateBanner";
 
 // Lazy load heavy components for code splitting
 const ProjectCard = lazy(() => import("./ProjectCard"));
@@ -55,9 +56,12 @@ export default function SinglePage() {
       
       {/* Home/Hero Section */}
       <section id="home" className="relative min-h-screen overflow-hidden -mb-1 pt-16">
+        {/* Latest Update Banner - Top Left Corner */}
+        <LatestUpdateBanner />
+        
         {/* Profile Picture - Top Right Corner - Bigger and moved left - Fixed to first page only */}
         <div className="absolute top-20 right-16 sm:right-20 md:right-24 lg:right-32 z-20 opacity-100">
-          <div className="relative w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 lg:w-44 lg:h-44">
+          <div className="relative w-40 h-40 sm:w-44 sm:h-44 md:w-48 md:h-48 lg:w-52 lg:h-52">
             <div className="relative w-full h-full rounded-full overflow-hidden z-10 border-2 border-yellow-100/30 hover:scale-105 transition-transform duration-200"
               style={{ 
                 boxShadow: '0 4px 16px rgba(0, 0, 0, 0.3)',
@@ -69,17 +73,17 @@ export default function SinglePage() {
                 fill
                 className="object-cover"
                 priority
-                sizes="176px"
+                sizes="208px"
               />
             </div>
           </div>
         </div>
 
-        <div className="relative z-10 min-h-screen flex items-center justify-center px-4 sm:px-6 pt-20 sm:pt-16 pb-8">
+        <div className="relative z-10 min-h-screen flex items-center justify-center px-4 sm:px-6 pt-8 pb-8 -mt-12">
           <div className="max-w-4xl mx-auto w-full">
             {/* WHO AM I? Heading */}
             <h1 
-              className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-300 text-center mb-8 sm:mb-12 tracking-tight transition-all duration-1000 ease-[cubic-bezier(0.25,0.1,0.25,1)] ${
+              className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-300 text-center mb-8 sm:mb-12 tracking-tight transition-all duration-500 ease-out ${
                 showTitle 
                   ? "opacity-100 translate-y-0 scale-100" 
                   : "opacity-0 translate-y-12 scale-95"
@@ -93,7 +97,7 @@ export default function SinglePage() {
 
             {/* Centered Description Box */}
             <div 
-              className={`relative bg-gray-800/10 p-6 sm:p-8 md:p-10 rounded-2xl border-2 border-yellow-100/40 overflow-hidden shadow-2xl max-w-3xl mx-auto transition-all duration-1000 ease-[cubic-bezier(0.25,0.1,0.25,1)] ${
+              className={`relative bg-gray-800/10 p-8 sm:p-10 md:p-12 rounded-2xl border-2 border-yellow-100/40 overflow-hidden shadow-2xl max-w-4xl mx-auto transition-all duration-500 ease-out ${
                 showDescription 
                   ? "opacity-100 translate-y-0 scale-100" 
                   : "opacity-0 translate-y-12 scale-95"

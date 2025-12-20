@@ -2,39 +2,8 @@
 
 import { experiences, education } from "@/lib/experience";
 import Image from "next/image";
-import { useState, useEffect, useRef } from "react";
 
 export default function Details() {
-  const [expandedExp, setExpandedExp] = useState<string | null>(null);
-  const detailsRef = useRef<{ [key: string]: HTMLDivElement | null }>({});
-
-  // Click outside to close
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (expandedExp && detailsRef.current[expandedExp]) {
-        const detailsElement = detailsRef.current[expandedExp];
-        const buttonElement = (event.target as HTMLElement).closest('button');
-        
-        // Don't close if clicking the button itself or inside the details
-        if (
-          detailsElement && 
-          !detailsElement.contains(event.target as Node) &&
-          (!buttonElement || !buttonElement.textContent?.includes('Details'))
-        ) {
-          setExpandedExp(null);
-        }
-      }
-    };
-
-    if (expandedExp) {
-      document.addEventListener('mousedown', handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [expandedExp]);
-
   return (
     <div className="relative overflow-hidden pt-16">
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
@@ -124,7 +93,7 @@ export default function Details() {
                 key={index}
                 className="group"
               >
-                <div className="bg-[#151515] backdrop-blur-md rounded-2xl p-6 border border-gray-700/30 shadow-lg hover:shadow-2xl transition-all duration-300">
+                <div className="bg-[#151515] rounded-2xl p-6 border border-gray-700/30 shadow-lg hover:shadow-2xl transition-all duration-300">
                   <div className="flex items-start gap-5">
                     {edu.logo && (
                       <div className="relative w-20 h-20 rounded-xl overflow-hidden bg-gray-800 p-3 border-2 border-gray-700/50 flex-shrink-0 shadow-md">

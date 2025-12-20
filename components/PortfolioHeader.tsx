@@ -2,13 +2,13 @@
 
 import { useState, useEffect } from "react";
 
-  const navLinks = [
-    { name: "About", href: "#home" },
-    { name: "Experience", href: "#experience" },
-    { name: "Projects", href: "#projects" },
-    { name: "Skills", href: "#skills" },
-    { name: "Contact", href: "#contact" },
-  ];
+const navLinks = [
+  { name: "About", href: "#home" },
+  { name: "Experience", href: "#experience" },
+  { name: "Projects", href: "#projects" },
+  { name: "Skills", href: "#skills" },
+  { name: "Contact", href: "#contact" },
+] as const;
 
 export default function PortfolioHeader() {
   const [showTitle, setShowTitle] = useState(true);
@@ -41,8 +41,7 @@ export default function PortfolioHeader() {
 
   return (
     <header 
-      className="fixed top-0 left-0 right-0 z-50 bg-transparent"
-      style={{ willChange: "transform" }}
+      className="sticky top-0 left-0 right-0 z-50 bg-transparent"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
@@ -69,7 +68,7 @@ export default function PortfolioHeader() {
             ))}
           </div>
 
-          {/* Center - Title */}
+          {/* Center - Title (only this disappears) */}
           <div className={`absolute left-1/2 -translate-x-1/2 text-center transition-opacity duration-300 ${
             showTitle ? "opacity-100" : "opacity-0 pointer-events-none"
           }`}>

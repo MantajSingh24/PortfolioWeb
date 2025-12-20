@@ -86,25 +86,28 @@ export default function PrismBackground() {
       draw() {
         if (!ctx) return;
         
-        // Draw star with gradient for prism-like effect
-        const gradient = ctx.createRadialGradient(
-          this.x, this.y, 0,
-          this.x, this.y, this.radius * 2
-        );
-        gradient.addColorStop(0, `rgba(255, 255, 255, ${this.opacity})`);
-        gradient.addColorStop(0.5, `rgba(255, 255, 255, ${this.opacity * 0.5})`);
-        gradient.addColorStop(1, `rgba(255, 255, 255, 0)`);
-        
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = gradient;
-        ctx.fill();
-        
-        // Add bright center point
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius * 0.2, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
-        ctx.fill();
+        // Optimized drawing - use solid color for better performance
+        // Only use gradient for larger particles
+        if (this.radius > 2) {
+          const gradient = ctx.createRadialGradient(
+            this.x, this.y, 0,
+            this.x, this.y, this.radius * 2
+          );
+          gradient.addColorStop(0, `rgba(255, 255, 255, ${this.opacity})`);
+          gradient.addColorStop(0.5, `rgba(255, 255, 255, ${this.opacity * 0.5})`);
+          gradient.addColorStop(1, `rgba(255, 255, 255, 0)`);
+          
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+          ctx.fillStyle = gradient;
+          ctx.fill();
+        } else {
+          // Use solid color for smaller particles (faster)
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
+          ctx.fill();
+        }
       }
     }
 
@@ -120,11 +123,11 @@ export default function PrismBackground() {
       
       // Create particles if they don't exist yet, or update existing ones
       if (particles.length === 0) {
-        // Create particles - slightly more for richer background
+        // Create particles - optimized for performance
         // Ensure minimum particles even on small screens
         const numParticles = Math.max(
-          Math.floor((canvas.width * canvas.height) / 22000),
-          50 // Minimum 50 particles
+          Math.floor((canvas.width * canvas.height) / 25000),
+          40 // Minimum 40 particles
         );
         for (let i = 0; i < numParticles; i++) {
           particles.push(new Particle(canvas.width, canvas.height));
@@ -176,11 +179,15 @@ export default function PrismBackground() {
       ctx.fillStyle = "#151515";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      // Update and draw particles
-      particles.forEach((particle) => {
-        particle.update(lastMouseX, lastMouseY, time);
-        particle.draw();
-      });
+      // Batch update all particles first, then draw (better performance)
+      for (let i = 0; i < particles.length; i++) {
+        particles[i].update(lastMouseX, lastMouseY, time);
+      }
+      
+      // Then draw all particles
+      for (let i = 0; i < particles.length; i++) {
+        particles[i].draw();
+      }
 
       animationFrameId = requestAnimationFrame(animate);
     };
@@ -200,11 +207,10 @@ export default function PrismBackground() {
       <canvas
         ref={canvasRef}
         className="absolute inset-0 w-full h-full"
-        style={{
-          imageRendering: "auto",
-          willChange: "transform",
-          transform: "translateZ(0)"
-        }}
+      style={{
+        imageRendering: "auto",
+        willChange: "auto"
+      }}
       />
     </div>
   );

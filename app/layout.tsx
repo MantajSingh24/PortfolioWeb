@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/Footer";
-import LatestUpdateBanner from "@/components/LatestUpdateBanner";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({ 
@@ -95,7 +94,6 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
-        <LatestUpdateBanner />
         <main className="relative min-h-screen">
           {children}
         </main>
