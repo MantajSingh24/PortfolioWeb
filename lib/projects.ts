@@ -6,6 +6,7 @@ export interface Project {
   stack: string[];
   category?: string;
   liveUrl?: string;
+  notebookUrl?: string;
   codeUrl: string;
 }
 
@@ -15,7 +16,7 @@ export const projects: Project[] = [
     title: "Vendor Performance Dashboard",
     description: "Power BI dashboard with PostgreSQL backend and Python ETL pipeline for analyzing vendor performance metrics.",
     image: "/vendor dashboard ss.png",
-    stack: ["Power BI", "PostgreSQL", "Python", "Pandas", "ETL"],
+    stack: ["Python", "PostgreSQL", "Power BI", "SQLAlchemy", "Pandas"],
     category: "DATA SCIENCE",
     liveUrl: "https://app.powerbi.com/view?r=eyJrIjoiODE3NjNhM2ItZTdiZS00NTUzLWI4NmItY2VmY2VmY2IyMTQ1IiwidCI6IjkxYjYwMzQ5LWFjNmItNDM1NS1hMTc1LWJmNzc5MDhmYmVjMiJ9",
     codeUrl: "https://github.com/MantajSingh24/VendorPerformance",
@@ -25,7 +26,7 @@ export const projects: Project[] = [
     title: "Study Link / Student Portal",
     description: "A modern student portal built with React and Next.js for managing academic resources and connections.",
     image: "/StudyLink.png",
-    stack: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
+    stack: ["React", "TypeScript", "Vite", "Tailwind CSS", "Express", "Prisma", "PostgreSQL"],
     category: "WEB",
     codeUrl: "https://github.com/MantajSingh24/StudyLink",
   },
@@ -34,7 +35,7 @@ export const projects: Project[] = [
     title: "Event Management System",
     description: "A full-stack application for managing events with CRUD operations. Features include creating, reading, updating, and deleting events with a simple and intuitive UI.",
     image: "/Event Management System.png",
-    stack: ["React", "Express.js", "Node.js", "MongoDB", "React Router", "CSS"],
+    stack: ["React", "React Router", "CSS", "Express.js", "Node.js", "MongoDB"],
     category: "WEB",
     codeUrl: "https://github.com/MantajSingh24/Event-Management-System",
   },
@@ -43,7 +44,7 @@ export const projects: Project[] = [
     title: "Key to the Kingdom",
     description: "An interactive game project featuring engaging gameplay mechanics and immersive user experience.",
     image: "/Key to kingdom pic.png",
-    stack: ["Game Development", "JavaScript", "HTML5", "CSS"],
+    stack: ["Java", "Swing", "Multi-threading", "Event-driven Architecture", "Game Development"],
     category: "GAME",
     codeUrl: "https://github.com/MantajSingh24/Key-to-the-Kingdom",
   },
@@ -52,8 +53,9 @@ export const projects: Project[] = [
     title: "Gradient Boosting Regression Project",
     description: "Machine learning project implementing gradient boosting regression using scikit-learn for predictive modeling.",
     image: "/Gradient Boosting.png",
-    stack: ["Python", "scikit-learn", "Machine Learning", "Data Science"],
+    stack: ["Python", "NumPy", "Pandas", "Scikit-Learn", "XGBoost", "Matplotlib"],
     category: "AI",
+    notebookUrl: "https://colab.research.google.com/drive/1hMGoit3PpnCQmrxroTz1MnIErKzbqmXG?usp=sharing",
     codeUrl: "https://github.com/MantajSingh24/GradientBoosting",
   },
 ];

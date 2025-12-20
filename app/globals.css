@@ -138,3 +138,29 @@ section {
   animation: scale-in 0.3s ease-out 0.2s both;
 }
 
+/* Professional border glow effect for project cards */
+.scan-border {
+  position: absolute;
+  inset: -1px;
+  border-radius: 1rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.group:hover .scan-border {
+  opacity: 1;
+}
+
+.scan-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 1rem;
+  border: 1px solid rgba(254, 243, 199, 0.4);
+  box-shadow: 
+    0 0 8px rgba(254, 243, 199, 0.3),
+    inset 0 0 8px rgba(254, 243, 199, 0.1);
+}
+
