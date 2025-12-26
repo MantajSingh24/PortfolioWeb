@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { skillCategories } from "@/lib/skills";
 import { IconType } from "react-icons";
 import {
@@ -25,9 +24,15 @@ import {
   SiVercel,
   SiJupyter,
 } from "react-icons/si";
-import { FaDatabase, FaCog, FaChartBar, FaWarehouse, FaJava, FaMicrosoft, FaPowerOff } from "react-icons/fa";
+import { FaDatabase, FaCog, FaChartBar, FaWarehouse, FaJava } from "react-icons/fa";
 import { AiOutlineRobot } from "react-icons/ai";
 import { VscCode } from "react-icons/vsc";
+
+// Logo URLs for Excel and Power BI - memoized outside component
+const LOGO_URLS = {
+  Excel: "https://upload.wikimedia.org/wikipedia/commons/3/34/Microsoft_Office_Excel_%282019%E2%80%93present%29.svg",
+  "Power BI": "https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg",
+} as const;
 
 // Mapping skill names to their icon components - memoized outside component
 const iconMap: Record<string, IconType> = {
@@ -45,8 +50,6 @@ const iconMap: Record<string, IconType> = {
   "Jupyter Lab/Notebook": SiJupyter,
   PostgreSQL: SiPostgresql,
   MongoDB: SiMongodb,
-  Excel: FaMicrosoft,
-  "Power BI": FaPowerOff,
   Tableau: SiTableau,
   "ETL Processes": FaCog,
   "Data Visualization": FaChartBar,
@@ -80,7 +83,7 @@ export default function Skills() {
 
         {/* Skill Categories Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-          {skillCategories.map((category, index) => (
+          {skillCategories.map((category) => (
             <div
               key={category.category}
               className="bg-[#151515] rounded-xl p-4 sm:p-5 border border-gray-700/30 shadow-lg hover:shadow-2xl transition-all duration-300"
@@ -111,17 +114,13 @@ export default function Skills() {
                       className="px-3 py-1.5 rounded-full bg-yellow-100/90 text-gray-900 text-sm font-medium border border-yellow-100/50 shadow-sm hover:shadow-md transition-all duration-200 w-fit flex items-center gap-2"
                     >
                       {useImage ? (
-                        <div className="relative w-4 h-4 flex-shrink-0">
-                          <Image
-                            src={skill.name === "Excel" 
-                              ? "https://upload.wikimedia.org/wikipedia/commons/3/34/Microsoft_Office_Excel_%282019%E2%80%93present%29.svg"
-                              : "https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg"}
-                            alt={skill.name}
-                            fill
-                            className="object-contain"
-                            sizes="16px"
-                          />
-                        </div>
+                        <img
+                          src={LOGO_URLS[skill.name as keyof typeof LOGO_URLS]}
+                          alt={skill.name}
+                          className="w-4 h-4 object-contain flex-shrink-0"
+                          style={{ display: "inline-block" }}
+                          loading="lazy"
+                        />
                       ) : (
                         <Icon className="w-4 h-4" style={{ display: "inline-block" }} />
                       )}

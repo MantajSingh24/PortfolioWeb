@@ -24,7 +24,6 @@ const SectionLoader = () => (
     <div className="w-8 h-8 border-2 border-yellow-100/30 border-t-yellow-100/90 rounded-full animate-spin" />
   </div>
 );
-
 export default function SinglePage() {
   const [showTitle, setShowTitle] = useState(false);
   const [showDescription, setShowDescription] = useState(false);
