@@ -116,7 +116,7 @@ export default function Skills() {
                         <img
                           src={LOGO_PATHS[skill.name as keyof typeof LOGO_PATHS]}
                           alt={skill.name}
-                          className="w-6 h-6 object-contain flex-shrink-0"
+                          className={`${skill.name === "Excel" ? "w-8 h-8" : "w-6 h-6"} object-contain flex-shrink-0`}
                           style={{ display: "inline-block" }}
                           loading="lazy"
                         />

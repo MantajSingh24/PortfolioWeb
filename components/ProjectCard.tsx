@@ -147,7 +147,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
               target="_blank"
               rel="noopener noreferrer"
               onClick={(e) => e.stopPropagation()}
-              className="flex items-center justify-center gap-2 px-4 py-2.5 bg-blue-600/90 hover:bg-blue-600 text-white rounded-lg transition-colors duration-150 border border-blue-500/50 font-medium"
+              className="flex items-center justify-center gap-2 px-4 py-2.5 bg-yellow-100/90 hover:bg-yellow-100 text-gray-900 rounded-lg transition-colors duration-150 border border-yellow-100/50 font-medium"
             >
               <svg
                 className="w-5 h-5"
