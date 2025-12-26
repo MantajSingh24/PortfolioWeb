@@ -24,8 +24,7 @@ import {
   SiVercel,
   SiJupyter,
 } from "react-icons/si";
-import { FaDatabase, FaCog, FaChartBar, FaWarehouse, FaJava } from "react-icons/fa";
-import { AiOutlineRobot } from "react-icons/ai";
+import { FaDatabase, FaCog, FaChartBar, FaWarehouse, FaJava, FaRobot } from "react-icons/fa";
 import { VscCode } from "react-icons/vsc";
 
 // Logo URLs for Excel and Power BI - memoized outside component
@@ -45,7 +44,7 @@ const iconMap: Record<string, IconType> = {
   SQL: FaDatabase,
   Pandas: SiPandas,
   "Scikit-learn": SiScikitlearn,
-  "Machine Learning": AiOutlineRobot,
+  "Machine Learning": FaRobot,
   "Data Science": FaChartBar,
   "Jupyter Lab/Notebook": SiJupyter,
   PostgreSQL: SiPostgresql,
