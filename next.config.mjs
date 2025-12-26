@@ -2,6 +2,14 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  eslint: {
+    // Don't fail build on ESLint warnings during production builds
+    ignoreDuringBuilds: false,
+  },
+  typescript: {
+    // Don't fail build on TypeScript errors during production builds
+    ignoreBuildErrors: false,
+  },
   images: {
     domains: ['upload.wikimedia.org'],
     remotePatterns: [
