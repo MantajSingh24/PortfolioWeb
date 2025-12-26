@@ -8,7 +8,7 @@ import ScrollToTop from "./ScrollToTop";
 import LatestUpdateBanner from "./LatestUpdateBanner";
 
 // Lazy load heavy components for code splitting
-const ProjectCard = lazy(() => import("./ProjectCard"));
+import ProjectCard from "./ProjectCard";
 const Skills = lazy(() => import("./Skills"));
 const Details = lazy(() => import("./Details"));
 const HobbiesPage = lazy(() => import("./HobbiesPage"));
@@ -197,9 +197,7 @@ export default function SinglePage() {
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
                   {projects.map((project, index) => (
-                    <Suspense key={project.id} fallback={<SectionLoader />}>
-                      <ProjectCard project={project} index={index} />
-                    </Suspense>
+                    <ProjectCard key={project.id} project={project} index={index} />
                   ))}
                 </div>
               </div>

@@ -1,53 +1,66 @@
 "use client";
 
 import { skillCategories } from "@/lib/skills";
+import { IconType } from "react-icons";
+import {
+  SiPython,
+  SiJavascript,
+  SiTypescript,
+  SiC,
+  SiR,
+  SiPandas,
+  SiScikitlearn,
+  SiPostgresql,
+  SiMongodb,
+  SiTableau,
+  SiReact,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiExpress,
+  SiHtml5,
+  SiTailwindcss,
+  SiGithub,
+  SiDocker,
+  SiVercel,
+  SiJupyter,
+} from "react-icons/si";
+import { FaDatabase, FaCog, FaChartBar, FaWarehouse, FaJava, FaMicrosoft, FaPowerOff } from "react-icons/fa";
+import { AiOutlineRobot } from "react-icons/ai";
+import { VscCode } from "react-icons/vsc";
 
-const skillIcons: { [key: string]: string } = {
-  // Programming Languages
-  Python: "🐍",
-  Java: "☕",
-  C: "⚙️",
-  SQL: "🗄️",
-  JavaScript: "📜",
-  TypeScript: "📘",
-  R: "📊",
-  
-  // Data Analytics & Science
-  Pandas: "🐼",
-  "Scikit-learn": "🤖",
-  "Machine Learning": "🤖",
-  "Data Science": "📊",
-  "Jupyter Lab/Notebook": "📓",
-  "Jupyter Notebooks": "📓",
-  
-  // Databases & Data Tools
-  PostgreSQL: "🐘",
-  MongoDB: "🍃",
-  Excel: "📊",
-  "Power BI": "📊",
-  Tableau: "📈",
-  "ETL Processes": "⚙️",
-  "Data Visualization": "📊",
-  "Data Warehousing": "🏭",
-  
-  // Web Development
-  React: "⚛️",
-  "Next.js": "▲",
-  "Node.js": "🟢",
-  "Express.js": "🚂",
-  "HTML/CSS": "🌐",
-  "Tailwind CSS": "💨",
-  
-  // Cloud & DevOps
-  "Git/GitHub": "🐙",
-  Git: "📦",
-  GitHub: "🐙",
-  Docker: "🐳",
-  Vercel: "▲",
-  "Automation Scripts": "⚙️",
-  
-  // Tools & Platforms
-  "VS Code": "💻",
+// Mapping skill names to their icon components - memoized outside component
+const iconMap: Record<string, IconType> = {
+  Python: SiPython,
+  Java: FaJava,
+  JavaScript: SiJavascript,
+  TypeScript: SiTypescript,
+  C: SiC,
+  R: SiR,
+  SQL: FaDatabase,
+  Pandas: SiPandas,
+  "Scikit-learn": SiScikitlearn,
+  "Machine Learning": AiOutlineRobot,
+  "Data Science": FaChartBar,
+  "Jupyter Lab/Notebook": SiJupyter,
+  PostgreSQL: SiPostgresql,
+  MongoDB: SiMongodb,
+  Excel: FaMicrosoft,
+  "Power BI": FaPowerOff,
+  Tableau: SiTableau,
+  "ETL Processes": FaCog,
+  "Data Visualization": FaChartBar,
+  "Data Warehousing": FaWarehouse,
+  React: SiReact,
+  "Next.js": SiNextdotjs,
+  "Node.js": SiNodedotjs,
+  "Express.js": SiExpress,
+  "HTML/CSS": SiHtml5,
+  "Tailwind CSS": SiTailwindcss,
+  "Git/GitHub": SiGithub,
+  Docker: SiDocker,
+  Vercel: SiVercel,
+  "Automation Scripts": FaCog,
+  "VS Code": VscCode,
 };
 
 export default function Skills() {
@@ -87,13 +100,13 @@ export default function Skills() {
               {/* Skills List - Golden Circular Boxes with Icons */}
               <div className="flex flex-col gap-2">
                 {category.skills.map((skill, skillIndex) => {
-                  const icon = skillIcons[skill.name] || "💻";
+                  const Icon = iconMap[skill.name] || FaCog;
                   return (
                     <div
                       key={`${category.category}-${skillIndex}`}
                       className="px-3 py-1.5 rounded-full bg-yellow-100/90 text-gray-900 text-sm font-medium border border-yellow-100/50 shadow-sm hover:shadow-md transition-all duration-200 w-fit flex items-center gap-2"
                     >
-                      <span className="text-base">{icon}</span>
+                      <Icon className="w-4 h-4" style={{ display: "inline-block" }} />
                       <span>{skill.name}</span>
                     </div>
                   );
