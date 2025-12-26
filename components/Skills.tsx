@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { skillCategories } from "@/lib/skills";
 import { IconType } from "react-icons";
 import {
@@ -100,13 +101,30 @@ export default function Skills() {
               {/* Skills List - Golden Circular Boxes with Icons */}
               <div className="flex flex-col gap-2">
                 {category.skills.map((skill, skillIndex) => {
+                  // Use images for Excel and Power BI, icons for others
+                  const useImage = skill.name === "Excel" || skill.name === "Power BI";
                   const Icon = iconMap[skill.name] || FaCog;
+                  
                   return (
                     <div
                       key={`${category.category}-${skillIndex}`}
                       className="px-3 py-1.5 rounded-full bg-yellow-100/90 text-gray-900 text-sm font-medium border border-yellow-100/50 shadow-sm hover:shadow-md transition-all duration-200 w-fit flex items-center gap-2"
                     >
-                      <Icon className="w-4 h-4" style={{ display: "inline-block" }} />
+                      {useImage ? (
+                        <div className="relative w-4 h-4 flex-shrink-0">
+                          <Image
+                            src={skill.name === "Excel" 
+                              ? "https://upload.wikimedia.org/wikipedia/commons/3/34/Microsoft_Office_Excel_%282019%E2%80%93present%29.svg"
+                              : "https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg"}
+                            alt={skill.name}
+                            fill
+                            className="object-contain"
+                            sizes="16px"
+                          />
+                        </div>
+                      ) : (
+                        <Icon className="w-4 h-4" style={{ display: "inline-block" }} />
+                      )}
                       <span>{skill.name}</span>
                     </div>
                   );
