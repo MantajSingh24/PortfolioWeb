@@ -27,10 +27,10 @@ import {
 import { FaDatabase, FaCog, FaChartBar, FaWarehouse, FaJava, FaRobot } from "react-icons/fa";
 import { VscCode } from "react-icons/vsc";
 
-// Logo URLs for Excel and Power BI - memoized outside component
-const LOGO_URLS = {
-  Excel: "https://upload.wikimedia.org/wikipedia/commons/3/34/Microsoft_Office_Excel_%282019%E2%80%93present%29.svg",
-  "Power BI": "https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg",
+// Logo paths for Excel and Power BI - using local files from public folder
+const LOGO_PATHS = {
+  Excel: "/Microsoft_Excel-Logo.wine.png",
+  "Power BI": "/New_Power_BI_Logo.svg.png",
 } as const;
 
 // Mapping skill names to their icon components - memoized outside component
@@ -114,7 +114,7 @@ export default function Skills() {
                     >
                       {useImage ? (
                         <img
-                          src={LOGO_URLS[skill.name as keyof typeof LOGO_URLS]}
+                          src={LOGO_PATHS[skill.name as keyof typeof LOGO_PATHS]}
                           alt={skill.name}
                           className="w-4 h-4 object-contain flex-shrink-0"
                           style={{ display: "inline-block" }}
