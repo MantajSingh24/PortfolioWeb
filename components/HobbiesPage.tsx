@@ -25,10 +25,10 @@ const shows = [
   },
   {
     id: "2",
-    name: "Dragon Ball (Classic)",
-    description: "Wanted to watch the anime which started it all. Currently on episode 90 as of November 13. The fights and characters are great.",
+    name: "Dragon Ball Z",
+    description: "Continuing the journey after Dragon Ball. Just Getting Started!",
     image: "/dragin ball.jpg",
-    progress: 90,
+    progress: 1,
   },
 ];
 
@@ -42,14 +42,20 @@ const anime = [
   {
     id: "2",
     name: "Naruto",
-    description: "Another favorite of mine. The character development, the fights, and the emotional journey of Naruto and his friends really got to me. The themes of friendship and never giving up hit hard.",
+    description: "Another favorite of mine. The Story telling, the fights, and the emotional journey of Naruto and his friends really got to me. The never giving up attitude of Naruto is what I admire the most.",
     image: "/Naruto_Shippuden.JPG.webp",
   },
   {
     id: "3",
     name: "Vinland Saga",
-    description: "One of the best animes. Shows character development, anger control, and becoming a better version of oneself.",
+    description: "One of the best animes. Shows character development,and becoming a better version of oneself.",
     image: "/vinland saga.jpg",
+  },
+  {
+    id: "4",
+    name: "Dragon Ball (Classic)",
+    description: "A true classic! The anime that started it all! The fights, characters, and journey of Goku from a kid to a martial arts master was incredible.",
+    image: "/dragin ball.jpg",
   },
 ];
 
@@ -57,14 +63,14 @@ const completedGames: Game[] = [
   {
     id: "1",
     title: "Assassin's Creed Saga",
-    description: "Running on rooftops and jumping into haystacks never gets old! The parkour is so cool and I love being a sneaky assassin.",
+    description: "Running on rooftops and entering into the world of history and learning about the past is what I love the most! The parkour is so cool and I love being an assassin in the game.",
     image: "/Assasijn creed.png",
     status: "completed" as const,
   },
   {
     id: "2",
     title: "Red Dead Redemption 2",
-    description: "Best cowboy game ever! I spent so much time just riding my horse and exploring. The world is absolutely massive and beautiful.",
+    description: "Best Gang-Based Open World game ever! I spent so much time just riding my horse and exploring. The world is absolutely massive and beautiful.",
     image: "/rdr 2.jpg",
     status: "completed" as const,
   },
@@ -92,7 +98,7 @@ const completedGames: Game[] = [
   {
     id: "6",
     title: "GTA 5",
-    description: "Classic chaos simulator! Driving around causing mayhem with three different characters is just pure fun. Never gets boring!",
+    description: "Classic chaos ! Driving around causing mayhem with three different characters is just pure fun. Never gets boring!",
     image: "/Grand_Theft_Auto_V.png",
     status: "completed" as const,
   },
@@ -109,7 +115,7 @@ const bucketListGames: Game[] = [
   {
     id: "8",
     title: "The Last of Us Part I & II",
-    description: "Heard so much about the emotional storytelling and character development. Can't wait to experience Joel and Ellie's journey.",
+    description: "Heard so much about the emotional storytelling and character development. Can't wait to actually play as Joel and Ellie.",
     image: "/last of us _.jpg",
     status: "bucket" as const,
   },
