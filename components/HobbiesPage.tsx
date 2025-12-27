@@ -27,7 +27,7 @@ const shows = [
     id: "2",
     name: "Dragon Ball Z",
     description: "Continuing the journey after Dragon Ball. Just Getting Started!",
-    image: "/dragin ball.jpg",
+    image: "/Dragon_Ball Z.jpg",
     progress: 1,
   },
 ];
