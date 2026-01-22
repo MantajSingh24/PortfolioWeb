@@ -5,7 +5,6 @@ import Image from "next/image";
 import PrismBackground from "./PrismBackground";
 import PortfolioHeader from "./PortfolioHeader";
 import ScrollToTop from "./ScrollToTop";
-import LatestUpdateBanner from "./LatestUpdateBanner";
 
 // Lazy load heavy components for code splitting
 import ProjectCard from "./ProjectCard";
@@ -55,9 +54,6 @@ export default function SinglePage() {
       
       {/* Home/Hero Section */}
       <section id="home" className="relative min-h-screen overflow-hidden -mb-1 pt-16">
-        {/* Latest Update Banner - Top Left Corner */}
-        <LatestUpdateBanner />
-        
         {/* Profile Picture - Top Right Corner - Bigger and moved left - Fixed to first page only */}
         <div className="absolute top-20 right-16 sm:right-20 md:right-24 lg:right-32 z-20 opacity-100">
           <div className="relative w-40 h-40 sm:w-44 sm:h-44 md:w-48 md:h-48 lg:w-52 lg:h-52">
