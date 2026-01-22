@@ -182,16 +182,11 @@ export default function Contact() {
                     >
                       <div className="flex items-start gap-3">
                         <svg className="w-6 h-6 text-green-700 dark:text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 19v-8.93a2 2 0 01.89-1.664l7-4.666a2 2 0 012.22 0l7 4.666A2 2 0 0121 10.07V19M3 19a2 2 0 002 2h14a2 2 0 002-2M3 19l6.75-4.5M21 19l-6.75-4.5M3 10l6.75 4.5M21 10l-6.75 4.5m0 0l-1.14.76a2 2 0 01-2.22 0l-1.14-.76" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
-                        <div>
-                          <p className="text-green-700 dark:text-green-400 font-medium">
-                            {statusMessage}
-                          </p>
-                          <p className="text-green-600 dark:text-green-500 text-sm mt-1">
-                            Please check your inbox and click the verification link to complete your submission.
-                          </p>
-                        </div>
+                        <p className="text-green-700 dark:text-green-400 font-medium">
+                          {statusMessage}
+                        </p>
                       </div>
                     </div>
                   )}

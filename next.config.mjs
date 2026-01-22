@@ -18,9 +18,6 @@ const nextConfig = {
   },
   compress: true,
   poweredByHeader: false,
-  experimental: {
-    optimizePackageImports: ['@supabase/supabase-js'],
-  },
   // Optimize bundle size
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',

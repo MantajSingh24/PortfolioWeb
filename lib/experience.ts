@@ -37,7 +37,7 @@ export const experiences: ExperienceItem[] = [
     title: "Online Data Analyst (Part-Time)",
     organization: "TELUS International",
     location: "Remote",
-    period: "Sep. 2025 – Present",
+    period: "Sep. 2025 – Jan. 2026",
     description: "Reviewing AI-generated entries and ratings to ensure quality and relevance.",
     logo: "/telus job.webp",
     fullDescription: [
