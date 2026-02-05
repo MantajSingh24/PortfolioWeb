@@ -8,6 +8,7 @@ export interface Project {
   liveUrl?: string;
   notebookUrl?: string;
   codeUrl: string;
+  status?: "in progress" | "completed";
 }
 
 export const projects: Project[] = [
@@ -57,6 +58,16 @@ export const projects: Project[] = [
     category: "AI",
     notebookUrl: "https://colab.research.google.com/drive/1hMGoit3PpnCQmrxroTz1MnIErKzbqmXG?usp=sharing",
     codeUrl: "https://github.com/MantajSingh24/GradientBoosting",
+  },
+  {
+    id: "6",
+    title: "Data Dash",
+    description: "A simple analytics dashboard for CSV and Excel files. Currently in development with features for file upload, auto-detect columns, sales analytics, customer insights, and interactive trend charts.",
+    image: "/project-placeholder.jpg",
+    stack: ["Python", "Streamlit", "Pandas", "Plotly"],
+    category: "DATA SCIENCE",
+    codeUrl: "https://github.com/MantajSingh24/data-dash",
+    status: "in progress",
   },
 ];
 

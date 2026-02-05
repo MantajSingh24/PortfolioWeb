@@ -30,6 +30,8 @@ const skillIcons: { [key: string]: string } = {
   Excel: "📈",
   Pandas: "🐼",
   "scikit-learn": "🤖",
+  Streamlit: "🚀",
+  Plotly: "📈",
   HTML: "🌐",
   CSS: "🎨",
   "Tailwind CSS": "🎨",
@@ -80,9 +82,16 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
         )}
       </div>
       <div className="p-3 sm:p-4">
-        <h3 className="text-base sm:text-lg font-semibold text-slate-900 dark:text-slate-100 mb-2">
-          {project.title}
-        </h3>
+        <div className="flex items-center gap-2 mb-2">
+          <h3 className="text-base sm:text-lg font-semibold text-slate-900 dark:text-slate-100">
+            {project.title}
+          </h3>
+          {project.status === "in progress" && (
+            <span className="px-2 py-0.5 text-xs font-medium rounded-full bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-300 border border-yellow-200 dark:border-yellow-800">
+              In Progress
+            </span>
+          )}
+        </div>
         <p className="text-gray-600 dark:text-gray-400 mb-3 text-xs sm:text-sm leading-relaxed">
           {project.description}
         </p>
