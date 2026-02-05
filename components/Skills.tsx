@@ -3,51 +3,21 @@
 import { skillCategories } from "@/lib/skills";
 
 const skillIcons: { [key: string]: string } = {
-  // Programming Languages
   Python: "🐍",
   Java: "☕",
-  C: "⚙️",
-  SQL: "🗄️",
   JavaScript: "📜",
-  TypeScript: "📘",
   R: "📊",
-  
-  // Data Analytics & Science
+  React: "⚛️",
+  "Node.js": "🟢",
+  "HTML/CSS": "🌐",
+  "Git/GitHub": "🐙",
+  SQL: "🗄️",
   Pandas: "🐼",
   "Scikit-learn": "🤖",
-  "Machine Learning": "🤖",
-  "Data Science": "📊",
-  "Jupyter Lab/Notebook": "📓",
-  "Jupyter Notebooks": "📓",
-  
-  // Databases & Data Tools
-  PostgreSQL: "🐘",
-  MongoDB: "🍃",
-  Excel: "📊",
   "Power BI": "📊",
-  Tableau: "📈",
-  "ETL Processes": "⚙️",
-  "Data Visualization": "📊",
-  "Data Warehousing": "🏭",
-  
-  // Web Development
-  React: "⚛️",
-  "Next.js": "▲",
-  "Node.js": "🟢",
-  "Express.js": "🚂",
-  "HTML/CSS": "🌐",
-  "Tailwind CSS": "💨",
-  
-  // Cloud & DevOps
-  "Git/GitHub": "🐙",
-  Git: "📦",
-  GitHub: "🐙",
-  Docker: "🐳",
-  Vercel: "▲",
-  "Automation Scripts": "⚙️",
-  
-  // Tools & Platforms
-  "VS Code": "💻",
+  Excel: "📈",
+  "Jupyter Notebook": "📓",
+  MongoDB: "🍃",
 };
 
 export default function Skills() {
@@ -60,7 +30,7 @@ export default function Skills() {
             Skills & Technologies
           </h2>
           <p className="text-gray-400 text-base sm:text-lg">
-            A comprehensive overview of my technical expertise across AI, data engineering, and software development
+            Core technologies for software development and data analytics
           </p>
         </div>
 
