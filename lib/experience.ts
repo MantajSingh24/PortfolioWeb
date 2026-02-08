@@ -20,8 +20,8 @@ export interface EducationItem {
 export const experiences: ExperienceItem[] = [
   {
     id: "1",
-    title: "Research Assistant",
-    organization: "Acadia University",
+    title: "Acadia University",
+    organization: "Research Assistant",
     location: "Wolfville, NS",
     period: "Oct. 2024 – Present",
     description: "Conducting research on YouTube channel analytics and data processing.",
@@ -34,9 +34,8 @@ export const experiences: ExperienceItem[] = [
   },
   {
     id: "2",
-    title: "Online Data Analyst (Part-Time)",
-    organization: "TELUS International",
-    location: "Remote",
+    title: "TELUS International",
+    organization: "Online Data Analyst (Part-Time)",
     period: "Sep. 2025 – Jan. 2026",
     description: "Reviewing AI-generated entries and ratings to ensure quality and relevance.",
     logo: "/telus job.webp",
