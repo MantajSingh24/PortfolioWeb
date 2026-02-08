@@ -47,8 +47,8 @@ export const experiences: ExperienceItem[] = [
   },
   {
     id: "3",
-    title: "Courtesy Desk Associate",
-    organization: "Walmart Canada",
+    title: "Walmart Canada",
+    organization: "Courtesy Desk Associate",
     location: "New Minas, NS",
     period: "May 2025 – Aug. 2025",
     description: "Assisting customers with returns, exchanges, pick-ups, and general inquiries.",
