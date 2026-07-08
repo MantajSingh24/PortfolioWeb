@@ -124,23 +124,27 @@ export default function SinglePage() {
                   </p>
                   <p className="break-words">
                     <span className="text-purple-400">role</span>:{" "}
-                    <span className="text-yellow-100/90">&quot;Computer Science Student with Data Analytics&quot;</span>,
+                    <span className="text-yellow-100/90">&quot;Summer Admin Intern @ Aviva Canada&quot;</span>,
+                  </p>
+                  <p className="break-words">
+                    <span className="text-purple-400">team</span>:{" "}
+                    <span className="text-yellow-100/90">&quot;Healthcare & Auto Claims, Dartmouth Office&quot;</span>,
                   </p>
                   <p className="break-words">
                     <span className="text-purple-400">university</span>:{" "}
-                    <span className="text-yellow-100/90">&quot;Acadia University&quot;</span>,
+                    <span className="text-yellow-100/90">&quot;Acadia University — BCS Data Analytics&quot;</span>,
                   </p>
                   <p className="break-words">
                     <span className="text-purple-400">location</span>:{" "}
-                    <span className="text-yellow-100/90">&quot;Wolfville, Canada&quot;</span>,
+                    <span className="text-yellow-100/90">&quot;Nova Scotia, Canada&quot;</span>,
                   </p>
                   <p className="break-words">
                     <span className="text-purple-400">specialization</span>:{" "}
-                    <span className="text-yellow-100/90">&quot;Full-Stack Development, Data Analytics & Machine Learning, Research & ETL Pipelines&quot;</span>,
+                    <span className="text-yellow-100/90">&quot;Data Validation, Reporting, Excel, SharePoint, SQL, Python & Power BI&quot;</span>,
                   </p>
                   <p>
-                    <span className="text-purple-400">status</span>:{" "}
-                    <span className="text-green-400">&quot;Seeking Co-op&quot;</span>
+                    <span className="text-purple-400">graduation</span>:{" "}
+                    <span className="text-green-400">&quot;March 2027&quot;</span>
                   </p>
                 </div>
                 <p className="text-gray-300">{"}"}</p>

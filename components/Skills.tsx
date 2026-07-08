@@ -140,6 +140,42 @@ function SkillIcon({ name }: { name: string }) {
         </svg>
       );
 
+    case "SharePoint":
+      return (
+        <svg viewBox="0 0 256 256" width={size} height={size}>
+          <circle cx="128" cy="128" r="120" fill="#038387" />
+          <circle cx="168" cy="88" r="36" fill="#37C6D0" />
+          <text x="118" y="148" textAnchor="middle" fill="#fff" fontSize="72" fontWeight="bold" fontFamily="Arial, sans-serif">S</text>
+        </svg>
+      );
+
+    case "Tableau":
+      return (
+        <svg viewBox="0 0 256 256" width={size} height={size}>
+          <rect width="256" height="256" rx="20" fill="#E97627" />
+          <rect x="48" y="48" width="64" height="64" rx="8" fill="#fff" />
+          <rect x="144" y="48" width="64" height="64" rx="8" fill="#fff" opacity="0.8" />
+          <rect x="96" y="144" width="64" height="64" rx="8" fill="#fff" opacity="0.6" />
+        </svg>
+      );
+
+    case "PostgreSQL":
+      return (
+        <svg viewBox="0 0 256 256" width={size} height={size}>
+          <rect width="256" height="256" rx="20" fill="#336791" />
+          <text x="128" y="168" textAnchor="middle" fill="#fff" fontSize="72" fontWeight="bold" fontFamily="Arial, sans-serif">PG</text>
+        </svg>
+      );
+
+    case "VS Code":
+      return (
+        <svg viewBox="0 0 256 256" width={size} height={size}>
+          <rect width="256" height="256" rx="20" fill="#007ACC" />
+          <path d="M180 48L96 128l84 80 20-20-64-60 64-60-20-20z" fill="#fff" />
+          <path d="M76 88l40 40-40 40V88z" fill="#fff" opacity="0.8" />
+        </svg>
+      );
+
     case "Jupyter Notebook":
       return (
         <svg viewBox="0 0 256 300" width={size} height={size}>

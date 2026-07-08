@@ -14,13 +14,13 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Mantajdata.dev - Mantaj Singh | Data Analytics & Software Developer",
-  description: "Data Analytics & Software Student based in Canada. Seeking co-op positions.",
+  description: "Computer Science (Data Analytics) student and Summer Admin Intern at Aviva Canada. Data validation, reporting, Excel, SharePoint, SQL, Python & Power BI.",
   keywords: ["Mantaj Singh", "Data Analytics", "Software Developer", "Portfolio", "Data Science", "Machine Learning", "AI"],
   authors: [{ name: "Mantaj Singh" }],
   creator: "Mantaj Singh",
   openGraph: {
     title: "Mantajdata.dev - Mantaj Singh | Data Analytics & Software Developer",
-    description: "Data Analytics & Software Student based in Canada. Seeking co-op positions.",
+    description: "Computer Science (Data Analytics) student and Summer Admin Intern at Aviva Canada. Data validation, reporting, Excel, SharePoint, SQL, Python & Power BI.",
     url: "https://tajdata.co",
     siteName: "Mantajdata.dev",
     images: [
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Mantajdata.dev - Mantaj Singh | Data Analytics & Software Developer",
-    description: "Data Analytics & Software Student based in Canada. Seeking co-op positions.",
+    description: "Computer Science (Data Analytics) student and Summer Admin Intern at Aviva Canada. Data validation, reporting, Excel, SharePoint, SQL, Python & Power BI.",
     images: ["/Logo.png"],
   },
   icons: {

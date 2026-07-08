@@ -11,12 +11,13 @@ export default function AboutSection() {
           <div className="order-2 md:order-1 space-y-6">
             <div className="bg-white dark:bg-slate-900 p-8 rounded-2xl border-2 border-gray-200 dark:border-slate-800 shadow-lg">
               <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
-                I&apos;m a passionate Data Analytics and Software Development student at Acadia University, 
-                with a strong foundation in computer science and data analytics. I specialize in turning 
-                complex data into actionable insights using Python, SQL, and modern analytics tools. 
-                Currently working as a Research Assistant on YouTube Data Analytics projects, I combine 
-                technical skills with real-world problem-solving. I&apos;m actively seeking co-op positions to 
-                apply my expertise in data analysis, machine learning, and full-stack development.
+                I&apos;m a Computer Science (Data Analytics) student at Acadia University with experience
+                supporting commercial operations through data validation, operational reporting,
+                documentation processing, and stakeholder communication. I&apos;m currently a Summer Admin
+                Intern at Aviva Canada with the Healthcare &amp; Auto Claims team in Dartmouth, where I work
+                with Excel, SharePoint, and ClaimCentre to maintain accurate claims data. I&apos;m also a
+                Research Assistant building Python automation and ETL pipelines, and I&apos;m proficient in
+                SQL, Python, and Power BI for analytics and reporting.
               </p>
             </div>
             

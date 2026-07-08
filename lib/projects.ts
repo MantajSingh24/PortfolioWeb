@@ -62,12 +62,22 @@ export const projects: Project[] = [
   {
     id: "6",
     title: "Data Dash",
-    description: "A simple analytics dashboard for CSV and Excel files. Currently in development with features for file upload, auto-detect columns, sales analytics, customer insights, and interactive trend charts.",
+    description:
+      "Interactive analytics dashboard for CSV and Excel datasets. Performs data cleaning, transformation, and visualization to generate business insights through KPI reporting and trend charts.",
     image: "/project-placeholder.jpg",
     stack: ["Python", "Streamlit", "Pandas", "Plotly"],
     category: "DATA SCIENCE",
     codeUrl: "https://github.com/MantajSingh24/data-dash",
-    status: "in progress",
+  },
+  {
+    id: "7",
+    title: "Public Accountability Project",
+    description:
+      "Academic research project building ETL pipelines to collect, validate, and process large-scale YouTube datasets with text analysis and engagement reporting.",
+    image: "/project-placeholder.jpg",
+    stack: ["Python", "Pandas", "ETL", "NLP"],
+    category: "DATA SCIENCE",
+    codeUrl: "https://github.com/MantajSingh24",
   },
 ];
 

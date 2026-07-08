@@ -12,36 +12,34 @@ export interface SkillCategory {
 
 export const skillCategories: SkillCategory[] = [
   {
-    category: "Programming Languages",
+    category: "Programming",
     icon: "</>",
-    description: "Core languages for software development and data analysis",
+    description: "Languages for software development and data analysis",
     skills: [
       { name: "Python", proficiency: 85 },
+      { name: "SQL", proficiency: 80 },
       { name: "Java", proficiency: 70 },
-      { name: "JavaScript", proficiency: 75 },
-      { name: "R", proficiency: 60 },
     ],
   },
   {
-    category: "Web Development",
-    icon: "🌐",
-    description: "Building web applications and version control",
+    category: "Business Applications",
+    icon: "📋",
+    description: "Tools for reporting, documentation, and operational workflows",
     skills: [
-      { name: "React", proficiency: 75 },
-      { name: "Node.js", proficiency: 70 },
-      { name: "HTML/CSS", proficiency: 80 },
-      { name: "Git/GitHub", proficiency: 85 },
+      { name: "Excel", proficiency: 85 },
+      { name: "SharePoint", proficiency: 75 },
+      { name: "Power BI", proficiency: 80 },
     ],
   },
   {
     category: "Data Analytics",
     icon: "📊",
-    description: "Data analysis, visualization, and machine learning",
+    description: "Analysis, visualization, databases, and machine learning",
     skills: [
-      { name: "SQL", proficiency: 80 },
       { name: "Pandas", proficiency: 80 },
+      { name: "PostgreSQL", proficiency: 75 },
+      { name: "Tableau", proficiency: 70 },
       { name: "Scikit-learn", proficiency: 70 },
-      { name: "Power BI", proficiency: 80 },
     ],
   },
   {
@@ -49,9 +47,9 @@ export const skillCategories: SkillCategory[] = [
     icon: "⚡",
     description: "Development and productivity tools",
     skills: [
-      { name: "Excel", proficiency: 80 },
+      { name: "Git/GitHub", proficiency: 85 },
       { name: "Jupyter Notebook", proficiency: 85 },
-      { name: "MongoDB", proficiency: 75 },
+      { name: "VS Code", proficiency: 90 },
     ],
   },
 ];
